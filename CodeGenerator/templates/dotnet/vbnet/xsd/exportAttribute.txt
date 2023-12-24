@@ -1,0 +1,1 @@
+        CXml.AttributeSet(node, "[name]", m_[nameCamelCase])

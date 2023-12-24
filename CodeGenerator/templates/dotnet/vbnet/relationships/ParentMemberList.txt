@@ -1,0 +1,10 @@
+﻿#Region "Preload Parent Objects"
+    'Efficiency Adjustment: Preloads the common parent for the whole list, to avoid database chatter
+    Public WriteOnly Property [[ProperCase]]() As [ParentClassName]
+        Set(Value As [ParentClassName])
+            For Each i As [ClassName] In Me
+                i.[ProperCase] = Value
+            Next
+        End Set
+    End Property
+#End Region

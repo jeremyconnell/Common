@@ -1,0 +1,2 @@
+            img[Name].ImageUrl = .[Name]
+            img[Name].Visible = Len(.[Name]) > 0

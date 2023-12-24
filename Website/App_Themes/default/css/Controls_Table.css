@@ -1,0 +1,27 @@
+﻿/* Container */
+table.form { }
+table.form tr.form_label	{ background-color:#eeeeee; font-size:smaller;  text-align:center;}
+
+/* Buttons */
+table.form tr.buttons td {  padding:10px; text-align:right;   white-space:nowrap;}
+
+/* Left label */
+table.form td.label     {  font-weight:bold; font-size:smaller; }
+table.form span.locked  {  font-size:smaller;}
+table.form a.locked         {  text-decoration:none; font-size:smaller; }
+table.form a.locked:hover   {  text-decoration:underline;}
+table.form td.ctrl      {  text-align:left; }
+
+/* Internal labels e.g. checkboxlist */
+table.form label           {  font-size:smaller; }
+table.form span.required   {  }
+
+/* Specific controls */
+table.form a.locked        img {  width:200px;}
+table.form input.textbox       {  width:350px; }
+table.form input.checkbox      {  width:350px; }
+table.form select              {  width:auto;  margin-right:5px; }
+table.form textarea            {  width:350px; height:50px; font-family:Arial; }
+table.form table               {  width:auto; margin-right:5px; }
+table.form input.upload        {  width:350px; }
+table.form a.locked img        {  width: 350px; }

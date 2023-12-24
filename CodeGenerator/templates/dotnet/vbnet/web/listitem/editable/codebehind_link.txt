@@ -1,0 +1,2 @@
+﻿            lnk[Name].Text =  CStr(IIF(.[Expression].Length = 0, "...", .[Expression]))
+            lnk[Name].NavigateUrl = CSitemap.[Singular]Edit(.[PrimaryKeyName])

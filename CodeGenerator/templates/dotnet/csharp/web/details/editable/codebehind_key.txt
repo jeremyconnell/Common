@@ -1,0 +1,6 @@
+﻿        dd[Name].DataTextField = "[Entity]Name";
+        dd[Name].DataValueField = "[Entity]Id";
+        dd[Name].DataSource = C[Entity].Cache;
+        dd[Name].DataBind();
+        dd[Name].BlankItem("-- Select [Entity] --");
+

@@ -1,0 +1,66 @@
+﻿<%@ Master Language="VB" CodeFile="default.master.vb" Inherits="MasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <script src="../../scripts/Validation.js"></script>
+    <script src="../../scripts/datepickercontrol.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:SiteMapDataSource ID="ds" Runat="server" ShowStartingNode="false" />
+        <!-- Topmenu - populated via sitemap (or manually), works in conjunction with Sidemenu, uses a cut-down sitemap (no-querystrings) -->
+        <uc:Menu ID=ctrlMenu runat=server DataSourceID="ds" Visible="true" />
+
+        <table cellpadding="0" cellspacing=0 border="0">
+            <tr>
+                <td valign="top" class=sidebar>
+                    <!-- Sidemenu - populated via sitemap (or manually), works in conjunction with TopMenu, uses a cut-down sitemap (no-querystrings) -->
+                    <uc:MenuSide ID=ctrlSide runat=server DataSourceID=ds />
+
+
+                    <!-- Regular Treemenu - populated from sitemap
+                    <fieldset style="display:none">
+                        <legend>Tree menu</legend>
+                        <asp:TreeView ID="tv" Runat="server" DataSourceID="ds" ShowLines="true" MaxDataBindDepth=0  />
+                    </fieldset>
+                    <div>
+                        <asp:ValidationSummary ID="vs" runat="server" DisplayMode="BulletList"  EnableClientScript="true" ShowSummary="true"  />
+                    </div>
+                     -->
+
+                    <div style="margin-top:20px">
+                        <ul><asp:PlaceHolder ID=plhSideLinks runat=server /></ul>
+                    </div>
+                    <div style="margin-top:20px">
+                        <asp:ContentPlaceHolder ID=side runat=server />
+                    </div>
+                </td>
+                <td valign="top" align="left" class=mainarea>
+
+                    <div style="margin-top:5px; margin-bottom:5px">
+                        <asp:ContentPlaceHolder ID=above runat=server />
+                    </div>
+                    
+                    <uc:PageMessage ID="ctrlMsg" runat="server" />
+
+                    <fieldset id=fs runat=server >
+                        <legend> 
+                            <span id="hgcHeading" runat="server" />
+                            <asp:HyperLink ID=lnk runat=server Visible=false ImageUrl="~/images/add.png" />
+                        </legend>
+
+                        <asp:ContentPlaceHolder id="body" runat="server" />   
+                    </fieldset>              
+
+                    <div style="margin-top:20px">         
+                        <asp:ContentPlaceHolder ID=below runat=server />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

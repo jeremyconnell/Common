@@ -1,0 +1,8 @@
+﻿<asp:TreeView runat="server" ExpandDepth="1" ShowExpandCollapse="true">
+    <LevelStyles>
+        <asp:TreeNodeStyle Font-Size="12" NodeSpacing="0" VerticalPadding="0" />
+        <asp:TreeNodeStyle Font-Size="10" />
+        <asp:TreeNodeStyle Font-Size="8"  />
+    </LevelStyles>
+    <SelectedNodeStyle Font-Underline="true" />     
+</asp:TreeView>

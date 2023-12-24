@@ -1,0 +1,1 @@
+﻿            //if (Guid.Empty != [ShortName])  where.Add("[Name]", [ShortName]);

@@ -1,0 +1,14 @@
+﻿Partial Public Class pages_[Plural]_usercontrols_UC[Singular] : Inherits UserControl
+
+#Region "Interface"
+    Public Sub Display(ByVal [[SingularCamelCase]] As [ClassName], page as [ClassName]List, pi As CPagingInfo)
+        If Parent.Controls.Count Mod 2 = 0 Then row.Attributes.Add("class", "alt_row")
+
+        With [[SingularCamelCase]]
+            litNumber.Text = CStr(page.IndexOf([[SingularCamelCase]]) + 1 + pi.PageIndex * pi.PageSize)
+[Display]        End With
+    End Sub
+#End Region
+
+End Class
+

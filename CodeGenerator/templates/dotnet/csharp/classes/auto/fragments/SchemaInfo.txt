@@ -1,0 +1,6 @@
+        public const string TABLE_NAME      = "[TableName]";
+        public const string VIEW_NAME       = "[ViewName]";         //Used to override this.ViewName { get }
+        public const string ORDER_BY_COLS   = "[OrderByColumns]";   //See the CompareTo method below (Sql-based sorting should match In-Memory sorting)
+        public const string SORTING_COLUMN  = "[SortingColumn]";
+        public override string TableName {    get { return TABLE_NAME; } }
+[ViewNameOverride]        protected override string OrderByColumns {    get { return ORDER_BY_COLS; } }

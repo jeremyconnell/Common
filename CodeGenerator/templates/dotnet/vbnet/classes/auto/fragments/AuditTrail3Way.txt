@@ -1,0 +1,6 @@
+﻿
+#Region "Audit Trail"
+    Protected Overrides Function OriginalState(ByVal txOrNull As IDbTransaction) As SchemaAudit.CBaseDynamicAudited3Way
+        Return New [ClassName](Me.DataSrc, Me.[PrimaryKeyNameProperCase], Me.[SecondaryKeyNameProperCase], Me.[TertiaryKeyNameProperCase], txOrNull)
+    End Function
+#End Region

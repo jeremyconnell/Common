@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+public partial class pages_[Plural]_usercontrols_UC[Plural] : UserControl
+{    
+    #region Constants
+    public const string REMAINING = "Remaining";
+    public const string SELECTED  = "Selected";
+    #endregion
+    
+[Lhs]
+    
+[Rhs]
+    
+    #region User Controls
+    private pages_[Plural]_usercontrols_UC[Singular] UC[Singular](Control target)
+    {
+        Control ctrl = Page.LoadControl(CSitemap.UC[Singular]());
+        target.Controls.Add(ctrl);
+        return (pages_[Plural]_usercontrols_UC[Singular])ctrl;
+    }
+    #endregion
+    
+    #region Appearance
+    public string Title 
+    {
+        get { return litTitle.Text; }
+        set { litTitle.Text = value; }
+    }
+    #endregion
+    
+    #region Behaviour
+    public bool Enabled 
+    {
+        set 
+        {
+            foreach (pages_[Plural]_usercontrols_UC[Singular] i in plh.Controls)
+                i.Enabled = value;
+        }
+    }
+    #endregion
+    
+    #region Paging
+    public CPagingInfo PagingInfo { get { return ctrlPaging.Info; } }
+    public string QueryString 
+    {
+        get { return ctrlPaging.QueryString; }
+        set { ctrlPaging.QueryString = value; }
+    }
+    public int PageSize 
+    {
+        get { return ctrlPaging.PageSize; }
+        set { ctrlPaging.PageSize = value; }
+    }
+    public string FriendlyUrl 
+    {
+        set { ctrlPaging.FriendlyUrl = string.Concat(value, (value.Contains("?") ? "&" : "?"), QueryString, "={0}"); }
+    }
+    #endregion
+    
+}

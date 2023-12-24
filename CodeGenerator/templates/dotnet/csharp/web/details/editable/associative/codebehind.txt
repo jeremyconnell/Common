@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+public partial class pages_[Plural]_[Singular] : CPage
+{
+    #region Querystring
+    public [PrimaryKeyType] [PrimaryKey] { get { return CWeb.Request[PrimaryKeyTypeShort]("[PrimaryKeyCamelCase]"); } }
+    public [SecondaryKeyType] [SecondaryKey] { get { return CWeb.Request[SecondaryKeyTypeShort]("[SecondaryKeyCamelCase]"); } }
+    public bool IsEdit { get { return [IsEdit]; } }
+    #endregion
+
+    #region Members
+    private [ClassName] _[SingularCamelCase];
+    #endregion
+    
+[Data]
+    
+    #region Navigation
+    private void Refresh()      { Response.Redirect(CSitemap.[Singular]Edit(this.[Singular].[PrimaryKey], this.[Singular].[SecondaryKey])); }
+    private void ReturnToList() { Response.Redirect(CSitemap.[Plural]For[Primary]([PrimaryKey])); } //[Plural]For[Secondary]([SecondaryKey])
+    #endregion
+    
+    #region Event Handlers - Page
+    protected override void PageInit()
+    {
+[InitKeys]
+        //Page title
+        if (IsEdit) 
+            this.Title = "[Singular] Details";
+        else 
+            this.Title = "Create New [Singular]";
+
+        //Textbox logic
+        //txt[Singular]Name.OnReturnPress(btnSave);
+
+        //Button Text
+        btnDelete.Visible = IsEdit;
+        if (IsEdit) 
+            btnCancel.Text = "Back";
+        else 
+            btnSave.Text = "Create [Singular]";
+    }
+    protected override void PageLoad()
+    {
+        Load[Singular]();
+    }
+    #endregion
+    
+    #region Event Handlers - Form
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        if (!this.IsValid)
+            return;
+
+        Save[Singular]();
+[ClearCache]        Refresh();
+    }
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        ReturnToList();
+    }
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        this.[Singular].Delete();
+[ClearCache]        ReturnToList();
+    }
+    #endregion
+    
+    #region Private - Load/Save
+    protected void Load[Singular]()
+    {
+[Display]    }
+    protected void Save[Singular]()
+    {
+[Store]
+        this.[Singular].Save();
+[ClearCache]
+    }
+    #endregion
+    
+}

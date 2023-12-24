@@ -1,0 +1,11 @@
+    Public Const PRIMARY_KEY_NAME As String = "[PrimaryKeyName]"
+    Protected Overrides ReadOnly Property InsertPrimaryKey() As Boolean
+        Get
+            Return [InsertPrimaryKey]
+        End Get
+    End Property
+    Protected Overrides ReadOnly Property PrimaryKeyName() As String
+        Get
+            Return PRIMARY_KEY_NAME
+        End Get
+    End Property

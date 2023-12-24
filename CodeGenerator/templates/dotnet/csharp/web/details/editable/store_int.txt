@@ -1,0 +1,1 @@
+        this.[Singular].[Name] = txt[Name].ValueInt;

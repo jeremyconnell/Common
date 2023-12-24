@@ -1,0 +1,8 @@
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Upgrade\bin\Upgrade.exe
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Upgrade\bin\Upgrade.pdb
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Upgrade\bin\Upgrade.xml
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Upgrade\obj\Debug\Upgrade.vbproj.AssemblyReference.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Upgrade\obj\Debug\Upgrade.vbproj.CoreCompileInputs.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Upgrade\obj\Debug\Upgrade.exe
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Upgrade\obj\Debug\Upgrade.xml
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Upgrade\obj\Debug\Upgrade.pdb

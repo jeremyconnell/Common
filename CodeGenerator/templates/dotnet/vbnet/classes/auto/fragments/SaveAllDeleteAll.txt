@@ -1,0 +1,93 @@
+﻿#Region "Top/Bottom/Page"
+    Public Function Top(ByVal count As Integer) As [ClassName]List
+        If count >= Me.Count Then Return Me
+        Return New [ClassName]List(CUtilities.Page(Me, count, 0))
+    End Function
+    Public Function Bottom(ByVal count As Integer) As [ClassName]List
+        If count > Me.Count Then count = Me.Count
+        Return New [ClassName]List(Me.GetRange(Me.Count - count - 1, count))
+    End Function
+    Public Function Page(pageSize As Integer, pageIndex As Integer) As [ClassName]List
+        Return New [ClassName]List( CUtilities.Page(Me, pageSize, pageIndex) )
+    End Function
+#End Region
+
+#Region "BulkEditLogic"
+    Public Function HaveSameValue(ByVal propertyName As String) As Boolean
+        Return CReflection.HaveSameValue(Me, propertyName)
+    End Function
+    Public Sub SetSameValue(ByVal propertyName As String, ByVal value As Object)
+        CReflection.SetSameValue(Me, propertyName, value)
+    End Sub
+#End Region
+
+#Region "SortBy"
+    'Public
+    Public Function SortBy(ByVal propertyName As String, Optional ByVal descending As Boolean = False) As [ClassName]List
+        Dim copy As New [ClassName]List(Me)
+        If Me.Count = 0 Then
+            Return copy
+        End If
+        copy.Sort(New [ClassName]List_SortBy(propertyName, descending, Me))
+        Return copy
+    End Function
+    'Private 
+    Private Class [ClassName]List_SortBy : Inherits CReflection.GenericSortBy : Implements IComparer(Of [ClassName])
+        Public Sub New(ByVal propertyName As String, ByVal descending As Boolean, ByVal list As IList)
+            MyBase.New(propertyName, descending, list)
+        End Sub
+        Public Overloads Function Compare(ByVal x As [ClassName], ByVal y As [ClassName]) As Integer Implements IComparer(Of [ClassName]).Compare
+            Return MyBase.Compare(x, y)
+        End Function
+    End Class
+#End Region
+
+#Region "SaveAll/DeleteAll"
+    'Use default connection (may be overridden in base class)
+    Public Sub SaveAll()
+        If Me.Count = 0 Then Exit Sub
+        SaveAll(Me(0).DataSrc)
+    End Sub
+    Public Sub DeleteAll()
+        If Me.Count = 0 Then Exit Sub
+        DeleteAll(Me(0).DataSrc)
+    End Sub
+    
+    'Use connection supplied
+    Public Sub SaveAll(dataSrc as CDatasrc)
+        dataSrc.BulkSave(Me)
+    End Sub
+    Public Sub DeleteAll(dataSrc as CDatasrc)
+        dataSrc.BulkDelete(Me)
+    End Sub
+
+    'Use transaction supplied
+    Public Sub SaveAll(ByVal txOrNull As IDbTransaction)
+        For Each i As [ClassName] In Me
+            i.Save(txOrNull)
+        Next
+    End Sub
+    Public Sub DeleteAll(ByVal txOrNull As IDbTransaction)
+        For Each i As [ClassName] In Me
+            i.Delete(txOrNull)
+        Next
+    End Sub
+
+    'Use a specified isolation level
+    Public Sub SaveAll(ByVal txIsolationLevel As IsolationLevel)
+        If Me.Count = 0 Then Exit Sub
+        SaveAll(Me(0).DataSrc, txIsolationLevel)
+    End Sub
+    Public Sub DeleteAll(ByVal txIsolationLevel As IsolationLevel)
+        If Me.Count = 0 Then Exit Sub
+        DeleteAll(Me(0).DataSrc, txIsolationLevel)
+    End Sub
+    
+    'Use a specified connection and isolation level
+    Public Sub SaveAll(ByVal dataSrc as CDatasrc, ByVal txIsolationLevel As IsolationLevel)
+        dataSrc.BulkSave(Me, txIsolationLevel)
+    End Sub
+    Public Sub DeleteAll(ByVal dataSrc as CDatasrc, ByVal txIsolationLevel As IsolationLevel)
+        dataSrc.BulkDelete(Me, txIsolationLevel)
+    End Sub
+#End Region

@@ -1,0 +1,16 @@
+﻿#Region "Data"
+    Public ReadOnly Property [[Singular]]() As [ClassName]
+        Get
+            If IsNothing(m_[SingularCamelCase]) Then
+                If IsEdit Then
+                    m_[SingularCamelCase] = New [ClassName]([PrimaryKey])
+                    If IsNothing(m_[SingularCamelCase]) Then CSitemap.RecordNotFound("[Singular]", [PrimaryKey])
+                Else
+                    m_[SingularCamelCase] = New [ClassName]
+                    'Inserts: set parentId here (if applicable)
+                End If
+            End If
+            Return m_[SingularCamelCase]
+        End Get
+    End Property
+#End Region

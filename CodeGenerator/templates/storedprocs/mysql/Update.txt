@@ -1,0 +1,22 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `[SpNameUpdate]` $$
+
+CREATE PROCEDURE `[SpNameUpdate]` 
+(
+[Parameters]
+)
+BEGIN
+
+    UPDATE
+        [TableName]
+    
+    SET
+        [UpdateNameValuePairs]
+
+    WHERE
+        [PrimaryKeyName] = _[PrimaryKeyName];
+
+END $$
+
+DELIMITER ;

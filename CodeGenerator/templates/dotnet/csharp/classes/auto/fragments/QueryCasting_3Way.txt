@@ -1,0 +1,41 @@
+
+        #region Many-To-Many Helper Functions
+        //Insert/Delete - NonTransactional
+        public static void InsertTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase]) {        InsertTriplet([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], [TertiaryKeyNameCamelCase], null); }
+        public static int  DeleteTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase]) { return DeleteTriplet([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], [TertiaryKeyNameCamelCase], null); }
+        public static bool ExistsTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase]) { return ExistsTriplet([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], [TertiaryKeyNameCamelCase], null); }
+        
+        //Insert/Delete - Transactional
+        public static void InsertTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase], IDbTransaction txOrNull) {        InsertTriplet([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], [TertiaryKeyNameCamelCase], txOrNull, CDataSrc.Default); }
+        public static int  DeleteTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase], IDbTransaction txOrNull) { return DeleteTriplet([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], [TertiaryKeyNameCamelCase], txOrNull, CDataSrc.Default); }
+        public static bool ExistsTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase], IDbTransaction txOrNull) { return ExistsTriplet([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], [TertiaryKeyNameCamelCase], txOrNull, CDataSrc.Default); }
+
+        //Insert/Delete
+        public static void InsertTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase], IDbTransaction txOrNull, CDataSrc dataSrc)
+        {
+            [ClassName] triplet = new [ClassName](dataSrc);
+            triplet.[PrimaryKeyNameProperCase] = [PrimaryKeyNameCamelCase];
+            triplet.[SecondaryKeyNameProperCase] = [SecondaryKeyNameCamelCase];
+            triplet.[TertiaryKeyNameProperCase] = [TertiaryKeyNameCamelCase];
+            triplet.Save(txOrNull);
+        }
+        public static int DeleteTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase], IDbTransaction txOrNull, CDataSrc dataSrc)
+        {
+            CCriteriaList where = new CCriteriaList();
+            where.Add("[PrimaryKeyNameProperCase]", [PrimaryKeyNameCamelCase]);
+            where.Add("[SecondaryKeyNameProperCase]", [SecondaryKeyNameCamelCase]);
+            where.Add("[TertiaryKeyNameProperCase]", [TertiaryKeyNameCamelCase]);
+
+            //Faster, but not audited
+            //return new [ClassName](dataSrc).DeleteWhere(where, txOrNull, true);
+            
+            //Slower, but audit-trail and other delete logic is preserved e.g. cascade deletes
+            [ClassName]List list = new [ClassName](dataSrc).SelectWhere(where, txOrNull);
+            list.DeleteAll(txOrNull);
+            return list.Count;
+        }
+        public static bool ExistsTriplet([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], [TertiaryKeyObjectType] [TertiaryKeyNameCamelCase], IDbTransaction txOrNull, CDataSrc dataSrc)
+        {
+            return new [ClassName](dataSrc).SelectById([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], [TertiaryKeyNameCamelCase], txOrNull).Count > 0;
+        }
+        #endregion

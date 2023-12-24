@@ -1,0 +1,1 @@
+            CXml.ChildNodeSet(node, "[name]", _[nameCamelCase]);

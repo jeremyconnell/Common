@@ -1,0 +1,30 @@
+﻿***** Goes in region called "Properties - Relationships" (under section "Collections")
+    Public Function [[Plural]]() As [ClassName]List
+        Return New [ClassName](DataSrc).SelectBy[ForeignKeyShorter](Me.[PrimaryKey])
+    End Function
+    Public Function [[Plural]](pi As CPagingInfo) As [ClassName]List
+        Return New [ClassName](DataSrc).SelectBy[ForeignKeyShorter](pi, Me.[PrimaryKey])
+    End Function
+    Friend Function [[Plural]](ByVal tx As IDbTransaction) As [ClassName]List
+        Return New [ClassName](DataSrc).SelectBy[ForeignKeyShorter](Me.[PrimaryKey], tx)     'Only used for cascade deletes
+    End Function
+    Public Function [Plural]Count() As Integer
+        Return New [ClassName](DataSrc).SelectCountBy[ForeignKeyShorter](Me.[PrimaryKey])
+    End Function
+
+
+***** Goes in region called "Save/Delete Overrides"
+    Public Overrides Sub Delete(ByVal txOrNull As IDbTransaction)
+        'Use a transaction if none supplied
+        If txOrNull Is Nothing Then
+            BulkDelete(Me)
+            Exit Sub
+        End If
+
+        'Cascade-Delete (all child collections)
+        Me.[Plural](txOrNull).DeleteAll(txOrNull)
+
+        'Normal Delete
+        MyBase.Delete(txOrNull)
+    End Sub
+

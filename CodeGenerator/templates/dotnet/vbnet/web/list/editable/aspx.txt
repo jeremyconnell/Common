@@ -1,0 +1,23 @@
+﻿<%@ Page EnableEventValidation="false" EnableViewState="false" Language="vb" AutoEventWireup="false" CodeFile="default.aspx.vb" Inherits="pages_[Plural]_default" 
+  MasterPageFile="~/pages/default.master"
+  Title="[Plural]"
+%>
+
+<%@ Register src="usercontrols/UC[Plural].ascx" tagname="UC[Plural]" tagprefix="uc" %>
+
+<asp:Content ID="c" ContentPlaceHolderID="body" runat="server">
+   <!-- Search Filters -->
+    <table class="filters">
+      <tr>
+        <td>
+          <asp:Textbox ID="txtSearch" Runat="Server"/>
+        </td>
+        <td>
+          <asp:Button ID="btnSearch" runat="server" Text="Search" />
+        </td>
+      </tr>
+    </table>
+    
+   <!-- Search Results -->
+    <uc:UC[Plural] ID="ctrl[Plural]" runat="server" />        
+</asp:Content>

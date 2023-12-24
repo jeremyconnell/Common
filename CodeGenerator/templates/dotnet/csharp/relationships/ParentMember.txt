@@ -1,0 +1,31 @@
+﻿***** Goes in region called "Constants" (used for WHERE expressions involving columns from [ClassName]) 
+        private static string JOIN_[UpperCase] = string.Concat(TABLE_NAME, " INNER JOIN ", [ClassName].TABLE_NAME, " ON [ForeignKey]=[PrimaryKey]"); //Nullable => Use LEFT OUTER JOIN
+
+***** Goes in region called "Members" (under section "Foreign Keys") 
+        [NonSerialized()]   private [ClassName] _[CamelCase];
+
+***** Goes in region called "Properties - Relationships" (under section "Foreign Keys") 
+        public [ClassName] [ProperCase] 
+        { 
+            get 
+            { 
+                if (_[CamelCase] == null)
+                { 
+                    lock (this)
+                    { 
+                        if (_[CamelCase] == null)
+                            _[CamelCase] = new [ClassName](this.[ForeignKey]); 
+                    } 
+                } 
+                return _[CamelCase]; 
+            } 
+            set 
+            { 
+                _[CamelCase] = value; 
+                _[ForeignKeyCamelCase] = null != value ? value.[PrimaryKey] : int.MinValue;
+            } 
+        }
+
+
+***** Goes in region called "Custom Database Queries" 
+        public [ThisClassName]List SelectBy[PrimaryKey]s(List<[PrimaryKeyType]> [PrimaryKeyCamelCase]s) { return SelectWhere(new CCriteriaList("[ForeignKey]", ESign.IN, [PrimaryKeyCamelCase]s)); }

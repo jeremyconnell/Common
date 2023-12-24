@@ -1,0 +1,10 @@
+
+#Region "Queries - Generic (SelectAll - Cast only)"
+    'Used to load the cache
+    Public Shadows Function SelectAll() As [ClassName]List
+        Return CType(MyBase.SelectAll(), [ClassName]List)
+    End Function
+    Public Shadows Function SelectAll(ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectAll(tx), [ClassName]List)
+    End Function
+#End Region

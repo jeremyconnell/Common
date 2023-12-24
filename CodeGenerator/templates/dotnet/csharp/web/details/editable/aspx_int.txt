@@ -1,0 +1,1 @@
+        <uc:Textbox  ID="txt[Name]" runat="server" Required="true" Label="[NameShorter]" TextMode="Integer" />

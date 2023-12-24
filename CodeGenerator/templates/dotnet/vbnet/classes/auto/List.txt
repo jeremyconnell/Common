@@ -1,0 +1,128 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports Framework
+
+<Serializable(), CLSCompliant(True)> _
+Partial Public Class [ClassName]List : Inherits List(Of [ClassName])
+
+#Region "Constructors"
+    'Basic constructor
+    Public Sub New()
+        MyBase.New()  
+    End Sub
+    
+    'More efficient memory-allocation if size is known
+    Public Sub New(ByVal capacity As Integer)
+        MyBase.New(capacity)  
+    End Sub
+    
+    'Shares the index (if its already been computed)
+    Public Sub New(ByVal list As [ClassName]List)
+        MyBase.New(list)
+        _index = list._index 
+    End Sub
+
+    'Generic list (eg. from paging control), have to assume type
+    Public Sub New(ByVal list As IList)
+        MyBase.New(list.Count)
+        For Each i As [ClassName] In list
+            MyBase.Add(i)
+        Next
+    End Sub
+#End Region
+
+[SaveAllDeleteAll]
+
+#Region "List of Ids"
+    Private m_ids As List(Of [PrimaryKeyObjectType])
+    Public ReadOnly Property Ids() As List(Of [PrimaryKeyObjectType])
+        Get
+            If m_ids Is Nothing Then
+                Dim list As New List(Of [PrimaryKeyObjectType])(Me.Count)
+                For Each i As [ClassName] In Me
+                    list.Add(i.[PrimaryKeyName])
+                Next
+                m_ids = list
+            End If
+            Return m_ids
+        End Get
+    End Property
+    Public Function GetByIds(ByVal ids As List(Of [PrimaryKeyObjectType])) As [ClassName]List
+        Dim list As New [ClassName]List(ids.Count)
+        For Each id As [PrimaryKeyObjectType] In ids
+            If GetById(id) IsNot Nothing Then
+                list.Add(GetById(id))
+            End If
+        Next
+        Return list
+    End Function
+#End Region
+
+#Region "Cache-Control"
+    'Main Logic
+    Public Shadows Sub Add(ByVal item As [ClassName])
+        If Not IsNothing(_index) Then
+            If Not _index.ContainsKey(item.[PrimaryKeyNameProperCase]) Then
+                _index(item.[PrimaryKeyNameProperCase]) = item
+            End If
+        End If
+        MyBase.Add(item)
+    End Sub
+    Public Shadows Sub Remove(ByVal item As [ClassName])
+        If Not IsNothing(_index) Then
+            If _index.ContainsKey(item.[PrimaryKeyNameProperCase]) Then
+                _index.Remove(item.[PrimaryKeyNameProperCase])
+            End If
+        End If
+        MyBase.Remove(item)
+    End Sub
+    
+    'Supplementary List Overloads
+    Public Shadows Sub Add(ByVal itemsToAdd As IList(Of [ClassName]))
+        For Each i As [ClassName] In itemsToAdd
+            Add(i)
+        Next
+    End Sub
+    Public Shadows Sub Remove(ByVal itemsToRemove As IList(Of [ClassName]))
+        For Each i As [ClassName] In itemsToRemove
+            Remove(i)
+        Next
+    End Sub
+#End Region
+
+#Region "Main Index (on [PrimaryKeyNameProperCase])"
+    'Only uncomment if type is NOT an Integer (e.g. string/guid)
+    'Default Public Overloads ReadOnly Property Item(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType]) As [ClassName]
+    '    Get
+    '        Return GetById([PrimaryKeyNameCamelCase])
+    '    End Get
+    'End Property
+    Public Function GetById(ByVal [[PrimaryKeyNameCamelCase]] As [PrimaryKeyObjectType]) As [ClassName]
+        Dim c As [ClassName] = Nothing
+        Index.TryGetValue([[PrimaryKeyNameCamelCase]], c)
+        Return c
+    End Function
+    <NonSerialized()> _
+    Private _index As Dictionary(Of [PrimaryKeyObjectType], [ClassName])
+    Private ReadOnly Property Index() As Dictionary(Of [PrimaryKeyObjectType], [ClassName])
+        Get
+            If Not IsNothing(_index) Then
+                If _index.Count = Me.Count Then
+                    Return _Index
+                End If
+            End If
+            _index = New Dictionary(Of [PrimaryKeyObjectType], [ClassName])(Me.Count)
+            For Each i As [ClassName] in Me
+                _index(i.[PrimaryKeyNameProperCase]) = i
+            Next
+            Return _index
+        End Get
+    End Property
+#End Region
+    
+#Region "Foreign-Key Indices (Subsets)"
+[CustomIndices]#End Region
+
+[GenericSorting][MoveUpDown]End Class

@@ -1,0 +1,3 @@
+    Public Function SelectBy[ColumnNameShorter](pi as CPagingInfo, ByVal [ColumnNameCamelCase] As [DataType]) As [ClassName]List
+        Return SelectWhere(pi, New CCriteriaList("[ColumnNameProperCase]", [ColumnNameCamelCase]))
+    End Function

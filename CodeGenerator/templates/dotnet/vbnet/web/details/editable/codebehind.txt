@@ -1,0 +1,105 @@
+﻿Partial Class pages_[Plural]_[Singular] : Inherits CPage
+
+#Region "Querystring"
+    Public ReadOnly Property [PrimaryKey]() As [PrimaryKeyType]
+        Get
+            Return CWeb.Request[PrimaryKeyTypeShort]("[PrimaryKeyCamelCase]")
+        End Get
+    End Property
+    Public ReadOnly Property IsEdit() As Boolean
+        Get
+            Return [IsEdit]
+        End Get
+    End Property
+#End Region
+
+#Region "Members"
+    Private m_[SingularCamelCase] As [ClassName]
+#End Region
+
+[Data]
+
+#Region "Navigation"
+    Private Sub Refresh()
+        Response.Redirect(CSitemap.[Singular]Edit(Me.[Singular].[PrimaryKey]))
+    End Sub
+    Private Sub ReturnToList()
+        Response.Redirect(CSitemap.[Plural])
+    End Sub
+#End Region
+
+#Region "Event Handlers - Page"
+    Protected Overrides Sub PageInit()
+[InitKeys]
+        'Page Title
+        If IsEdit Then            
+            Me.Title = "[Singular] Details"
+        Else
+            Me.Title = "Create New [Singular]"
+        End If
+
+        'Sidemenu
+        UnbindSideMenu()
+        AddMenuSide("[Plural]", CSitemap.[Plural]()
+        AddMenuSide("New [Singular]...", CSitemap.[Singular]Add(), !IsEdit)
+        if (IsEdit)
+            AddMenuSide("[Singular] Details")
+                
+        'Textbox logic
+        'Me.Form.DefaultFocus = txt[Singular]Name.Textbox.ClientID;
+        Me.Form.DefaultButton = btnSave.UniqueID   'txt[Singular]Name.OnReturnPress(btnSave)
+
+        'Button Text
+        btnDelete.Visible = IsEdit
+        If IsEdit Then btnCancel.Text = "Back" Else btnSave.Text = "Create [Singular]"
+        If IsEdit Then AddButton(CSitemap.[Singular]Add(), "Create a new [Singular]")
+    End Sub
+    Protected Overrides Sub PageLoad()
+        If Page.IsPostback Then Exit Sub
+
+        Load[Singular]()
+    End Sub
+#End Region
+
+#Region "Event Handlers - Form"
+    Private Sub btnSave_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSave.Click
+        If Not Me.IsValid() Then Exit Sub
+        Save[Singular]()
+        Refresh()
+    End Sub
+    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+        ReturnToList()
+    End Sub
+    Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
+        Me.[Singular].Delete()
+[ClearCache]        ReturnToList()        
+    End Sub
+[EventHandlers]#End Region
+
+#Region "Private - Load/Save"
+    Protected Sub Load[Singular]()
+        With Me.[Singular]
+[Display]        End With
+    End Sub
+    Protected Sub Save[Singular]()
+        With Me.[Singular]
+[Store]
+            .Save()
+        End With
+[ClearCache]    End Sub
+#End Region
+
+'#Region "Private - Bulk Load/Save"
+'(Sample Only, Collection property not implemented - use checkboxes/ajax/session etc)
+'    Protected Sub Load[Plural]()
+'        With Me.[Plural]
+[DisplayBulk]'        End With
+'    Protected Sub Save[Plural]()
+'        With Me.[Plural]
+[StoreBulk]
+'            .SaveAll()
+'        End With
+[ClearCache]'    End Sub
+'#End Region
+
+End Class

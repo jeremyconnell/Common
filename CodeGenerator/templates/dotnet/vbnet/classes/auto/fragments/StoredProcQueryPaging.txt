@@ -1,0 +1,5 @@
+    Public Function SelectBy[ColumnNameShorter](ByVal [ColumnNameCamelCase] As [DataType], ByVal txOrNull as IDbTransaction) As [ClassName]List
+        Dim data As New CNameValueList(1)
+        data.Add("[ColumnName]", [ColumnNameCamelCase])
+        Return Ctype(MakeList("[Prefix][TableName]SelectBy[ColumnNameProperCase]", data, txOrNull), [ClassName]List)
+    End Function

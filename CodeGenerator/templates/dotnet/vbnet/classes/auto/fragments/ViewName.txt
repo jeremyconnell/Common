@@ -1,0 +1,5 @@
+﻿        Protected Overrides ReadOnly Property ViewName As String
+			Get
+				return VIEW_NAME
+			End Get
+		End Property

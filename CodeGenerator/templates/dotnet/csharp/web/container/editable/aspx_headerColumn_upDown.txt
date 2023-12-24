@@ -1,0 +1,1 @@
+﻿            <th id="colOrder" runat="server"><asp:LinkButton Text="Order" id="btnResetOrderToAlpha" runat="server" OnClick="btnResetOrderToAlpha_Click" OnClientClick="return confirm('Do you want to revert the sort order back to alphabetical?')" /></th>

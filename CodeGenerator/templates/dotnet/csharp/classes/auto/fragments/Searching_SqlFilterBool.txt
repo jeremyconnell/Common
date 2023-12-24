@@ -1,0 +1,1 @@
+﻿            //if ([ShortName].HasValue)    where.Add("[Name]", true);     //Customise bool filters according to UI (e.g. for checkbox, use simple bool and bias in one direction)

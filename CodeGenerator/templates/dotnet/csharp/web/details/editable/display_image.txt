@@ -1,0 +1,1 @@
+        img[Name].FileName = this.[Singular].[Name];

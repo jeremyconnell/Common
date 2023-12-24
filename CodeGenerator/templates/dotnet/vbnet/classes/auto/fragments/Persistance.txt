@@ -1,0 +1,12 @@
+
+    'Convert from ADO to .Net
+    Protected Overrides Sub ReadColumns(ByVal dr As IDataReader)
+[ReadColumns]    End Sub
+    Protected Overrides Sub ReadColumns(ByVal dr As DataRow)
+[ReadColumns]    End Sub
+
+    'Parameters for Insert/Update    
+    Protected Overrides Function ColumnNameValues() As CNameValueList
+        Dim data As New CNameValueList
+[Data]        Return data
+    End Function

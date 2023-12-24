@@ -1,0 +1,6 @@
+
+        if (null != this.[Singular].[Entity])
+        {
+            txt[Name].Text = this.[Singular].[Entity].[Entity]Name;
+            lnk[Name].NavigateUrl = CSitemap.[Entity](this.[Singular].[Name]);
+        }

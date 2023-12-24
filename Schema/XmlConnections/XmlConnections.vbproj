@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C8D0C05-5302-44AA-878B-464125282EDA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>XmlConnections</RootNamespace>
+    <AssemblyName>XmlConnections</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>On</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <SccProjectName>%24/Scott/_jeremydotnet/Common/Schema/XmlConnections</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://jeremyconnell.visualstudio.com</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>XmlConnections.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>XmlConnections.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connections\CConnections.vb" />
+    <Compile Include="Connections\customisation\CConnections.vb" />
+    <Compile Include="Connections\customisation\elements\CMSAccessConnection.vb" />
+    <Compile Include="Connections\customisation\elements\CMSAccessConnectionList.vb" />
+    <Compile Include="Connections\customisation\elements\CMSExcelConnection.vb" />
+    <Compile Include="Connections\customisation\elements\CMSExcelConnectionList.vb" />
+    <Compile Include="Connections\customisation\elements\CMySqlConnection.vb" />
+    <Compile Include="Connections\customisation\elements\CMySqlConnectionList.vb" />
+    <Compile Include="Connections\customisation\elements\COdbcConnection.vb" />
+    <Compile Include="Connections\customisation\elements\COdbcConnectionList.vb" />
+    <Compile Include="Connections\customisation\elements\COleDbConnection.vb" />
+    <Compile Include="Connections\customisation\elements\COleDbConnectionList.vb" />
+    <Compile Include="Connections\customisation\elements\COracleConnection.vb" />
+    <Compile Include="Connections\customisation\elements\COracleConnectionList.vb" />
+    <Compile Include="Connections\customisation\elements\CSchemaInfo.vb" />
+    <Compile Include="Connections\customisation\elements\CSchemaInfoList.vb" />
+    <Compile Include="Connections\customisation\elements\CSqlServerConnection.vb" />
+    <Compile Include="Connections\customisation\elements\CSqlServerConnectionList.vb" />
+    <Compile Include="Connections\customisation\elements\CTextFileConnection.vb" />
+    <Compile Include="Connections\customisation\elements\CTextFileConnectionList.vb" />
+    <Compile Include="Connections\elements\CMSAccessConnection.vb" />
+    <Compile Include="Connections\elements\CMSAccessConnectionList.vb" />
+    <Compile Include="Connections\elements\CMSExcelConnection.vb" />
+    <Compile Include="Connections\elements\CMSExcelConnectionList.vb" />
+    <Compile Include="Connections\elements\CMySqlConnection.vb" />
+    <Compile Include="Connections\elements\CMySqlConnectionList.vb" />
+    <Compile Include="Connections\elements\COdbcConnection.vb" />
+    <Compile Include="Connections\elements\COdbcConnectionList.vb" />
+    <Compile Include="Connections\elements\COleDbConnection.vb" />
+    <Compile Include="Connections\elements\COleDbConnectionList.vb" />
+    <Compile Include="Connections\elements\COracleConnection.vb" />
+    <Compile Include="Connections\elements\COracleConnectionList.vb" />
+    <Compile Include="Connections\elements\CSchemaInfo.vb" />
+    <Compile Include="Connections\elements\CSchemaInfoList.vb" />
+    <Compile Include="Connections\elements\CSqlServerConnection.vb" />
+    <Compile Include="Connections\elements\CSqlServerConnectionList.vb" />
+    <Compile Include="Connections\elements\CTextFileConnection.vb" />
+    <Compile Include="Connections\elements\CTextFileConnectionList.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connections.xsd" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\_Framework\Framework\Framework.vbproj">
+      <Project>{DE7FDE19-414E-4CD5-9AE3-25BC7B1A2A05}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

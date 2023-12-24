@@ -1,0 +1,45 @@
+﻿#Region "Searching (Optional)"
+    'Represents a simple search box to search PK and any string columns (add overloads as required, based on the pattern below)
+    'e.g. Public Function Search(ByVal nameOrId As String, [SearchParamsTyped]) As [ClassName]List
+    Public Function Search(ByVal nameOrId As String) As [ClassName]List
+        '1. Normalisation
+        If IsNothing(nameOrId) Then nameOrId = String.Empty
+        nameOrId = nameOrId.Trim.ToLower()
+        
+        '2. Start with a complete list
+        Dim results As [ClassName]List = Me
+
+        '3. Use any available index, such as those generated for fk/bool columns
+        'Normal Case - non-unique index (e.g. foreign key)
+[Indexed]
+        'Special case - unique index (e.g. primary key)
+        If Not String.IsNullOrEmpty(nameOrId) Then
+            'Dim id As Integer
+            'If Integer.TryParse(nameOrId, id) Then
+            '    Dim obj As [ClassName] = Me.GetById(id)
+            '    If Not IsNothing(obj) Then
+            '        results = New [ClassName]List(1)
+            '        results.Add(obj)
+            '        return results
+            '    End If
+            'End If
+        End If
+        
+        '4. Exit early if remaining (non-index) filters are blank
+        If String.IsNullOrEmpty(nameOrId) Then Return results
+        
+        '5. Manually search each record using custom match logic, building a shortlist
+        Dim shortList As New [ClassName]List
+        For Each i As [ClassName] In results
+            If Match(nameOrId, i) Then shortList.Add(i)
+        Next
+        Return shortList
+    End Function
+    'Manual Searching e.g for string-based columns i.e. anything not indexed (add more params if required)
+    Private Function Match(ByVal name As String, ByVal obj As [ClassName]) As Boolean
+        If Not String.IsNullOrEmpty(name) Then
+[Filters]            Return False 'If filter is active, reject any items that dont match
+        End If
+        Return True 'No active filters (should catch this in step #4)
+    End Function
+#End Region

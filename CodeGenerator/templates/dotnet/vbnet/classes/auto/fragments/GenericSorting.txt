@@ -1,0 +1,22 @@
+#Region "Generic Sorting (Eg. Repeater Control)"
+    'Public Interface
+    Public Function SortBy(key As String, descending As Boolean) As [ClassName]List
+        Dim temp As New [ClassName]List(Me)
+        temp.Sort(New CSortBy(key, descending))
+        Return temp
+    End Function
+    
+    'Private Class
+    Private Class CSortBy : Inherits CSortByColumn : Implements IComparer(Of [ClassName])
+        'Constructor
+        Public Sub New(columnName As String, descending As Boolean)
+            MyBase.New(columnName, descending)
+        End Sub
+
+        'Interface
+        Public Shadows Function Compare(a As [ClassName], b As [ClassName]) As Integer Implements IComparer(Of [ClassName]).Compare
+            Return MyBase.Compare(a, b)
+        End Function
+    End Class
+#End Region
+

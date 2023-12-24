@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+partial class pages_[Plural]_usercontrols_UC[Plural]Pair : UserControl
+{    
+    #region Members
+    private bool _autopostback = true;
+    private [ClassNameLhs] _[SingularCamelCaseLhs];
+    private [ClassNameRhs] _[SingularCamelCaseRhs];
+    #endregion
+    
+    #region Main Interface (Parent Entity)
+    //Friendly Urls recommended for paging within tabs
+    public void Display([ClassNameLhs] [SingularCamelCaseLhs], string searchStateFromQuerystring, string friendlyUrl)
+    {
+        Display([SingularCamelCaseLhs], searchStateFromQuerystring);
+        this.FriendlyUrl = friendlyUrl;
+    }
+    public void Display([ClassNameRhs] [SingularCamelCaseRhs], string searchStateFromQuerystring, string friendlyUrl)
+    {
+        Display([SingularCamelCaseRhs], searchStateFromQuerystring);
+        this.FriendlyUrl = friendlyUrl;
+    }    
+    
+    //Simple Interface
+    public void Display([ClassNameLhs] [SingularCamelCaseLhs], string searchStateFromQuerystring)
+    {
+        _[SingularCamelCaseLhs] = [SingularCamelCaseLhs];
+        txtSearch.Text = searchStateFromQuerystring;
+        string searchStateFromForm = CWeb.RequestStr(txtSearch.UniqueID); //txtSearch - postback value still not set during Page_Init
+        if (Title.Length == 0) Title = "[PluralRhs]"; 
+        ctrlRemaining.DisplayRemaining([SingularCamelCaseLhs], AutoPostback, searchStateFromForm); 
+        ctrlSelected.DisplaySelected([SingularCamelCaseLhs], AutoPostback);
+    }
+    public void Display([ClassNameRhs] [SingularCamelCaseRhs], string searchStateFromQuerystring)
+    {
+        _[SingularCamelCaseRhs] = [SingularCamelCaseRhs];
+        txtSearch.Text = searchStateFromQuerystring;
+        string searchStateFromForm = CWeb.RequestStr(txtSearch.UniqueID) //txtSearch - postback value still not set during Page_Init
+        if (Title.Length == 0) Title = "[PluralLhs]"; 
+        ctrlRemaining.DisplayRemaining([SingularCamelCaseRhs], AutoPostback, searchStateFromForm);
+        ctrlSelected.DisplaySelected([SingularCamelCaseRhs], AutoPostback);
+    }  
+    #endregion
+
+    #region Event Handlers
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        if (null != _[SingularCamelCaseRhs])
+            Response.Redirect(CSitemap.[Plural]For[SingularRhs](_[SingularCamelCaseRhs].[PrimaryKeyRhs], txtSearch.Text)); //txtSearch - postback value still not set during Page_Init
+        else
+            Response.Redirect(CSitemap.[Plural]For[SingularLhs](_[SingularCamelCaseLhs].[PrimaryKeyLhs], txtSearch.Text)); //txtSearch - postback value still not set during Page_Init
+    }
+    #endregion
+    
+    #region Appearance
+    public string Title 
+    {
+        get { return ctrlRemaining.Title; }
+        set 
+        {
+            ctrlRemaining.Title = value;
+            ctrlSelected.Title = value;
+        }
+    }
+    #endregion
+    
+    #region Behaviour
+    public bool Enabled 
+    {
+        set 
+        {
+            ctrlRemaining.Enabled = value;
+            ctrlSelected.Enabled = value;
+        }
+    }
+    public bool AutoPostback 
+    {
+        get { return _autopostback; }
+        set { _autopostback = value; }
+    }
+    #endregion
+    
+    #region Paging
+    public string QueryString 
+    {
+        get { return ctrlRemaining.QueryString.Substring(0, ctrlRemaining.QueryString.Length - 1); }
+        set 
+        {
+            ctrlRemaining.QueryString = value + "1";
+            ctrlSelected.QueryString = value + "2";
+        }
+    }
+    public int PageSize 
+    {
+        get { return ctrlRemaining.PageSize; }
+        set 
+        {
+            ctrlRemaining.PageSize = value;
+            ctrlSelected.PageSize = value;
+        }
+    }
+    public string FriendlyUrl 
+    {
+        set 
+        {
+            ctrlRemaining.FriendlyUrl = value;
+            ctrlSelected.FriendlyUrl = value;
+        }
+    }
+    #endregion
+    
+}

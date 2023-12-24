@@ -1,0 +1,3 @@
+﻿    Public Sub btnResetOrderToAlpha_Click(ByVal sender As object, ByVal e As EventArgs) Handles btnResetOrderToAlpha.Click
+        m_list.SortAlphabetically()
+    End Sub

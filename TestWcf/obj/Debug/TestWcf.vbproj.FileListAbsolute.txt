@@ -1,0 +1,4 @@
+C:\sourcecode\_jeremydotnet\Common\TestWcf\obj\Debug\TestWcf.vbproj.AssemblyReference.cache
+C:\sourcecode\_jeremydotnet\Common\TestWcf\obj\Debug\TestWcf.Resources.resources
+C:\sourcecode\_jeremydotnet\Common\TestWcf\obj\Debug\TestWcf.vbproj.GenerateResource.cache
+C:\sourcecode\_jeremydotnet\Common\TestWcf\obj\Debug\TestWcf.vbproj.CoreCompileInputs.cache

@@ -1,0 +1,1 @@
+        <asp:HyperLink ID="lnk[Name]" Runat="server" Tooltip="Click to view this [Entity]" />

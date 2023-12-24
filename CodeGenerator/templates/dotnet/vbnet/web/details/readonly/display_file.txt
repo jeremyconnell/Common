@@ -1,0 +1,2 @@
+            lnk[Name].NavigateUrl = .[Name]
+            lnk[Name].Enabled = Len(.[Name]) > 0

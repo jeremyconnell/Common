@@ -1,0 +1,2 @@
+        if (img[Name].HasFile) 
+            this.[Singular].[Name] = img[Name].SaveFile();

@@ -1,0 +1,1 @@
+        this.[Singular].[Name] = chk[Name].Checked;

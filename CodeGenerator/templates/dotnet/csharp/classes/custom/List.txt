@@ -1,0 +1,93 @@
+using System;
+using System.Text;
+using System.Data;
+using System.Collections;
+using System.Collections.Generic;
+using System.Web;
+using System.IO;
+
+using Framework;
+
+namespace [NameSpace]
+{
+    //Collection Class (Customisable half)
+    public partial class [ClassName]List
+    {
+        #region Filters
+        #endregion
+
+        #region Aggregation
+        #endregion
+        
+[Search]
+
+        #region Cloning
+        public [ClassName]List Clone(CDataSrc target) //, int parentId)
+        {
+            //No Transaction
+            if (target is CDataSrcRemote)
+                return Clone(target, null); //, parentId);
+
+            //Transaction
+            using (IDbConnection cn = target.Local.Connection())
+            {
+                IDbTransaction tx = cn.BeginTransaction();
+                try
+                {
+                    [ClassName]List clone = Clone(target, tx); //, parentId);
+                    tx.Commit();
+                    return clone;
+                }
+                catch
+                {
+                    tx.Rollback();
+                    throw;
+                }
+            }
+        }
+        public [ClassName]List Clone(CDataSrc target, IDbTransaction txOrNull) //, int parentId)
+        {
+            [ClassName]List list = new [ClassName]List(this.Count);
+            foreach ([ClassName] i in this)
+                list.Add(i.Clone(target, txOrNull)); //, parentId));  *Child entities must reference the new parent
+            return list;
+        }
+        #endregion
+        
+        #region Export to Csv
+        //Note: For non-cached classes like this, should normally use CDataSrc.ExportToCsv(SelectWhere_DataSet)
+
+        //Web 
+        //Web - Need to add a project reference to System.Web, or comment out these two methods
+        public void ExportToCsv(HttpResponse response) { ExportToCsv(response, "[Plural].csv"); }
+        public void ExportToCsv(HttpResponse response, string fileName)
+        {
+            CDataSrc.ExportToCsv(response, fileName); //Standard response headers
+            StreamWriter sw = new StreamWriter(response.OutputStream);
+            ExportToCsv(sw);
+            sw.Flush();
+            response.End();
+        }
+        
+        //Non-web
+        public void ExportToCsv(string filePath)
+        {
+            StreamWriter sw = new StreamWriter(filePath);
+            ExportToCsv(sw);
+            sw.Close();
+        }
+
+        //Logic
+        protected void ExportToCsv(StreamWriter sw)
+        {
+            string[] headings = new string[] {[CsvHeadings]};
+            CDataSrc.ExportToCsv(headings, sw);
+            foreach ([ClassName] i in this)
+            {
+                object[] data = new object[] {[CsvData]};
+                CDataSrc.ExportToCsv(data, sw);
+            }
+        }
+        #endregion
+    }
+}

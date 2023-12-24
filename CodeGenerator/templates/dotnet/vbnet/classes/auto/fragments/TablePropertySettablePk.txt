@@ -1,0 +1,12 @@
+    Public Property [[ColumnNameProperCase]]() As [DataType]
+        Get
+            Return m_[ColumnNameCamelCase]
+        End Get
+        Set(ByVal value As [DataType])
+            If Not m_insertPending AndAlso m_[ColumnNameCamelCase] <> value Then
+                DataSrc.Update(New CNameValueList("[ColumnNameProperCase]", value), New CWhere(TABLE_NAME, New CCriteria("[ColumnNameProperCase]", m_[ColumnNameCamelCase]), Nothing))
+                CacheClear()
+            End If
+            m_[ColumnNameCamelCase] = value
+        End Set
+    End Property

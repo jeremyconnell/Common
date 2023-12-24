@@ -1,0 +1,18 @@
+﻿
+    'Relationships - 2-Step Walk
+    Public ReadOnly Property [[Plural]]() As [ClassName]List
+        Get
+            If IsNothing(m_[PluralCamelCase]) Then
+                SyncLock (Me)
+                    If IsNothing(m_[PluralCamelCase]) Then
+                        m_[PluralCamelCase] = New [ClassName]().SelectBy[PrimaryKey](Me.[PrimaryKey])
+                    End If
+                End SyncLock
+            End If
+            Return m_[PluralCamelCase]
+        End Get
+    End Property
+
+***** Goes in region called "Members"
+    'Relationships - 2-Step Walk
+    <NonSerialized()> Private m_[PluralCamelCase] As [ClassName]List

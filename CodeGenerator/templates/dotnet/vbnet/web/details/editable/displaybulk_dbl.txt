@@ -1,0 +1,5 @@
+'        If [Plural].HaveSameValue("[Name]") Then
+'            txt[Name].ValueDbl = [Plural](0).[Name]
+'        Else
+'            txt[Name].Text = BULKEDIT_NOCHANGE
+'        End If

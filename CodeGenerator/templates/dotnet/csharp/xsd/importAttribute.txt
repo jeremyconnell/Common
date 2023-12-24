@@ -1,0 +1,1 @@
+            _[nameCamelCase] = CXml.[importFunction](node, "[name]", _[nameCamelCase]);

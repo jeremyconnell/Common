@@ -1,0 +1,10 @@
+﻿/*
+    #region Enum: Primary Key Values
+    public enum E[Singular]
+    {
+         Huey = 1,
+         Duey = 2,
+         Louie = 3
+    }
+    #endregion
+*/

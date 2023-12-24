@@ -1,0 +1,40 @@
+﻿
+        #region Move Up/Down
+        public void MoveUp(  [ClassName] s) { Move(s, -1); }
+        public void MoveDown([ClassName] s) { Move(s,  1); }
+        public void SortAlphabetically()
+        {
+            foreach ([ClassName] i in this)
+                i.[SortingColumn] = 0;
+            this.SaveAll();
+            [ClassName].Cache = null;
+        }
+
+        //Private 
+        private void Move([ClassName] s, int change)
+        { 
+            if (s == null)
+                return;
+
+            int index = this.IndexOf(s) + change;
+            if (index < 0) return;
+            
+            if (index > this.Count - 1)
+                return;
+            
+            //Modify a copy of the array for threadsafety 
+            [ClassName]List dd = new [ClassName]List(this.Count); 
+            dd.AddRange(this);
+            dd.Remove(s);
+            dd.Insert(index, s);
+            dd.ResetOrdinals();
+            
+            this.SaveAll();
+            [ClassName].Cache = null;
+        }
+        private void ResetOrdinals()
+        {
+            for (int i = 0; i <= this.Count - 1; i++)
+                this[i].[SortingColumn] = i;
+        }
+        #endregion

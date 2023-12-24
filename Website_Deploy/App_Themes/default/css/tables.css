@@ -1,0 +1,60 @@
+﻿
+.datagrid {
+ border: 1px solid #ccc;
+  font-size: 12px;
+  margin: 10px 0 20px;
+  border-collapse:collapse;
+}
+
+
+
+.datagrid th, .datagrid td {
+	padding: 2px 4px;
+	border-bottom: 1px solid #ccc;
+	}
+.datagrid table td { padding:0px; border-bottom-width:0px; }
+
+.datagrid th, .thead td {
+  background-color: #666;
+  color: #fff;
+  text-align: left;
+  white-space:nowrap;
+}
+.datagrid th a       { color:White; text-decoration:none; }
+.datagrid th a:hover {              text-decoration:underline; }
+.datagrid td a       { text-decoration:none; }
+.datagrid td a:hover {              text-decoration:underline; }
+
+.datagrid td { border-left:1px solid #ddd;}
+.datagrid td.bl { border-left:2px solid #ddd;}
+.datagrid td.br { border-right:2px solid #ddd;}
+.datagrid th.bl { border-left:2px solid #ddd;}
+.datagrid th.br { border-right:2px solid #ddd;}
+
+
+.datagrid tr {
+  vertical-align: top; 
+  background-color: #fff;
+}
+
+.datagrid .alt_row td {
+  background-color: #eee;
+}
+
+.datagrid a {
+  font-size: 1.0em;
+}
+
+.datagrid ul,ol { margin-top:0px; }
+
+
+div.box_for_table
+{
+    width:500px;
+    overflow:scroll;
+    overflow-y: hidden ! important; overflow-x: auto ! important;
+}
+div.box_for_table .datagrid
+{
+    margin:0px;
+}

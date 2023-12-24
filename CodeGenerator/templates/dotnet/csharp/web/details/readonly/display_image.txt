@@ -1,0 +1,2 @@
+        img[Name].ImageUrl = this.[Singular].[Name];
+        img[Name].Visible = ! string.IsNullOrEmpty(this.[Singular].[Name]);

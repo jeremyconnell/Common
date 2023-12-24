@@ -1,0 +1,7 @@
+        if (this.[Plural].HaveSameValue("[Name]"))
+            dd[Name].Value = this.[Plural][0].[Name];
+        else
+        {
+            dd[Name].BlankItemText = BULKEDIT_NOCHANGE;
+            dd[Name].Required = false;
+        }

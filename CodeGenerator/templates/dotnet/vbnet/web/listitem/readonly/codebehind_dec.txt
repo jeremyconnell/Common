@@ -1,0 +1,1 @@
+﻿            lit[Name].Text = .[Expression].ToString("C")

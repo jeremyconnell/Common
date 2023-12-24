@@ -1,0 +1,6 @@
+﻿    protected void chk[Name]_CheckedChanged(object sender, System.EventArgs e)
+    { 
+        _[SingularCamelCase].[Name] = chk[Name].Checked; 
+        _[SingularCamelCase].Save(); 
+        Refresh(); 
+    }

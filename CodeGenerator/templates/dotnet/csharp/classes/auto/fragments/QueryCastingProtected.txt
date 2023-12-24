@@ -1,0 +1,64 @@
+
+        #region Queries - SelectAll/SelectWhere (inherited methods, cast only)
+        //Normally used to load the cache
+        public    new [ClassName]List SelectAll()                                                                           {   return ([ClassName]List)base.SelectAll();        }
+        public    new [ClassName]List SelectAll(string orderBy)                                                             {   return ([ClassName]List)base.SelectAll(orderBy); }
+
+        //Sometimes use a custom query to load the cache
+        protected new [ClassName]List SelectWhere(string colName, ESign sign, object colValue)                              {   return ([ClassName]List)base.SelectWhere(colName, sign, colValue);                  }
+        protected new [ClassName]List SelectWhere(CCriteria where)                                                          {   return ([ClassName]List)base.SelectWhere(where);                                    }
+        protected new [ClassName]List SelectWhere(CCriteriaList where)                                                      {   return ([ClassName]List)base.SelectWhere(where);                                    }
+        protected new [ClassName]List SelectWhere(CCriteriaList where, string tableOrJoin)                                  {   return ([ClassName]List)base.SelectWhere(where, tableOrJoin, this.OrderByColumns);  }
+        protected new [ClassName]List SelectWhere(CCriteriaList where, string tableOrJoin, string orderBy)                  {   return ([ClassName]List)base.SelectWhere(where, tableOrJoin, orderBy);              }
+        [Obsolete("Arbitrary where-clause is not necessary portable or safe from sql injection attacks. Consider using the parameterised query interfaces (or a stored proc)")]
+        protected new [ClassName]List SelectWhere(string unsafeWhereClause)                                                 {   return ([ClassName]List)base.SelectWhere(unsafeWhereClause);                        }
+        protected     [ClassName]List SelectById([PrimaryKeyParametersTyped])                                               {   return ([ClassName]List)base.SelectById([PrimaryKeyParameters]);                    }
+        protected     [ClassName]List SelectByIds(List<[PrimaryKeyObjectType]> ids)                                         {   return ([ClassName]List)base.SelectByIds(ids);                                      }
+
+        //Select Queries - Paged
+        protected new [ClassName]List SelectAll(  CPagingInfo pi)                                               {    return ([ClassName]List)base.SelectAll(  pi);                          }
+        protected new [ClassName]List SelectWhere(CPagingInfo pi, string name, ESign sign, object value)        {    return ([ClassName]List)base.SelectWhere(pi, name, sign, value);       }
+        protected new [ClassName]List SelectWhere(CPagingInfo pi, CCriteria criteria)                           {    return ([ClassName]List)base.SelectWhere(pi, criteria);                }
+        protected new [ClassName]List SelectWhere(CPagingInfo pi, CCriteriaList criteria)                       {    return ([ClassName]List)base.SelectWhere(pi, criteria);                }
+        protected new [ClassName]List SelectWhere(CPagingInfo pi, CCriteriaList criteria, string viewOrJoin)    {    return ([ClassName]List)base.SelectWhere(pi, criteria, viewOrJoin);    }
+
+        //Select Queries - Transactional (Internal scope for use in cascade deletes)
+        internal new [ClassName]List SelectAll(                                                                                           IDbTransaction tx)  {    return ([ClassName]List)base.SelectAll(                                                 tx);    }
+        internal new [ClassName]List SelectAll(string orderBy,                                                                            IDbTransaction tx)  {    return ([ClassName]List)base.SelectAll(orderBy,                                         tx);    }
+        internal new [ClassName]List SelectWhere(string columnName,               object columnValue,                                     IDbTransaction tx)  {    return ([ClassName]List)base.SelectWhere(columnName,              columnValue,          tx);    }
+        internal new [ClassName]List SelectWhere(string columnName,   ESign sign, object columnValue,                                     IDbTransaction tx)  {    return ([ClassName]List)base.SelectWhere(columnName,    sign,     columnValue,          tx);    }
+        internal new [ClassName]List SelectWhere(                             CCriteria     criteria,                                     IDbTransaction tx)  {    return ([ClassName]List)base.SelectWhere(               criteria,                       tx);    }
+        internal new [ClassName]List SelectWhere(                             CCriteriaList criteria,                                     IDbTransaction tx)  {    return ([ClassName]List)base.SelectWhere(               criteria,                       tx);    }
+        internal new [ClassName]List SelectWhere(                             CCriteriaList criteria, string tableOrJoin,                 IDbTransaction tx)  {    return ([ClassName]List)base.SelectWhere(               criteria, tableOrJoin,          tx);    }
+        internal new [ClassName]List SelectWhere(                             CCriteriaList criteria, string tableOrJoin, string orderBy, IDbTransaction tx)  {    return ([ClassName]List)base.SelectWhere(               criteria, tableOrJoin,          tx);    }
+        internal     [ClassName]List SelectById([PrimaryKeyParametersTyped],                                                              IDbTransaction tx)  {    return ([ClassName]List)base.SelectById([PrimaryKeyParameters],                         tx);    }
+        internal     [ClassName]List SelectByIds(List<[PrimaryKeyObjectType]> ids,                                                        IDbTransaction tx)  {    return ([ClassName]List)base.SelectByIds(ids,                                           tx);    }
+
+        //Select Queries - Stored Procs
+        protected new [ClassName]List MakeList(string storedProcName,                           IDbTransaction txOrNull)    {   return ([ClassName]List)base.MakeList(storedProcName,             txOrNull);  }
+        protected new [ClassName]List MakeList(string storedProcName, object[] parameters,      IDbTransaction txOrNull)    {   return ([ClassName]List)base.MakeList(storedProcName, parameters, txOrNull);  }
+        protected new [ClassName]List MakeList(string storedProcName, CNameValueList parameters,IDbTransaction txOrNull)    {   return ([ClassName]List)base.MakeList(storedProcName, parameters, txOrNull);  }
+        protected new [ClassName]List MakeList(string storedProcName, List<object> parameters,  IDbTransaction txOrNull)    {   return ([ClassName]List)base.MakeList(storedProcName, parameters, txOrNull);  }
+        protected new [ClassName]List MakeList(string storedProcName, int param1,               IDbTransaction txOrNull)    {   return ([ClassName]List)base.MakeList(storedProcName, param1,     txOrNull);  }
+        protected new [ClassName]List MakeList(string storedProcName, string param1,            IDbTransaction txOrNull)    {   return ([ClassName]List)base.MakeList(storedProcName, param1,     txOrNull);  }
+
+        //Query Results
+        protected new [ClassName]List MakeList(DataSet              ds) { return ([ClassName]List)base.MakeList(ds);        }
+        protected new [ClassName]List MakeList(DataTable            dt) { return ([ClassName]List)base.MakeList(dt);        }
+        protected new [ClassName]List MakeList(DataRowCollection  rows) { return ([ClassName]List)base.MakeList(rows);      }
+        protected new [ClassName]List MakeList(IDataReader          dr) { return ([ClassName]List)base.MakeList(dr);        }
+        protected new [ClassName]List MakeList(object           drOrDs) { return ([ClassName]List)base.MakeList(drOrDs);    }
+        protected new [ClassName]List MakeList(byte[]             gzip) { return ([ClassName]List)base.MakeList(gzip);      }
+        #endregion
+
+        #region Queries - SelectBy[FK] (user-nominated fk/bool columns)
+        //Note: These methods should only be used for cascade-deletes, or initialising the cache. Use [ClassName].Cache.GetBy... for reqular queries
+
+        //Non-Paged
+[SelectCommandsSimple]
+        //Paged
+[SelectCommandsPaging]
+        //Count
+[SelectCommandsCounting]
+        //Transactional
+[SelectCommandsTransactional]        #endregion

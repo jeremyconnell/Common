@@ -1,0 +1,22 @@
+﻿    #region Data
+    public [ClassName] [Singular] 
+    {
+        get 
+        {
+            if (_[SingularCamelCase] == null) 
+            {
+                if (IsEdit) 
+                {
+                    _[SingularCamelCase] = [ClassName].Cache.GetById([PrimaryKey]);
+                    if (_[SingularCamelCase] == null)
+                        CSitemap.RecordNotFound("[Singular]", [PrimaryKey]); 
+                }
+                else 
+                {
+                    _[SingularCamelCase] = new [ClassName]();
+                }
+            }
+            return _[SingularCamelCase];
+        }
+    }
+    #endregion

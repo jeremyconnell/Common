@@ -1,0 +1,15 @@
+﻿    #region [Plural]
+    //List/Search
+    public static string [Plural]For[SingularLhs]([PrimaryKeyType] [PrimaryKeyCamelCaseLhs]) {   return string.Concat("~[Subfolder][PluralCamelCase]/For[SingularLhs].aspx?[PrimaryKeyCamelCaseLhs]=", [PrimaryKeyCamelCaseLhs]); }
+    public static string [Plural]For[SingularRhs]([SecondaryKeyType] [PrimaryKeyCamelCaseRhs]) {   return string.Concat("~[Subfolder][PluralCamelCase]/For[SingularRhs].aspx?[PrimaryKeyCamelCaseRhs]=", [PrimaryKeyCamelCaseRhs]); }
+    public static string [Plural]For[SingularLhs]([PrimaryKeyType] [PrimaryKeyCamelCaseLhs], string search) { return string.Concat([Plural]For[SingularLhs]([PrimaryKeyCamelCaseLhs]), "&search=", Encode(search)); }
+    public static string [Plural]For[SingularRhs]([SecondaryKeyType] [PrimaryKeyCamelCaseRhs], string search) { return string.Concat([Plural]For[SingularRhs]([PrimaryKeyCamelCaseRhs]), "&search=", Encode(search)); }    
+    
+    //Add/Edit
+    private static string [Singular]AddEdit()    {   return "~[Subfolder][PluralCamelCase]/[SingularCamelCase].aspx";   } 
+    public static string [Singular]Add()         {   return [Singular]AddEdit(); } //May need to add a parentId e.g. [Singular]AddFromParent1(parent1Id)
+    public static string [Singular]Edit([PrimaryKeyType] [PrimaryKeyCamelCase], [SecondaryKeyType] [SecondaryKeyCamelCase]) {   return string.Concat([Singular]AddEdit(), "?[PrimaryKeyCamelCase]=", [PrimaryKeyCamelCase], "&[SecondaryKeyCamelCase]=", [SecondaryKeyCamelCase]);    }
+
+    //UserControls
+    public static string UC[Singular]() { return "~[Subfolder][PluralCamelCase]/usercontrols/UC[Singular].ascx"; }
+    #endregion

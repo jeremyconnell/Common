@@ -1,0 +1,1 @@
+        public int CompareTo([ClassName] other) {   return this.[OrderByColumnsProperCase].CompareTo(other.[OrderByColumnsProperCase]) [DESC];  }

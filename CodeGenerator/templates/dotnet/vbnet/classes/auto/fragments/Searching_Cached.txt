@@ -1,0 +1,7 @@
+﻿#Region "Searching (Optional)"
+    'For cached classes, custom seach logic resides in static methods on the list class
+    ' e.g. [ClassName].Cache.Search("..")
+
+    'See also the auto-generated methods based on indexes
+    ' e.g. [ClassName].Cache.GetBy...
+#End Region

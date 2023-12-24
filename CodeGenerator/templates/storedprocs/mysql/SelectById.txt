@@ -1,0 +1,19 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `[SpNameSelectById]` $$
+
+CREATE PROCEDURE `[SpNameSelectById]` (IN _[PrimaryKeyName] [PrimaryKeySqlDataType])
+BEGIN
+
+    SELECT
+[ColumnNames]
+
+    FROM
+        [ViewOrTableName]
+
+    WHERE
+        _[PrimaryKeyName] = [PrimaryKeyName];
+
+END $$
+
+DELIMITER ;

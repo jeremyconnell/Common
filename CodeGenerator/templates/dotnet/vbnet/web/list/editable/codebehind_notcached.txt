@@ -1,0 +1,78 @@
+﻿Imports System.Data
+
+Partial Public Class pages_[Plural]_default : Inherits CPage
+
+#region "Querystring (Filters)"
+    Public ReadOnly Property Search As String
+        Get
+            Return CWeb.RequestStr("search")
+        End Get
+    End Property
+    
+    'Rename or Delete:
+    'Public ReadOnly Property ParentId As Integer
+    '    Get
+    '        Return CWeb.RequestStr("parentId")
+    '    End Get
+    'End Property
+#End Region
+
+#Region "Members"
+    Private m_[PluralCamelCase] As [ClassName]List
+#End Region
+
+#Region "Data"
+    Public ReadOnly Property [[Plural]]() As [ClassName]List
+        Get
+            If IsNothing(m_[PluralCamelCase]) Then
+                m_[PluralCamelCase] = New [ClassName]().SelectSearch(ctrl[Plural].PagingInfo, txtSearch.Text) 'Sql-based Paging
+                'm_[PluralCamelCase].PreloadChildren() 'Loads children for page in one hit (where applicable)
+            End If
+            Return m_[PluralCamelCase]
+        End Get
+    End Property
+    Public Function [Plural]AsDataset() As System.Data.DataSet
+        Return (New [ClassName]()).SelectSearch_Dataset(txtSearch.Text)
+    End Function
+#End Region
+
+#Region "Overrides"
+    Protected Overrides Sub PageInit
+		'Sidemenu
+        AddMenuSide("[Plural]")
+        AddMenuSide("New [Singular]...", CSitemap.[Singular]Add())
+
+        'Populate Dropdowns
+        
+    
+        'Search state (from querystring)
+        txtSearch.Text = Me.Search
+        
+        'Display Results
+        ctrl[Plural].Display(Me.[Plural])
+
+        'Client-side        
+        Me.Form.DefaultFocus  = txtSearch.ClientID  'txtCreate.ClientID
+        Me.Form.DefaultButton = btnSearch.UniqueID  'CTextbox.OnReturnPress(txtSearch, btnSearch)
+    End Sub
+#End Region
+
+#Region "Event Handlers - Form"
+    Protected Sub btnSearch_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSearch.Click
+        Response.Redirect(CSitemap.[Plural](txtSearch.Text))
+    End Sub
+#End Region
+
+#Region "Event Handlers - UserControl"
+    Private Sub ctrl_AddClick() Handles ctrl[Plural].AddClick
+        Response.Redirect(CSitemap.[Singular]Add())
+    End Sub
+    Private Sub ctrl_ExportClick() Handles ctrl[Plural].ExportClick
+        CDataSrc.ExportToCsv([Plural]AsDataset(), Response, "[Plural].csv")
+    End Sub
+    Private Sub ctrl_ResortClick(ByVal sortBy As String, ByVal descending As Boolean, ByVal pageNumber As Integer) Handles ctrl[Plural].ResortClick
+        Response.Redirect(CSitemap.[Plural](txtSearch.Text, New CPagingInfo(0, pageNumber - 1, sortBy, descending)))
+    End Sub
+#End Region
+
+End Class

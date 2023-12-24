@@ -1,0 +1,5 @@
+    Public Function CompareTo(ByVal other As [ClassName]) As Integer Implements IComparable(Of [ClassName]).CompareTo
+        Dim i As Integer = Me.[FirstColumn].CompareTo(other.[FirstColumn]) [DESC1]
+        If 0 <> i Then Return i
+        Return Me.[SecondColumn].CompareTo(other.[SecondColumn]) [DESC2]
+    End Function

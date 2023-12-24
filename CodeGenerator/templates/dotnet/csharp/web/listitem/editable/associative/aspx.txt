@@ -1,0 +1,13 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UC[Singular].ascx.cs" Inherits="pages_[Plural]_usercontrols_UC[Singular]" %>
+<tr id="row" runat="server">
+  <td><strong><asp:Literal ID=litNum runat=server />.</strong></td>
+  <td>
+    <asp:HyperLink ID="lnkTarget" runat="server" />
+  </td>
+  <td id=colDateCreated runat=server visible=false>
+    <asp:Label ID=lblDateCreated runat=server />
+  </td>
+  <td style="text-align:right">
+    <asp:CheckBox ID="chk" runat="server" AutoPostBack="true" OnCheckedChanged=chk_CheckedChanged />
+  </td>
+</tr>

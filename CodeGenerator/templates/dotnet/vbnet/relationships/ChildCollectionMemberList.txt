@@ -1,0 +1,13 @@
+﻿#Region "Preload Child collections"
+    'Allows the option to preload all child collections across the set (using in-memory index), avoiding database chatter
+    Public Sub Preload[Plural]() 'Loads children for page of results (this list)
+        If Me.Count = 0 Then Exit Sub
+        Preload[Plural]((New [ClassName]()).SelectBy[ForeignKeyShorter]s(Me.Ids))
+    End Sub
+    Public Sub Preload[Plural](ByVal all[Plural] As [ClassName]List) 'Load children from a known universe (retrieved earlier)
+        For Each i As [MyClassName] In Me
+            i.[Plural] = all[Plural].GetBy[ForeignKeyShorter](i.[PrimaryKey])
+            i.[Plural].[MyEntity] = i
+        Next
+    End Sub
+#End Region

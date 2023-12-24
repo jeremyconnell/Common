@@ -1,0 +1,4 @@
+        public [ClassName]List SelectBy[ColumnName]([DataType] [ColumnNameCamelCase])
+        {
+            return ([ClassName]List)MakeList("[SpName]", [ColumnNameCamelCase]);
+        }

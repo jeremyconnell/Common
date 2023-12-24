@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="628970a8-0c65-400f-8da1-d48e8f3c5b1b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/website/webservices/wcf/wcfdatasrc.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WcfDataSrc.xsd" MetadataType="Schema" ID="0398aae8-0ce2-4e36-9c8d-af05acc810db" SourceId="1" SourceUrl="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?xsd=xsd2" />
+    <MetadataFile FileName="WcfDataSrc1.xsd" MetadataType="Schema" ID="d12dc824-e89a-4fac-b130-417a0b8319cd" SourceId="1" SourceUrl="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?xsd=xsd1" />
+    <MetadataFile FileName="WcfDataSrc.wsdl" MetadataType="Wsdl" ID="d372c787-f927-4912-a3ca-366c19e59dc2" SourceId="1" SourceUrl="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?wsdl" />
+    <MetadataFile FileName="WcfDataSrc2.xsd" MetadataType="Schema" ID="c22b1229-123e-411f-8eff-660dada1d9f8" SourceId="1" SourceUrl="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?xsd=xsd4" />
+    <MetadataFile FileName="WcfDataSrc.disco" MetadataType="Disco" ID="193ff9fc-5151-4e19-bcf2-d0c011e55f3d" SourceId="1" SourceUrl="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?disco" />
+    <MetadataFile FileName="WcfDataSrc3.xsd" MetadataType="Schema" ID="ed2b8a84-54c9-4e0d-a4f0-d2ea9acfdee6" SourceId="1" SourceUrl="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?xsd=xsd3" />
+    <MetadataFile FileName="WcfDataSrc4.xsd" MetadataType="Schema" ID="c24c89e8-50f6-4b2f-8f19-85b741789f6e" SourceId="1" SourceUrl="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?xsd=xsd5" />
+    <MetadataFile FileName="WcfDataSrc5.xsd" MetadataType="Schema" ID="95de5ef6-cf2d-4c99-b6e2-409bc5d32720" SourceId="1" SourceUrl="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

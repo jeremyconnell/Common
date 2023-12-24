@@ -1,0 +1,14 @@
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\bin\Debug\Framework.dll.config
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\bin\Debug\Framework.dll
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\bin\Debug\Framework.pdb
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\bin\Debug\Framework.xml
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\bin\Debug\protobuf-net.xml
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\obj\Debug\Framework.vbproj.AssemblyReference.cache
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\obj\Debug\Framework.Resources.resources
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\obj\Debug\Framework.vbproj.GenerateResource.cache
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\obj\Debug\Framework.vbproj.CoreCompileInputs.cache
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\obj\Debug\Framework.vbproj.CopyComplete
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\obj\Debug\Framework.dll
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\obj\Debug\Framework.xml
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\obj\Debug\Framework.pdb
+C:\sourcecode\_jeremydotnet\Common\_Framework\Framework\bin\Debug\protobuf-net.dll

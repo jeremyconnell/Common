@@ -1,0 +1,13 @@
+        public [DataType] [ColumnNameProperCase]
+        {   
+            get { return _[ColumnNameCamelCase]; } 
+            set 
+            { 
+                if (!m_insertPending && _[ColumnNameCamelCase] != value)
+                {
+                    DataSrc.Update(new CNameValueList("[ColumnNameProperCase]", value), new CWhere(TABLE_NAME, new CCriteria("[ColumnNameProperCase]", _[ColumnNameCamelCase]), null));
+                    CacheClear();
+                }
+                _[ColumnNameCamelCase] = value;
+            }    
+        }

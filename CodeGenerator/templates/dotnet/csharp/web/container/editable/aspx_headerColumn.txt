@@ -1,0 +1,1 @@
+﻿            <th><asp:LinkButton Text="[NameShorter]" CommandArgument="[Expression]" id="btnSortBy[Expression]" runat="server" OnClick="btnResort_Click" /></th>

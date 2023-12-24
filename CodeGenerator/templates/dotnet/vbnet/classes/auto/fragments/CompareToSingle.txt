@@ -1,0 +1,3 @@
+    Public Function CompareTo(other As [ClassName]) As Integer Implements IComparable(Of [ClassName]).CompareTo
+        Return Me.[OrderByColumnsProperCase].CompareTo(other.[OrderByColumnsProperCase]) [DESC]
+    End Function

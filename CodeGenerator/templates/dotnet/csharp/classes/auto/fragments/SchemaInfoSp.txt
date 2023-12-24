@@ -1,0 +1,5 @@
+        protected override string SpName_Insert     {   get { return "[Prefix][TableName]Insert";       } }
+        protected override string SpName_Update     {   get { return "[Prefix][TableName]Update";       } }
+        protected override string SpName_DeleteId   {   get { return "[Prefix][TableName]DeleteId";     } }
+        protected override string SpName_SelectId   {   get { return "[Prefix][TableName]SelectId";     } }
+        protected override string SpName_SelectAll  {   get { return "[Prefix][TableName]SelectAll";    } }

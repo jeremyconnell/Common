@@ -1,0 +1,1 @@
+        public [ClassName]List SelectBy[ColumnNameShorter]([DataType] [ColumnNameCamelCase])   {   return SelectBy[ColumnNameShorter]([ColumnNameCamelCase]); }

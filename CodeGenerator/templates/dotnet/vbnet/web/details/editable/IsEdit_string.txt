@@ -1,0 +1,1 @@
+﻿[PrimaryKey].Length > 0

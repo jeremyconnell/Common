@@ -1,0 +1,30 @@
+PURPOSE:
+    Generates an O/R model (set of Business Objects) in .Net, based on a physical database schema (tables/views), and a particular set of class templates.
+
+PREPARATION:
+    1. Create the database schema as physical tables (and views), paying careful attention to the naming of all tables and columns (see recommended conventions).
+    2. In visual studio, create a new class library project, and make sure that it either references Framework.dll or the project called "Framework"
+    3. Make sure your application project references the new class library project, and Framework.dll as per step 2.
+
+USAGE:
+    1. Launch the app, select the appropriate driver, and enter in the connection details for your database instance. If the database is an MSAccess
+       database, its helpful to grant select permission to MSysObjects, in order to list all the tables in a dropdown.
+    2. Click the test connection button, which if successful will take you to the 2nd tab.
+    3. Browse to the root folder for your schema project. The application will read and display the details of any existing class files that it sees.
+    4. Select a table from the list. If list-tables is not supported by your DBMS, then type a table name into the textbox and click the validate button. If the table name is valid, then columns will be displayed.
+    5. Classify the type of primary key that the table has. 
+        - Integer keys are typically database-generated, so leave the checkbox called "Auto-Number" checked.
+        - String keys are typically user-generated, so uncheck the "Auto-Number" checkbox
+        - Many-To-Many tables typically have a PK that spans 2 columns, so check the "Many-To-Many" checkbox and select a 2nd key column (defaults to the 2nd column).
+        - 3-Way tables typically have a PK that spans 3 columns, so check the "3-Way" checkbox and choose a 3rd column (defaults to the 3rd column)
+    6. Enter the default sort-by column(s), which is used in Select-All and Select-Where sql statements, and also used for in-memory sorting of arrays.
+       This field defaults to the first column that ends with the suffix "Name", otherwise leave empty or use the PK column.
+    7. If the table has a column that is explicitly used for sorting (e.g. UI has move up/down arrows), you should nominate that column to generate the moveup/down code.
+    8. Any boolean-type columns or foreign keys should be identified in the code-gen UI, so that simple filter query/logic can be auto-generated.
+    9. For select statements, you can optionally have a view instead of the table, e.g. when there is some business logic in the database relating to records in that table. 
+       The database view just introduces some extra columns for that table, which translate to extra read-only properties on the class. 
+       This approach is now discouraged, particularly for simple things like foreign key lookups, since related records can be accessed more efficiently via the in-memory indexes (cached data).
+    10.Hit the generate button to create the classes, or to replace the regenerated side of the partial classes.
+    11.In Visual Studio, toggle the button called "Show All Files" (top of solution explorer) to refresh the contents, so you can include the new files in your project and compile
+    12.Open up your database diagram, and systematically work your way through all the relationships, using the generator to write properties which you can then copy and paste into your code.
+    13.Use the designated regions to add table-specific business rules and reusable code, such as constants, common formatting logic.

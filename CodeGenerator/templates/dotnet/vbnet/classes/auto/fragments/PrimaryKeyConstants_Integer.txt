@@ -1,0 +1,8 @@
+﻿#Region "Enum: Primary Key Values"
+'<CLSCompliant(True)> _
+'Public Enum E[Singular]
+'    Huey = 1
+'    Duey = 2
+'    Louie = 3
+'End Enum
+#End Region

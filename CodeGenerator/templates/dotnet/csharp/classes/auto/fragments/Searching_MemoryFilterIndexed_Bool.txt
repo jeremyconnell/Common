@@ -1,0 +1,1 @@
+﻿            //if ([CamelCase].HasValue)   results = results.GetBy[ShortName]([CamelCase].Value); //Customise bool filters according to UI (e.g. for checkbox, use simple bool and bias in one direction)

@@ -1,0 +1,1 @@
+            <asp:Hyperlink ID="lnk[Name]" Runat="server" Text="[NameShorter]" Target="_blank" />

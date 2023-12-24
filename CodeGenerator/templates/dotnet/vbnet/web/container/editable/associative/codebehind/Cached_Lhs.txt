@@ -1,0 +1,22 @@
+﻿#Region "Interface for [PluralRhs] page"
+    'Remaining [PluralLhs]
+    Public Sub DisplayRemaining(ByVal [SingularCamelCaseRhs] As [ClassNameRhs], ByVal autoPostback As Boolean, ByVal search As String)
+        litSelected.Text = REMAINING_TEXT
+        litCount.Text = [ClassNameLhs].Cache.Count.ToString()
+        colDate.Visible = false
+
+        Dim filtered As [ClassNameLhs]List = [SingularCamelCaseRhs].[Plural].Remaining[PluralRhs](search)
+        For Each i As [ClassNameLhs] In ctrlPaging.Display(filtered)
+            UC[Singular](plh).Display(i, [SingularCamelCaseRhs].[PrimaryKeyRhs], Nothing, autoPostback, filtered.IndexOf(i) + 1)
+        Next
+    End Sub
+    'Selected [PluralLhs]
+    Public Sub DisplaySelected(ByVal [SingularCamelCaseRhs] As [ClassNameRhs], ByVal autoPostback As Boolean)
+        litSelected.Text = SELECTED_TEXT
+        Dim selected As [ClassName]List = [SingularCamelCaseRhs].[Plural]
+        litCount.Text = selected.Count.ToString()
+        For Each i As [ClassName] In ctrlPaging.Display(selected)
+            UC[Singular](plh).Display(i.[SingularLhs], i.[SecondaryKey], i, autoPostback, selected.IndexOf(i) + 1)
+        Next
+    End Sub
+#End Region

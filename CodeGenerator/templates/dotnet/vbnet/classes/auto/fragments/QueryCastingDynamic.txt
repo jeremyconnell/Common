@@ -1,0 +1,137 @@
+
+#Region "Queries - SelectAll/SelectWhere (inherited methods, cast only)"
+    'Select Queries - Non-Paged
+    Public Shadows Function SelectAll() As [ClassName]List
+        Return CType(MyBase.SelectAll(), [ClassName]List)
+    End Function
+    Public Shadows Function SelectAll(ByVal orderBy As String) As [ClassName]List
+        Return CType(MyBase.SelectAll(orderBy), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal colName As String, ByVal sign As ESign, ByVal colValue As Object) As [ClassName]List
+        Return CType(MyBase.SelectWhere(colName, sign, colValue), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal where As CCriteria) As [ClassName]List
+        Return CType(MyBase.SelectWhere(where), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal where As CCriteriaList) As [ClassName]List
+        Return CType(MyBase.SelectWhere(where), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal where As CCriteriaList, ByVal tableNameOrJoinExpression As String) As [ClassName]List
+        Return CType(MyBase.SelectWhere(where, tableNameOrJoinExpression, Me.OrderByColumns), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal where As CCriteriaList, ByVal tableNameOrJoinExpression As String, ByVal orderBy As String) As [ClassName]List
+        Return CType(MyBase.SelectWhere(where, tableNameOrJoinExpression, orderBy), [ClassName]List)
+    End Function
+    <Obsolete("Arbitrary where-clause is not necessary portable or safe from sql injection attacks. Consider using the parameterised query interfaces")> _
+    Public Shadows Function SelectWhere(ByVal unsafeWhereClause As String) As [ClassName]List
+        Return CType(MyBase.SelectWhere(unsafeWhereClause), [ClassName]List)
+    End Function
+    Public Shadows Function SelectById([PrimaryKeyParametersTyped]) As [ClassName]List
+        Return CType(MyBase.SelectById([PrimaryKeyParameters]), [ClassName]List)
+    End Function
+    Public Shadows Function SelectByIds(ByVal ids As List(Of [PrimaryKeyObjectType])) As [ClassName]List
+        Return CType(MyBase.SelectByIds(ids), [ClassName]List)
+    End Function
+    
+    'Select Queries - Paged
+    Public Shadows Function SelectAll(ByVal pi As CPagingInfo) As [ClassName]List
+        Return CType(MyBase.SelectAll(pi), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal pi As CPagingInfo, ByVal colName As String, ByVal sign As ESign, ByVal colValue As Object) As [ClassName]List
+        Return CType(MyBase.SelectWhere(pi, colName, sign, colValue), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal pi As CPagingInfo, ByVal criteria As CCriteria) As [ClassName]List
+        Return CType(MyBase.SelectWhere(pi, criteria), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal pi As CPagingInfo, ByVal criteria As CCriteriaList) As [ClassName]List
+        Return CType(MyBase.SelectWhere(pi, criteria), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal pi As CPagingInfo, ByVal criteria As CCriteriaList, ByVal tableViewOrJoinExpr As String) As [ClassName]List
+        Return CType(MyBase.SelectWhere(pi, criteria, tableViewOrJoinExpr), [ClassName]List)
+    End Function
+    Public Shadows Function SelectByIds(ByVal pi As CPagingInfo, ByVal ids As List(Of [PrimaryKeyObjectType])) As [ClassName]List
+        Return CType(MyBase.SelectByIds(pi, ids), [ClassName]List)
+    End Function
+
+    'Select Queries - Transactional
+    Public Shadows Function SelectAll(ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectAll(tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectAll(ByVal orderBy As String, ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectAll(orderBy, tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal columnName As String, columnValue As Object, ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectWhere(columnName, columnValue, tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal columnName As String, sign As ESign, columnValue As Object, ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectWhere(columnName, sign, columnValue, tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal criteria As CCriteria, ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectWhere(criteria, tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal criteria As CCriteriaList, ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectWhere(criteria, tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal criteria As CCriteriaList, ByVal tableOrJoin As String, ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectWhere(criteria, tableOrJoin, tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectWhere(ByVal criteria As CCriteriaList, ByVal tableOrJoin As String, ByVal orderBy As String, ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectWhere(criteria, tableOrJoin, orderBy, tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectById([PrimaryKeyParametersTyped], ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectById([PrimaryKeyParameters], tx), [ClassName]List)
+    End Function
+    Public Shadows Function SelectByIds(ByVal ids As List(Of [PrimaryKeyObjectType]), ByVal tx As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.SelectByIds(ids, tx), [ClassName]List)
+    End Function
+    
+    'Select Queries - Stored Procedures
+    Public Overloads Function MakeList(ByVal storedProcName As String, ByVal txOrNull As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.MakeList(storedProcName, txOrNull), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal storedProcName As String, ByVal params As Object(), ByVal txOrNull As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.MakeList(storedProcName, params, txOrNull), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal storedProcName As String, ByVal params As CNameValueList, ByVal txOrNull As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.MakeList(storedProcName, params, txOrNull), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal storedProcName As String, ByVal params As List(Of Object), ByVal txOrNull As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.MakeList(storedProcName, params, txOrNull), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal storedProcName As String, ByVal param1 As Integer, ByVal txOrNull As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.MakeList(storedProcName, param1, txOrNull), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal storedProcName As String, ByVal param1 As String, ByVal txOrNull As IDbTransaction) As [ClassName]List
+        Return CType(MyBase.MakeList(storedProcName, param1, txOrNull), [ClassName]List)
+    End Function
+
+    'Query Results
+    Public Overloads Function MakeList(ByVal ds As DataSet) As [ClassName]List
+        Return CType(MyBase.MakeList(ds), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal dt As DataTable) As [ClassName]List
+        Return CType(MyBase.MakeList(dt), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal rows As DataRowCollection) As [ClassName]List
+        Return CType(MyBase.MakeList(rows), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal dr As IDataReader) As [ClassName]List
+        Return CType(MyBase.MakeList(dr), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal drOrDs As Object) As [ClassName]List
+        Return CType(MyBase.MakeList(drOrDs), [ClassName]List)
+    End Function
+    Public Overloads Function MakeList(ByVal gzip As Byte()) As [ClassName]List
+        Return CType(MyBase.MakeList(gzip), [ClassName]List)
+    End Function
+#End Region
+
+#Region "Queries - SelectBy[FK] (user-nominated fk/bool columns)"
+    'Non-Paged
+[SelectCommandsSimple]
+    'Paged
+[SelectCommandsPaging]
+    'Count
+[SelectCommandsCounting]
+    'Transactional
+[SelectCommandsTransactional]#End Region

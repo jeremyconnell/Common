@@ -1,0 +1,4 @@
+
+            lnk[Name].Text = .[Entity].[Entity]Name
+            lnk[Name].NavigateUrl = CSitemap.[Entity](.[Name])
+

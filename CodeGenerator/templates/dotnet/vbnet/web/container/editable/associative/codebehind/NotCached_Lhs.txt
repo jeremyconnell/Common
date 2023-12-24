@@ -1,0 +1,24 @@
+﻿#Region "Interface for [PluralRhs] page"
+    'Remaining [PluralLhs]
+    Public Sub DisplayRemaining(ByVal [SingularCamelCaseRhs] As [ClassNameRhs], ByVal autoPostback As Boolean, ByVal search As String)
+        litSelected.Text = REMAINING_TEXT
+        litCount.Text = new [ClassNameLhs]().SelectCount().ToString()
+        colDate.Visible = false
+
+        Dim page As [ClassNameLhs]List = [SingularCamelCaseRhs].Remaining[PluralLhs](PagingInfo, search)
+        For Each i As [ClassNameLhs] in page
+            Dim index As Integer = page.IndexOf(i) + 1 + PagingInfo.Offset
+            UC[Singular](plh).Display(i, [SingularCamelCaseRhs].[PrimaryKeyRhs], Nothing, autoPostback, index)
+        Next
+    End Sub
+    'Selected [PluralLhs]
+    Public Sub DisplaySelected(ByVal [SingularCamelCaseRhs] As [ClassNameRhs], ByVal autoPostback As Boolean)
+        litSelected.Text = SELECTED_TEXT
+        litCount.Text = [SingularCamelCaseRhs].[Plural]Count().ToString()
+        Dim page As [ClassName]List = [SingularCamelCaseRhs].[Plural](PagingInfo)
+        For Each i As [ClassName] in page
+            Dim number As Integer = page.IndexOf(i) + 1 + PagingInfo.Offset
+            UC[Singular](plh).Display(i.[SingularLhs], i.[SecondaryKey], i, autoPostback, number)
+        Next
+    End Sub
+#End Region

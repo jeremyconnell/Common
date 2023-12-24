@@ -1,0 +1,4 @@
+﻿***** Goes in region called "Properties - Relationships" (under section "Foreign Keys")
+    Public Function [[ProperCase]]() As [ClassName]
+            Return New [ClassName](Me.[ForeignKey])
+    End Function

@@ -1,0 +1,4 @@
+﻿        #region Preload Parent Objects
+        //Efficiency Adjustment: Preloads the common parent for the whole list, to avoid database chatter 
+        public [ParentClassName] [ProperCase] { set { foreach ([ClassName] i in this) i.[ProperCase] = value; } }
+        #endregion

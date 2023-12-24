@@ -1,0 +1,1 @@
+﻿            //if (! string.IsNullOrEmpty([CamelCase]))    results = results.GetBy[ShortName]([CamelCase]);

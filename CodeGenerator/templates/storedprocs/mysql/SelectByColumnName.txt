@@ -1,0 +1,21 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `[SpName]` $$
+
+CREATE PROCEDURE `[SpName]` (IN _[ColumnName] [SqlDataType])
+BEGIN
+
+    SELECT
+[ColumnNames]
+
+    FROM
+        [ViewOrTableName]
+
+    WHERE
+        [ColumnName] = _[ColumnName]
+
+    [OrderBy];
+
+END $$
+
+DELIMITER ;

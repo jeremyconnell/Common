@@ -1,0 +1,3 @@
+    Public Function SelectBy[ColumnNameShorter](ByVal [ColumnNameCamelCase] As [DataType]) As [ClassName]List
+      Return SelectBy[ColumnNameShorter]([ColumnNameCamelCase])
+    End Function

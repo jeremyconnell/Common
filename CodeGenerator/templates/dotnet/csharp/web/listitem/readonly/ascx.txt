@@ -1,0 +1,5 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UC[Singular].ascx.cs" Inherits="pages_[Plural]_usercontrols_UC[Singular]" %>
+<tr id="row" runat="server">
+    <td><b><asp:Literal ID="litNumber" runat="server" />.</b></td>
+[Rows]</tr>
+

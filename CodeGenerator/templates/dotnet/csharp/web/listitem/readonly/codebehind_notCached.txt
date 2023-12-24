@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+public partial class pages_[Plural]_usercontrols_UC[Singular] : System.Web.UI.UserControl 
+{     
+    #region Interface
+    public void Display([ClassName] [SingularCamelCase], [ClassName]List list, CPagingInfo pi) 
+    { 
+        if (Parent.Controls.Count % 2 == 0) row.Attributes.Add("class", "alt_row"); 
+        
+        [ClassName] c = [SingularCamelCase];
+        litNumber.Text = Convert.ToString(list.IndexOf(c) + 1 + pi.Offset);
+[Display]    } 
+    #endregion
+} 

@@ -1,0 +1,8 @@
+    Protected Overrides Property [Level]KeyValue() As Object
+        Get
+            Return m_[ColumnNameCamelCase]
+        End Get
+        Set(ByVal value As Object)
+            m_[ColumnNameCamelCase] = CType(Value, [DataTypeVb])
+        End Set
+    End Property

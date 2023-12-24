@@ -1,0 +1,4 @@
+﻿    <td id="colOrder" runat="server" nowrap>
+        <asp:ImageButton ID="btnMoveUp" runat="server" ToolTip="Move Up"   ImageUrl="~/images/up.jpg"   OnClick="btnMoveUp_Click" />
+        <asp:ImageButton ID="btnMoveDn" runat="server" ToolTip="Move Down" ImageUrl="~/images/down.jpg" OnClick="btnMoveDn_Click" />
+    </td>

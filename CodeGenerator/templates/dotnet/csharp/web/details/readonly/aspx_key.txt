@@ -1,0 +1,1 @@
+        <uc:Textbox ID="txt[Name]" Runat="server" Mode="Locked" Label="[NameShorter]" Tooltip="Click to view this [Entity]" />

@@ -1,0 +1,7 @@
+﻿
+        #region Audit Trail
+        protected override SchemaAudit.CBaseDynamicAudited OriginalState(IDbTransaction txOrNull) 
+        { 
+            return new [ClassName](this.DataSrc, this.[PrimaryKeyNameProperCase], txOrNull); 
+        } 
+        #endregion

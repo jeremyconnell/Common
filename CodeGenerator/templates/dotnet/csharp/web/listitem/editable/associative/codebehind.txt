@@ -1,0 +1,103 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+partial class pages_[Plural]_usercontrols_UC[Singular] : UserControl
+{    
+    #region Constants
+    public const string CSS_CHECKBOX_CHANGED = "checkboxchanged";
+    private static string JSCRIPT = string.Concat("this.className=(this.checked==this.defaultChecked?'':'", CSS_CHECKBOX_CHANGED, "')");
+    #endregion
+    
+    #region Members
+    private [PrimaryKeyTypeLhs] _[PrimaryKeyCamelCaseLhs];
+    private [PrimaryKeyTypeRhs] _[PrimaryKeyCamelCaseRhs];
+    private bool _is[SingularRhs]Page;
+    #endregion
+
+    #region Behaviour
+    public bool AutoPostBack { get { return chk.AutoPostBack; } set { chk.AutoPostBack = value; } }
+    public bool Enabled      { get { return chk.Enabled;      } set { chk.Enabled = value;      } }
+    #endregion
+    
+    #region Interfaces
+    //[SingularLhs]-orientated, for [SingularRhs] page
+    public void Display([ClassNameLhs] [SingularCamelCaseLhs], [PrimaryKeyTypeRhs] [PrimaryKeyCamelCaseRhs], [ClassName] assnOrNull, bool autoPostback, int number)
+    {
+        if (Parent.Controls.Count % 2 == 0) row.Attributes.Add("class", "alt_row"); 
+        
+        _[PrimaryKeyCamelCaseLhs] = [SingularCamelCaseLhs].[PrimaryKeyLhs];
+        _[PrimaryKeyCamelCaseRhs] = [PrimaryKeyCamelCaseRhs];
+        _is[SingularRhs]Page = true;
+        this.AutoPostBack = autoPostback;
+        if (!autoPostback) chk.Attributes.Add("onclick", JSCRIPT);
+        
+        lnkTarget.Text = [SingularCamelCaseLhs].[SingularLhs]Name;
+        lnkTarget.NavigateUrl = CSitemap.[Plural]For[SingularLhs]([SingularCamelCaseLhs].[PrimaryKeyLhs]);
+
+        litNum.Text = number.ToString();
+        
+        if (null != assnOrNull) //Selected vs Remaining
+        {
+            chk.Checked = true;
+            chk.ToolTip = "Uncheck to remove [SingularLhs] from this [SingularRhs]";
+            
+            //colDateCreated.Visible = true;
+            //lblDateCreated.Text    = CUtilities.LongDate(    assnOrNull.XYDateCreated);
+            //lblDateCreated.ToolTip = CUtilities.LongDateTime(assnOrNull.XYDateCreated);
+        }
+        else
+            chk.ToolTip = "Check to Add [SingularLhs] to this [SingularRhs]";
+    }
+    //[SingularRhs]-orientated, for [SingularLhs] page
+    public void Display([ClassNameRhs] [SingularCamelCaseRhs], [PrimaryKeyTypeLhs] [PrimaryKeyCamelCaseLhs], [ClassName] assnOrNull, bool autoPostback, int number)
+    {
+        if (Parent.Controls.Count % 2 == 0) row.Attributes.Add("class", "alt_row"); 
+        
+        _[PrimaryKeyCamelCaseLhs] = [PrimaryKeyCamelCaseLhs];
+        _[PrimaryKeyCamelCaseRhs] = [SingularCamelCaseRhs].[PrimaryKeyRhs];
+        _is[SingularRhs]Page = false;
+        this.AutoPostBack = autoPostback;
+        if (!autoPostback) chk.Attributes.Add("onclick", JSCRIPT);
+        
+        lnkTarget.Text = [SingularCamelCaseRhs].[SingularRhs]Name;
+        lnkTarget.NavigateUrl = CSitemap.[Plural]For[SingularRhs]([SingularCamelCaseRhs].[PrimaryKeyRhs]);
+
+        litNum.Text = number.ToString();
+        
+        if (null != assnOrNull) //Selected vs Remaining
+        {
+            chk.Checked = true;
+            chk.ToolTip = "Uncheck to remove [SingularRhs] from this [SingularLhs]";
+            
+            //colDateCreated.Visible = true;
+            //lblDateCreated.Text    = CUtilities.LongDate(    assnOrNull.XYDateCreated);
+            //lblDateCreated.ToolTip = CUtilities.LongDateTime(assnOrNull.XYDateCreated);
+        }
+        else
+            chk.ToolTip = "Check to Add [SingularRhs] to this [SingularLhs]";
+    }
+    #endregion
+    
+    #region Events
+    protected void chk_CheckedChanged(object sender, System.EventArgs e)
+    {
+        if (chk.Checked) 
+            [ClassName].InsertPair(_[PrimaryKeyCamelCaseLhs], _[PrimaryKeyCamelCaseRhs]);
+        else 
+            [ClassName].DeletePair(_[PrimaryKeyCamelCaseLhs], _[PrimaryKeyCamelCaseRhs]);
+        Refresh();
+    }
+    private void Refresh()
+    {
+        if (!AutoPostBack) 
+            return;
+        Response.Redirect(Request.RawUrl);
+    }
+    #endregion
+}

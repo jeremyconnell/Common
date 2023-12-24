@@ -1,0 +1,6 @@
+﻿        public [ClassName]List Remaining[Plural](string search)
+        {
+            [ClassName]List temp = new [ClassName]List([ClassName].Cache.Search(search));
+            temp.Remove(this.[Plural]);
+            return temp;
+        }

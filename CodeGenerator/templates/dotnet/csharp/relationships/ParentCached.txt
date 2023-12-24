@@ -1,0 +1,2 @@
+﻿***** Goes in region called "Properties - Relationships" (under section "Foreign Keys") 
+        public [ClassName] [ProperCase] { get { return [ClassName].Cache.GetById(this.[ForeignKey]); } } 

@@ -1,0 +1,2 @@
+﻿        lnk[Name].Text = (string)(c.[Expression].Length == 0 ? "..." : c.[Expression]); 
+        lnk[Name].NavigateUrl = CSitemap.[Singular]Edit(c.[PrimaryKeyName]); 

@@ -1,0 +1,112 @@
+using System;
+using System.Data;
+using System.Collections;
+using System.Collections.Generic;
+
+using Framework;
+
+namespace [NameSpace]
+{
+    [Serializable()]
+    public partial class [ClassName]List : List<[ClassName]>
+    {
+        #region Constructors
+        //Basic constructor
+        public [ClassName]List() : base() {}
+       
+        //More efficient memory-allocation if size is known
+        public [ClassName]List(int capacity) : base(capacity) {}
+        
+        //Shares the index (if its already been computed)
+        public [ClassName]List([ClassName]List list) : base(list.Count)
+        {
+            foreach ([ClassName] i in list)
+                base.Add(i);
+        }
+
+        //Generic list (eg. from paging control), have to assume type
+        public [ClassName]List(IList list) : base(list.Count)
+        {
+            foreach ([ClassName] i in list)
+                base.Add(i);
+        }
+        #endregion
+        
+[SaveAllDeleteAll]
+
+        #region List of Ids
+        List<[PrimaryKeyObjectType]> _ids;
+        public List<[PrimaryKeyObjectType]> Ids
+        {
+            get
+            {
+                if (null == _ids)
+                {
+                    List<[PrimaryKeyObjectType]> ids = new List<[PrimaryKeyObjectType]>(this.Count);
+                    foreach ([ClassName] i in this)
+                        ids.Add(i.[PrimaryKeyNameProperCase]);
+                    _ids = ids;
+                }
+                return _ids;
+            }
+        }
+        public [ClassName]List GetByIds(List<[PrimaryKeyObjectType]> ids)
+        {
+            [ClassName]List list = new [ClassName]List(ids.Count);
+            foreach ([PrimaryKeyObjectType] id in ids)
+                if (null != GetById(id))
+                    list.Add(GetById(id));
+            return list;
+        }
+        #endregion
+        
+        #region Cache-Control
+        //Main Logic
+        public new void Add([ClassName] item)
+        {
+            if (null != _index && ! _index.ContainsKey(item.[PrimaryKeyNameProperCase]))
+                _index[item.[PrimaryKeyNameProperCase]] = item;
+            base.Add(item);
+        }
+        public new void Remove([ClassName] item)
+        {
+            if (null != _index && _index.ContainsKey(item.[PrimaryKeyNameProperCase]))
+                _index.Remove(item.[PrimaryKeyNameProperCase]);
+            base.Remove(item);
+        }
+    
+        //Supplementary List Overloads
+        public void Add(   IList<[ClassName]> itemsToAdd)    {   foreach ([ClassName] i in itemsToAdd)   { Add(   i); }   }
+        public void Remove(IList<[ClassName]> itemsToRemove) {   foreach ([ClassName] i in itemsToRemove){ Remove(i); }   }
+        #endregion
+        
+        #region Main Index (on [PrimaryKeyNameProperCase])
+        public [ClassName] GetById([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase])
+        {
+            [ClassName] c = null;
+            Index.TryGetValue([PrimaryKeyNameCamelCase], out c);
+            return c;
+        }
+        [NonSerialized]
+        private Dictionary<[PrimaryKeyObjectType],[ClassName]> _index;
+        private Dictionary<[PrimaryKeyObjectType],[ClassName]> Index
+        {
+            get
+            {
+                if (null != _index)
+                    if (_index.Count == this.Count)
+                        return _index;
+
+                    _index = new Dictionary<[PrimaryKeyObjectType],[ClassName]>(this.Count);
+                        foreach ([ClassName] i in this) 
+                            _index[i.[PrimaryKeyNameProperCase]] = i;
+                return _index;
+            }
+        }
+        #endregion
+            
+        #region Foreign-Key Indices (Subsets)
+[CustomIndices]        #endregion
+[GenericSorting][MoveUpDown]
+    }
+}

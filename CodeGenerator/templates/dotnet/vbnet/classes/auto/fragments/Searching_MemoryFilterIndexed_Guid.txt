@@ -1,0 +1,1 @@
+﻿        'If Guid.Empty <> [CamelCase] Then results = results.GetBy[ShortName]([CamelCase])

@@ -1,0 +1,7 @@
+﻿
+        #region Audit Trail
+        protected override SchemaAudit.CBaseDynamicAuditedM2M OriginalState(IDbTransaction txOrNull) 
+        { 
+            return new [ClassName](this.DataSrc, this.[PrimaryKeyNameProperCase], this.[SecondaryKeyNameProperCase], txOrNull); 
+        } 
+        #endregion

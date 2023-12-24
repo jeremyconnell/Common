@@ -1,0 +1,68 @@
+Imports System
+Imports System.Data
+Imports System.Collections
+Imports System.Collections.Generic
+
+Imports Framework
+
+<Serializable(), CLSCompliant(True)> _
+Partial Public Class [ClassName]
+    Inherits [BaseClass]
+    Implements IComparable(Of [ClassName])
+
+#Region "Constructors"
+    'Public (Copy Constructor)
+    Public Sub New(ByVal original as [ClassName], target As CDataSrc)
+        m_dataSrc = target
+[CopyConstructor]    End Sub
+
+    'Protected (Datareader/Dataset)
+    Protected Sub New(ByVal dataSrc As CDataSrc, ByVal dr As IDataReader)
+        MyBase.New(dataSrc, dr)
+    End Sub
+    Protected Sub New(ByVal dataSrc As CDataSrc, ByVal dr As DataRow)
+        MyBase.New(dataSrc, dr)
+    End Sub
+#End Region
+
+#Region "Default Values"
+    Protected Overrides Sub InitValues_Auto()
+        'Null-Equivalent values (except String.Empty, as nulls tend to be inconvenient for string types)
+[InitValues]    End Sub
+#End Region
+[Members]
+#Region "Properties - Column Values"
+    'Primary Key Column (ReadOnly)
+[PrimaryKeyColumns]
+    'Table Columns (Read/Write)
+[TableColumnProperties]
+    'View Columns (ReadOnly)
+[ViewColumnProperties]
+#End Region
+
+#Region "MustOverride Methods"
+    'Schema Information
+[SchemaInfo]
+    'CompareTo Interface (Default Sort Order)
+[CompareTo]
+    'Primary Key Information
+[PrimaryKeyInfo]
+    'Factory Methods - Object
+    Protected Overrides Function MakeFrom(ByVal row As DataRow) As CBase
+        Return New [ClassName](Me.DataSrc, row)
+    End Function
+    Protected Overrides Function MakeFrom(ByVal dr As IDataReader) As CBase
+        Return New [ClassName](Me.DataSrc, dr)
+    End Function
+    
+    'Factory Methods - List
+    Protected Overrides Function MakeList() As IList
+        Return New [ClassName]List
+    End Function
+    Protected Overrides Function MakeList(ByVal capacity As Integer) As IList
+        Return New [ClassName]List(capacity)
+    End Function
+[Persistance]#End Region
+[QueryCasting][Caching][ToXml][AuditTrail]
+
+End Class

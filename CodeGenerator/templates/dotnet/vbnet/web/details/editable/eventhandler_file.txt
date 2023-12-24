@@ -1,0 +1,6 @@
+﻿    Protected Sub file[Name]_DeleteClick() Handles file[Name].DeleteClick
+        With Me.[Singular]
+            .[Name] = String.Empty
+            .Save()
+        End With
+    End Sub

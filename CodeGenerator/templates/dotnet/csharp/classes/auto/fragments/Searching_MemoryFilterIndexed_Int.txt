@@ -1,0 +1,1 @@
+﻿            //if ([DataType].MinValue != [CamelCase]) results = results.GetBy[ShortName]([CamelCase]);

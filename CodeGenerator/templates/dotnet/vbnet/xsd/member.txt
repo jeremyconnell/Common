@@ -1,0 +1,1 @@
+    Private m_[nameCamelCase] As [dataType]

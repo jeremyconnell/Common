@@ -1,0 +1,15 @@
+
+        //Convert from ADO to .Net
+        protected override void ReadColumns(IDataReader dr)
+        {
+[ReadColumns]        }
+        protected override void ReadColumns(DataRow dr)
+        {
+[ReadColumns]        }
+
+        //Parameters for Insert/Update    
+        protected override CNameValueList ColumnNameValues()
+        {
+            CNameValueList data = new CNameValueList();
+[Data]            return data;
+        }

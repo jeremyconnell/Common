@@ -1,0 +1,18 @@
+﻿        #region Alternative Sort Order (In-Memory Sort)
+        //Public
+        public [ClassName]List SortBy[SortName]() 
+        { 
+            [ClassName]List copy = new [ClassName]List(this); 
+            copy.Sort(new [ClassName]_SortBy[SortName]()); 
+            return copy; 
+        } 
+
+        //Private 
+        private class [ClassName]_SortBy[SortName] : IComparer<[ClassName]> 
+        { 
+            public int Compare([ClassName] x, [ClassName] y) 
+            { 
+[Compare]
+            } 
+        } 
+        #endregion

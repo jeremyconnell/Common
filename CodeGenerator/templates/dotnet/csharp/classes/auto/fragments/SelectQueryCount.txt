@@ -1,0 +1,1 @@
+        public int SelectCountBy[ColumnNameShorter]([DataType] [ColumnNameCamelCase])   {   return SelectCount(new CCriteriaList("[ColumnNameProperCase]", [ColumnNameCamelCase]));     }

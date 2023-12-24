@@ -1,0 +1,51 @@
+﻿
+        #region Members
+        private [ClassName]List _[PluralCamelCase];
+        private List<[DataType]> _[SingularCamelCase]Ids;
+        #endregion 
+
+        #region Resolve Associative table (and sort)
+        public [ClassName]List [Plural] 
+        { 
+            get 
+            {
+                if (_[PluralCamelCase] == null) 
+                {
+                    lock (this)
+                    {
+                        if (null == _[PluralCamelCase])
+                        {
+                            _[PluralCamelCase] = new [ClassName]List(this.Count);
+                            foreach ([MyClassName] i in this)
+                                if (i.[Singular] != null)
+                                    _[PluralCamelCase].Add(i.[Singular]);
+                            _[PluralCamelCase].Sort();
+                        }
+                    }
+                }
+                return _[PluralCamelCase];
+            }
+        }
+[Cached]        #endregion
+
+        #region Resolve/Isolate PKs
+        public List<[DataType]> [Singular]Ids
+        { 
+            get 
+            {
+                if (null == _[SingularCamelCase]Ids) 
+                {
+                    lock (this)
+                    {
+                        if (null == _[SingularCamelCase]Ids) 
+                        {
+                            _[SingularCamelCase]Ids = new List<[DataType]>(this.Count);
+                            foreach ([MyClassName] i in this)
+                                _[SingularCamelCase]Ids.Add(i.[PrimaryKeyName]);
+                        } 
+                    } 
+                } 
+                return _[SingularCamelCase]Ids; 
+            } 
+        }
+        #endregion

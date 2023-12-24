@@ -1,0 +1,8 @@
+        Public Property [ColumnNameProperCase]() As [DataType]
+            Get
+                Return Read[DataTypeVb]("[ColumnName]")
+            End Get
+            Set(ByVal value As [DataType])
+                Write("[ColumnName]", value)
+            End Set
+        End Property

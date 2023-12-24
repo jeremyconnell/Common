@@ -1,0 +1,30 @@
+﻿Imports Framework
+Imports System.Xml
+
+Partial Public Class [className]
+
+#Region "Initial State"
+'    Protected Overrides Sub ApplyDefaultValues_Custom()
+'    End Sub
+#End Region
+
+#Region "Members"
+#End Region
+
+#Region "Properties"
+#End Region
+
+#Region "Persistance"
+'    Protected Overrides Function ImportSelf(ByVal parent As XmlNode) As XmlNode
+'        Dim node As XmlNode = MyBase.ImportSelf(parent)
+'         m_sample = CXml.AttributeInt(node, "Sample", Integer.MinValue)
+'        Return node
+'    End Function
+'    Protected Overrides Function ExportSelf(ByVal parent As System.Xml.XmlNode) As System.Xml.XmlNode
+'        Dim node As XmlNode = MyBase.ExportSelf(parent)
+'        CXml.AttributeSet(node, "Sample", m_sample)
+'        Return node
+'    End Function
+#End Region
+
+End Class

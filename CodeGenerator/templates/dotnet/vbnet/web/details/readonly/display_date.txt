@@ -1,0 +1,3 @@
+            'txt[Name].ValueDate = .[Name]
+            txt[Name].Text = CUtilities.Timespan(.[Name])
+            txt[Name].Tooltip = CUtilities.LongDateTime(.[Name])

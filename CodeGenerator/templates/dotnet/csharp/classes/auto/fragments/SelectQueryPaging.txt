@@ -1,0 +1,1 @@
+        public [ClassName]List SelectBy[ColumnNameShorter](CPagingInfo pi, [DataType] [ColumnNameCamelCase])    {    return SelectWhere(pi, new CCriteriaList("[ColumnNameProperCase]", [ColumnNameCamelCase]));    }

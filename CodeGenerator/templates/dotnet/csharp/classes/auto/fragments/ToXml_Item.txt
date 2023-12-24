@@ -1,0 +1,1 @@
+﻿            Store(w, "[ColumnName]", this.[ProperCase]);

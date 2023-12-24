@@ -1,0 +1,16 @@
+﻿Imports System.Collections
+
+Partial Public Class pages_[Plural]_usercontrols_UC[Singular] : Inherits UserControl
+
+#Region "Interface"
+    Public Sub Display(ByVal [[SingularCamelCase]] As [ClassName], sortedList as [ClassName]List)
+        If Parent.Controls.Count Mod 2 = 0 Then row.Attributes.Add("class", "alt_row")
+
+        With [[SingularCamelCase]]
+            litNumber.Text = CStr(sortedList.IndexOf(m_[SingularCamelCase]) + 1)
+[Display]        End With
+    End Sub
+#End Region
+
+End Class
+

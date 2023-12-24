@@ -1,0 +1,63 @@
+﻿        #region Top/Bottom/Page
+        public [ClassName]List Top(int count)
+        {
+            if (count >= this.Count)
+                return this;
+            return Page(count, 0); 
+        }
+        public [ClassName]List Bottom(int count)   
+        {
+            if (count > this.Count)
+                count = this.Count;
+            return new [ClassName]List(this.GetRange(this.Count - count - 1, count));
+        }
+        public [ClassName]List Page(int pageSize, int pageIndex)
+        {
+            return new [ClassName]List( CUtilities.Page(this, pageSize, pageIndex) );
+        }
+        #endregion
+
+        #region BulkEditLogic
+        public bool HaveSameValue(string propertyName)               { return CReflection.HaveSameValue(this, propertyName); }
+        public void SetSameValue( string propertyName, object value) {        CReflection.SetSameValue( this, propertyName, value); }
+        #endregion
+
+        #region SortBy
+        //Public
+        public [ClassName]List SortBy(string propertyName) { return SortBy(propertyName, false); }
+        public [ClassName]List SortBy(string propertyName, bool descending)
+        {
+            [ClassName]List copy = new [ClassName]List(this);
+            if (this.Count == 0)    return copy;
+            copy.Sort(new [ClassName]List_SortBy(propertyName, descending, this));
+            return copy;
+        }
+        //Private 
+        private class [ClassName]List_SortBy : CReflection.GenericSortBy, IComparer<[ClassName]>
+        {
+            public [ClassName]List_SortBy(string propertyName, bool descending, IList list) : base(propertyName, descending, list) { }
+            public int Compare([ClassName] x, [ClassName] y) { return base.Compare(x, y); }
+        }
+        #endregion
+
+        #region SaveAll/DeleteAll
+        //Use default connection (may be overridden in base class)
+        public void SaveAll()   {   if (this.Count > 0) { SaveAll(  this[0].DataSrc);    }    }
+        public void DeleteAll() {   if (this.Count > 0) { DeleteAll(this[0].DataSrc);    }    }
+
+        //Use connection supplied
+        public void SaveAll(  CDataSrc dataSrc) {   dataSrc.BulkSave(this);    }
+        public void DeleteAll(CDataSrc dataSrc) {   dataSrc.BulkDelete(this);  }
+
+        //Use transaction supplied
+        public void SaveAll(  IDbTransaction txOrNull)    {   foreach ([ClassName] i in this) {   i.Save(  txOrNull);   }   }
+        public void DeleteAll(IDbTransaction txOrNull)    {   foreach ([ClassName] i in this) {   i.Delete(txOrNull);   }   }
+
+        //Use a specified isolation level
+        public void SaveAll(  IsolationLevel txIsolationLevel)   {   if (this.Count > 0) { SaveAll(  this[0].DataSrc, txIsolationLevel);  }    }
+        public void DeleteAll(IsolationLevel txIsolationLevel)   {   if (this.Count > 0) { DeleteAll(this[0].DataSrc, txIsolationLevel);  }    }
+
+        //Use a specified connection and isolation level
+        public void SaveAll(  CDataSrc dataSrc, IsolationLevel txIsolationLevel)   {   dataSrc.BulkSave(  this, txIsolationLevel);  }
+        public void DeleteAll(CDataSrc dataSrc, IsolationLevel txIsolationLevel)   {   dataSrc.BulkDelete(this, txIsolationLevel);  }
+        #endregion

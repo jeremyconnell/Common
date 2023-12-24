@@ -1,0 +1,99 @@
+﻿Public Partial Class pages_[Plural]_usercontrols_UC[Singular] : Inherits UserControl
+
+#Region "Constants"
+    Public Const CSS_CHECKBOX_CHANGED As String = "checkboxchanged"
+    Private Shared JSCRIPT As String = String.Concat("this.className=(this.checked==this.defaultChecked?'':'", CSS_CHECKBOX_CHANGED, "')")
+#End Region
+
+#Region "Members"
+    Private m_[PrimaryKeyCamelCaseLhs] As [PrimaryKeyTypeLhs]
+    Private m_[PrimaryKeyCamelCaseRhs] As [PrimaryKeyTypeRhs]
+    Private m_is[SingularRhs]Page As Boolean
+#End Region
+
+#Region "Behaviour"
+    Public Property Enabled() As Boolean
+        Get
+            Return chk.Enabled
+        End Get
+        Set(ByVal value As Boolean)
+            chk.Enabled = value
+        End Set
+    End Property
+    Public Property AutoPostBack() As Boolean
+        Get
+            Return chk.AutoPostBack
+        End Get
+        Set(ByVal value As Boolean)
+            chk.AutoPostBack = value
+        End Set
+    End Property
+#End Region
+
+#Region "Interfaces"
+    '[SingularLhs]-orientated, for [SingularRhs] page
+    Public Sub Display(ByVal [SingularCamelCaseLhs] As [ClassNameLhs], ByVal [PrimaryKeyCamelCaseRhs] As [PrimaryKeyTypeRhs], ByVal assnOrNull As [ClassName], ByVal autoPostback As Boolean, ByVal number As Integer)
+        If Parent.Controls.Count Mod 2 = 0 Then row.Attributes.Add("class", "alt_row")
+
+        m_[PrimaryKeyCamelCaseLhs] = [SingularCamelCaseLhs].[PrimaryKeyLhs]
+        m_[PrimaryKeyCamelCaseRhs] = [PrimaryKeyCamelCaseRhs]
+        m_is[SingularRhs]Page = True
+
+        lnkTarget.Text = [SingularCamelCaseLhs].[SingularLhs]Name
+        lnkTarget.NavigateUrl = CSitemap.[Plural]For[SingularLhs]([SingularCamelCaseLhs].[PrimaryKeyLhs])
+
+        litNum.Text = number.ToString()
+        
+        If Not IsNothing(assnOrNull) Then 'Selected vs Remaining
+            chk.Checked = true
+            chk.ToolTip = "Uncheck to remove [SingularLhs] from this [SingularRhs]"
+            
+            'colDateCreated.Visible = True
+            'lblDateCreated.Text    = CUtilities.LongDate(    assnOrNull.XYDateCreated)
+            'lblDateCreated.ToolTip = CUtilities.LongDateTime(assnOrNull.XYDateCreated)
+        Else
+            chk.ToolTip = "Check to Add [SingularLhs] to this [SingularRhs]"
+        End If
+    End Sub
+    '[SingularRhs]-orientated, for [SingularLhs] page
+    Public Sub Display(ByVal [SingularCamelCaseRhs] As [ClassNameRhs], ByVal [PrimaryKeyCamelCaseLhs] As [PrimaryKeyTypeLhs], ByVal assnOrNull As [ClassName], ByVal autoPostback As Boolean, ByVal number As Integer)
+        If Parent.Controls.Count Mod 2 = 0 Then row.Attributes.Add("class", "alt_row")
+
+        m_[PrimaryKeyCamelCaseLhs] = [PrimaryKeyCamelCaseLhs]
+        m_[PrimaryKeyCamelCaseRhs] = [SingularCamelCaseRhs].[PrimaryKeyRhs]
+        m_is[SingularRhs]Page = False
+
+        lnkTarget.Text = [SingularCamelCaseRhs].[SingularRhs]Name
+        lnkTarget.NavigateUrl = CSitemap.[Plural]For[SingularRhs]([SingularCamelCaseRhs].[PrimaryKeyRhs])
+
+        litNum.Text = number.ToString()
+        
+        If Not IsNothing(assnOrNull) Then 'Selected vs Remaining
+            chk.Checked = true
+            chk.ToolTip = "Uncheck to remove [SingularRhs] from this [SingularLhs]"
+            
+            'colDateCreated.Visible = True
+            'lblDateCreated.Text    = CUtilities.LongDate(    assnOrNull.XYDateCreated)
+            'lblDateCreated.ToolTip = CUtilities.LongDateTime(assnOrNull.XYDateCreated)
+        Else
+            chk.ToolTip = "Check to Add [SingularRhs] to this [SingularLhs]"
+        End If
+    End Sub
+#End Region
+
+#Region "Events"
+    Private Sub chk_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chk.CheckedChanged
+        If chk.Checked Then
+            [ClassName].InsertPair(m_[PrimaryKeyCamelCaseLhs], m_[PrimaryKeyCamelCaseRhs])
+        Else
+            [ClassName].DeletePair(m_[PrimaryKeyCamelCaseLhs], m_[PrimaryKeyCamelCaseRhs])
+        End If
+        Refresh()
+    End Sub
+    Private Sub Refresh()
+        If Not AutoPostBack Then Exit Sub
+        Response.Redirect(Request.RawUrl)
+    End Sub
+#End Region
+
+End Class

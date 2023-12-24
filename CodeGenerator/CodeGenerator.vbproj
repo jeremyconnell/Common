@@ -1,0 +1,2620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F118D0DF-A6A4-46F1-ACE3-CEC779FC0D7D}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>icons\icon.ICO</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>CodeGenerator</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>On</OptionStrict>
+    <RootNamespace>CodeGenerator</RootNamespace>
+    <StartupObject>CodeGenerator.Form1</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>8E69FABA0665E857C897B917FAE6DD1AB5F339DF</ManifestCertificateThumbprint>
+    <ManifestKeyFile>CodeGenerator_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>false</SignAssembly>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>ftp://78.109.165.110/picasso/codegenerator/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.picasso.net.nz/CodeGenerator/</InstallUrl>
+    <SupportUrl>http://www.codeplex.com/jeremydotnet</SupportUrl>
+    <ProductName>Code Generator</ProductName>
+    <PublisherName>Picasso.net.nz</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>215</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>CodeGenerator.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>CodeGenerator.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip.Partial, Version=1.8.4.18, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Ionic.Zlib, Version=1.8.4.18, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=5.2.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Framework\Dlls\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=9.2.0.700, Culture=neutral, PublicKeyToken=89b483f429c47342">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Framework\Dlls\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.OracleClient, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Framework\Dlls\System.Data.OracleClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Framework" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Text" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="XmlConnections" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="classes\abstract\CTableInformation.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="classes\CConfig.vb" />
+    <Compile Include="classes\CMetadata.vb" />
+    <Compile Include="classes\CTable.vb" />
+    <Compile Include="classes\CTemplate.vb" />
+    <Compile Include="classes\generators\configData\COverwriteFiles.vb" />
+    <Compile Include="classes\generators\CMainLogic.vb" />
+    <Compile Include="classes\generators\configData\CUser_Connections.vb" />
+    <Compile Include="classes\generators\configData\CUser_RecentFiles.vb" />
+    <Compile Include="classes\generators\configData\CUser_Templates.vb" />
+    <Compile Include="classes\storage\CPathAndTemplate.vb" />
+    <Compile Include="classes\storage\CSkin.vb" />
+    <Compile Include="classes\storage\CSkinList.vb" />
+    <Compile Include="dialogs\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dialogs\FormOverwriteFiles.Designer.vb">
+      <DependentUpon>FormOverwriteFiles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\FormOverwriteFiles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dialogs\FormTemplate.Designer.vb">
+      <DependentUpon>FormTemplate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\FormTemplate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCTextFile.Designer.vb">
+      <DependentUpon>UCTextFile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCTextFile.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCExcel.Designer.vb">
+      <DependentUpon>UCExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCExcel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\relationships\UCRelationships.Designer.vb">
+      <DependentUpon>UCRelationships.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\relationships\UCRelationships.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCAccess.Designer.vb">
+      <DependentUpon>UCAccess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCAccess.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCOracle.Designer.vb">
+      <DependentUpon>UCOracle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCOracle.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\sorting\UCSortColumn.Designer.vb">
+      <DependentUpon>UCSortColumn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\sorting\UCSortColumn.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\sorting\UCSorting.Designer.vb">
+      <DependentUpon>UCSorting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\sorting\UCSorting.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\UCClassGenerator.Designer.vb">
+      <DependentUpon>UCClassGenerator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\UCClassGenerator.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\UCConnections.Designer.vb">
+      <DependentUpon>UCConnections.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\UCConnections.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCMySql.Designer.vb">
+      <DependentUpon>UCMySql.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCMySql.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCOdbc.Designer.vb">
+      <DependentUpon>UCOdbc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCOdbc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCOleDb.Designer.vb">
+      <DependentUpon>UCOleDb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCOleDb.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\UCCopyAndPaste.designer.vb">
+      <DependentUpon>UCCopyAndPaste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\UCCopyAndPaste.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\UCOutput.Designer.vb">
+      <DependentUpon>UCOutput.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\UCOutput.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCSqlServer.Designer.vb">
+      <DependentUpon>UCSqlServer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\drivers\UCSqlServer.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\relationships\UCTables.Designer.vb">
+      <DependentUpon>UCTables.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\relationships\UCTables.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\UCTemplates.Designer.vb">
+      <DependentUpon>UCTemplates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\UCTemplates.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\ui\UCUiCodeGen.Designer.vb">
+      <DependentUpon>UCUiCodeGen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\ui\UCUiCodeGen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="xsd2code\CGeneratorXsd.vb" />
+    <Compile Include="xsd2code\CRecent.vb" />
+    <Compile Include="xsd2code\UCHistory.Designer.vb">
+      <DependentUpon>UCHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="xsd2code\UCHistory.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="xsd2code\UCXsdClassGenerator.Designer.vb">
+      <DependentUpon>UCXsdClassGenerator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="xsd2code\UCXsdClassGenerator.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="xsd2code\xsd\CAttribute.vb" />
+    <Compile Include="xsd2code\xsd\CChild.vb" />
+    <Compile Include="xsd2code\xsd\CClass.vb" />
+    <EmbeddedResource Include="dialogs\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\FormOverwriteFiles.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormOverwriteFiles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\FormTemplate.resx">
+      <DependentUpon>FormTemplate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\drivers\UCTextFile.resx">
+      <DependentUpon>UCTextFile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\drivers\UCExcel.resx">
+      <DependentUpon>UCExcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\relationships\UCRelationships.resx">
+      <DependentUpon>UCRelationships.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\drivers\UCAccess.resx">
+      <DependentUpon>UCAccess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\drivers\UCOracle.resx">
+      <DependentUpon>UCOracle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\sorting\UCSortColumn.resx">
+      <DependentUpon>UCSortColumn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\sorting\UCSorting.resx">
+      <DependentUpon>UCSorting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\UCClassGenerator.resx">
+      <DependentUpon>UCClassGenerator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\UCConnections.resx">
+      <DependentUpon>UCConnections.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\drivers\UCMySql.resx">
+      <DependentUpon>UCMySql.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\drivers\UCOdbc.resx">
+      <DependentUpon>UCOdbc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\drivers\UCOleDb.resx">
+      <DependentUpon>UCOleDb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\UCCopyAndPaste.resx">
+      <DependentUpon>UCCopyAndPaste.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\UCOutput.resx">
+      <DependentUpon>UCOutput.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\drivers\UCSqlServer.resx">
+      <DependentUpon>UCSqlServer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\relationships\UCTables.resx">
+      <DependentUpon>UCTables.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\UCTemplates.resx">
+      <DependentUpon>UCTemplates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\ui\UCUiCodeGen.resx">
+      <DependentUpon>UCUiCodeGen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xsd2code\UCHistory.resx">
+      <DependentUpon>UCHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xsd2code\UCXsdClassGenerator.resx">
+      <DependentUpon>UCXsdClassGenerator.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\_Framework\Framework.MySql\Framework.MySql.vbproj">
+      <Project>{752189a4-93d9-4078-bb8e-b5946c241607}</Project>
+      <Name>Framework.MySql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\_Framework\Framework.OracleOdp\Framework.OracleOdp.vbproj">
+      <Project>{91b8701e-0e96-49df-934c-84677f7f9319}</Project>
+      <Name>Framework.OracleOdp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\_Framework\Framework.PostGres\Framework.PostGres.vbproj">
+      <Project>{eeb058b3-9ed6-47bd-a190-c1ef757b7c9e}</Project>
+      <Name>Framework.PostGres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\_Framework\Framework\Framework.vbproj">
+      <Project>{DE7FDE19-414E-4CD5-9AE3-25BC7B1A2A05}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schema\SchemaAudit\SchemaAudit.vbproj">
+      <Project>{27E4F7F3-45F5-4FAF-BD4F-CCFAE015CC0D}</Project>
+      <Name>SchemaAudit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schema\SchemaMembership\SchemaMembership.vbproj">
+      <Project>{5E4919EE-0701-49C9-806C-AB070095D8EF}</Project>
+      <Name>SchemaMembership</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schema\XmlConnections\XmlConnections.vbproj">
+      <Project>{9C8D0C05-5302-44AA-878B-464125282EDA}</Project>
+      <Name>XmlConnections</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dlls\Ionic.Zip.Partial.dll" />
+    <Content Include="dlls\Ionic.Zip.Partial.pdb" />
+    <Content Include="dlls\Ionic.Zip.Partial.xml" />
+    <Content Include="dlls\Ionic.Zlib.dll" />
+    <Content Include="dlls\Ionic.Zlib.pdb" />
+    <Content Include="dlls\Ionic.Zlib.xml" />
+    <Content Include="icons\icon.ICO" />
+    <Content Include="templates\dotnet\csharp\classes\auto\Class.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\Class3Way.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\ClassM2M.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\AuditTrail.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\AuditTrail3Way.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\AuditTrailM2M.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\CacheLogic.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\CompareToDouble.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\CompareToSingle.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\CompareToTriple.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\TablePropertySettablePk.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_Param.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\SelectQueryTransactional.txt">
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\CopyConstructor.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\CustomIndex.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\data.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\GenericSorting.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\InitValue.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\KeyProperty.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\KeyPropertySmart.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Member.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Members.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\MoveUpDown.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Persistance.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyConstants_Integer.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyConstants_String.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyInfo1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyInfo2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyInfo3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\QueryCastingDynamic.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\QueryCastingProtected.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\QueryCastingStatic.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\QueryCasting_3Way.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\QueryCasting_M2M.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\ReadColumn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\SaveAllDeleteAll.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\SchemaInfo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\SchemaInfoSp.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_Cached.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_Cached_List.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterCustom_String.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterIndexed_Bool.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterIndexed_Guid.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterIndexed_Int.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterIndexed_String.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_NotCached.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_SqlFilterBool.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_SqlFilterGuid.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_SqlFilterInt.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\Searching_SqlFilterString.txt" />
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\SelectQuery.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\SelectQueryCount.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\SelectQueryPaging.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\StoredProcQuery.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\StoredProcQueryPaging.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\TableProperty.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\TablePropertySmart.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\ToXml.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\ToXml_Item.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\ViewName.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\ViewProperty.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\fragments\ViewPropertySmart.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\List.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\List3Way.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\auto\ListM2M.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\custom\caching\Class.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\custom\caching\Class3Way.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\custom\caching\ClassM2M.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\custom\caching\List.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\custom\Class.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\custom\Class3Way.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\custom\ClassM2M.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\classes\custom\List.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\2StepCached.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\2StepMember.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\2StepOnDemand.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\AssociativeJoin.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\AssociativeList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="templates\dotnet\csharp\relationships\AssociativeListRemaining_Cached.txt" />
+    <Content Include="templates\dotnet\csharp\relationships\ChildCollectionCached.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\ChildCollectionMember.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\ChildCollectionMemberList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\ChildCollectionOnDemand.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\ParentCached.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\ParentMember.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\ParentMemberList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\relationships\ParentOnDemand.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\sorting\CompareToDouble.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\sorting\CompareToSingle.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\sorting\CompareToTriple.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\sorting\MemorySort.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\dotnet\csharp\sorting\SqlSort.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
+    <Content Include="downloads\templates.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="templates\dotnet\csharp\web\container\editable\aspx.txt" />
+    <None Include="templates\dotnet\csharp\web\container\editable\aspx_headerColumn.txt" />
+    <None Include="templates\dotnet\csharp\web\container\editable\aspx_headerColumn_upDown.txt" />
+    <None Include="templates\dotnet\csharp\web\container\editable\codebehind_cached.txt" />
+    <None Include="templates\dotnet\csharp\web\container\editable\codebehind_hideUpDown.txt" />
+    <None Include="templates\dotnet\csharp\web\container\editable\codebehind_notcached.txt" />
+    <None Include="templates\dotnet\csharp\web\container\editable\designer.txt" />
+    <None Include="templates\dotnet\csharp\web\container\readonly\aspx.txt" />
+    <None Include="templates\dotnet\csharp\web\container\readonly\aspx_headerColumn.txt" />
+    <None Include="templates\dotnet\csharp\web\container\readonly\aspx_headerColumn_upDown.txt" />
+    <None Include="templates\dotnet\csharp\web\container\readonly\codebehind_cached.txt" />
+    <None Include="templates\dotnet\csharp\web\container\readonly\codebehind_hideUpDown.txt" />
+    <None Include="templates\dotnet\csharp\web\container\readonly\codebehind_notcached.txt" />
+    <None Include="templates\dotnet\csharp\web\container\readonly\designer.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_basic.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_date.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_dbl.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_file.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_image.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\aspx_key.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\clearcache.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\codebehind.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\codebehind_file.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\codebehind_image.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\codebehind_key.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\data_cached.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\data_notcached.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\designer.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_date.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_dbl.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_file.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_image.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_key_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_key_str.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_date.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_dbl.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_file.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_image.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_key_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_key_str.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_basic.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_date.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_dbl.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_file.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_image.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\aspx_key.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\codebehind.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\data_cached.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\data_notcached.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\designer.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_date.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_dbl.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_file.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_image.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_key.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\ascx.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\ascx_basic.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\ascx_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\ascx_link.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\ascx_updown.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_basic.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_cached.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_checkbox.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_hideUpDown.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_link.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_notCached.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_UpDown.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\designer.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\ascx.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\ascx_basic.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\ascx_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\ascx_link.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\codebehind_basic.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\codebehind_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\codebehind_cached.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\codebehind_link.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\codebehind_notCached.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\designer.txt" />
+    <None Include="templates\dotnet\csharp\web\list\editable\aspx.txt" />
+    <None Include="templates\dotnet\csharp\web\list\editable\codebehind_cached.txt" />
+    <None Include="templates\dotnet\csharp\web\list\editable\codebehind_notcached.txt" />
+    <None Include="templates\dotnet\csharp\web\list\editable\designer.txt" />
+    <None Include="templates\dotnet\csharp\web\list\readonly\aspx.txt" />
+    <None Include="templates\dotnet\csharp\web\list\readonly\codebehind_cached.txt" />
+    <None Include="templates\dotnet\csharp\web\list\readonly\codebehind_notcached.txt" />
+    <None Include="templates\dotnet\csharp\web\list\readonly\designer.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\class.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\editable\sitemap.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\editable\urls.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\editable\xml.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\readonly\sitemap.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\readonly\urls.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\readonly\xml.txt" />
+    <None Include="templates\dotnet\csharp\xsd\classDocument.txt" />
+    <None Include="templates\dotnet\csharp\xsd\classElement.txt" />
+    <None Include="templates\dotnet\csharp\xsd\classList.txt" />
+    <None Include="templates\dotnet\csharp\xsd\customClass.txt" />
+    <None Include="templates\dotnet\csharp\xsd\customClassList.txt" />
+    <None Include="templates\dotnet\csharp\xsd\exportAttribute.txt" />
+    <None Include="templates\dotnet\csharp\xsd\exportAttributeTags.txt" />
+    <None Include="templates\dotnet\csharp\xsd\exportClass.txt" />
+    <None Include="templates\dotnet\csharp\xsd\importAttribute.txt" />
+    <None Include="templates\dotnet\csharp\xsd\importAttributeTags.txt" />
+    <None Include="templates\dotnet\csharp\xsd\importClass.txt" />
+    <None Include="templates\dotnet\csharp\xsd\importList.txt" />
+    <None Include="templates\dotnet\csharp\xsd\initAttribute.txt" />
+    <None Include="templates\dotnet\csharp\xsd\initChildCollection.txt" />
+    <None Include="templates\dotnet\csharp\xsd\initChildObject.txt" />
+    <None Include="templates\dotnet\csharp\xsd\member.txt" />
+    <None Include="templates\dotnet\csharp\xsd\propertyAttribute.txt" />
+    <None Include="templates\dotnet\csharp\xsd\propertyClass.txt" />
+    <None Include="templates\dotnet\csharp\xsd\propertyCollection.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\Class.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\Class3Way.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\ClassM2M.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\AuditTrail.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\AuditTrailM2M.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\AuditTrail3Way.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\MoveUpDown.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\PrimaryKeyConstants_Integer.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\PrimaryKeyConstants_String.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\QueryCasting_3Way.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\QueryCasting_M2M.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\SaveAllDeleteAll.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_Cached.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_Cached_List.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_NotCached.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_Param.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_SqlFilterBool.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_SqlFilterInt.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_SqlFilterString.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\SelectQueryCount.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\SelectQueryPaging.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\ToXml_Item.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\CacheLogic.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\CompareToDouble.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\CompareToSingle.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\CompareToTriple.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\ToXml.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\CopyConstructor.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\CustomIndex.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\data.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\GenericSorting.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\InitValue.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\KeyProperty.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\KeyPropertySmart.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Member.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Members.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\Persistance.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\PrimaryKeyInfo1.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\PrimaryKeyInfo2.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\PrimaryKeyInfo3.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\QueryCastingDynamic.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\QueryCastingProtected.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\QueryCastingStatic.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\ReadColumn.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\SchemaInfo.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\SchemaInfoSp.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\SelectQuery.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\StoredProcQuery.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\StoredProcQueryPaging.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\TableProperty.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\TablePropertySmart.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\ViewProperty.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\ViewPropertySmart.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\List.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\List3Way.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\ListM2M.txt" />
+    <None Include="templates\dotnet\vbnet\classes\custom\caching\Class.txt" />
+    <None Include="templates\dotnet\vbnet\classes\custom\caching\Class3Way.txt" />
+    <None Include="templates\dotnet\vbnet\classes\custom\caching\ClassM2M.txt" />
+    <None Include="templates\dotnet\vbnet\classes\custom\caching\List.txt" />
+    <None Include="templates\dotnet\vbnet\classes\custom\Class.txt" />
+    <None Include="templates\dotnet\vbnet\classes\custom\Class3Way.txt" />
+    <None Include="templates\dotnet\vbnet\classes\custom\ClassM2M.txt" />
+    <None Include="templates\dotnet\vbnet\classes\custom\List.txt" />
+    <None Include="templates\dotnet\csharp\web\subfolder_editable.txt" />
+    <None Include="templates\dotnet\csharp\web\subfolder_readonly.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\editable\sitemap_lookfor.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\editable\sitemap_path.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\editable\urls_path.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\readonly\sitemap_lookfor.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\readonly\sitemap_path.txt" />
+    <None Include="templates\dotnet\csharp\web\urls\readonly\urls_path.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\aspx.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\aspx_headerColumn.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\aspx_headerColumn_upDown.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\codebehind_cached.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\codebehind_hideUpDown.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\codebehind_notcached.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\designer.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\readonly\aspx.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\readonly\aspx_headerColumn.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\readonly\aspx_headerColumn_upDown.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\readonly\codebehind_cached.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\readonly\codebehind_hideUpDown.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\readonly\codebehind_notcached.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\readonly\designer.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\clearcache.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_image.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_file.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_dbl.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_key.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\codebehind_key.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\codebehind_image.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\codebehind_file.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\data_cached.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\data_notcached.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\designer.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_key_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_key_str.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_dbl.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_dbl.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_file.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_file.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_image.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_image.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_key_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_key_str.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_image.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_file.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_dbl.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_key.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\data_cached.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\data_notcached.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\designer.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_key.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_dbl.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_file.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_image.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\ascx.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\ascx_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\ascx_link.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\ascx_updown.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\ascx_basic.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_basic.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_cached.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_hideUpDown.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_link.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_notCached.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_UpDown.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_checkbox.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\designer.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\ascx.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\ascx_basic.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\ascx_link.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\codebehind_basic.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\codebehind_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\codebehind_cached.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\codebehind_link.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\ascx_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\codebehind_notCached.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\designer.txt" />
+    <None Include="templates\dotnet\vbnet\web\list\editable\designer.txt" />
+    <None Include="templates\dotnet\vbnet\web\list\readonly\aspx.txt" />
+    <None Include="templates\dotnet\vbnet\web\list\readonly\codebehind_cached.txt" />
+    <None Include="templates\dotnet\vbnet\web\list\readonly\codebehind_notcached.txt" />
+    <None Include="templates\dotnet\vbnet\web\list\editable\aspx.txt" />
+    <None Include="templates\dotnet\vbnet\web\list\editable\codebehind_cached.txt" />
+    <None Include="templates\dotnet\vbnet\web\list\editable\codebehind_notcached.txt" />
+    <None Include="templates\dotnet\vbnet\web\list\readonly\designer.txt" />
+    <None Include="templates\dotnet\vbnet\web\subfolder_editable.txt" />
+    <None Include="templates\dotnet\vbnet\web\subfolder_readonly.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\class.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\editable\sitemap.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\editable\sitemap_lookfor.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\editable\sitemap_path.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\editable\urls.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\editable\urls_path.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\editable\xml.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\readonly\sitemap.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\readonly\sitemap_lookfor.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\readonly\sitemap_path.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\readonly\urls.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\2StepCached.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\AssociativeList.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\ChildCollectionMember.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\ChildCollectionCached.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\ChildCollectionOnDemand.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\ChildCollectionMemberList.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\AssociativeJoin.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\2StepMember.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\2StepOnDemand.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\ParentMemberList.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\ParentOnDemand.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\ParentMember.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\ParentCached.txt" />
+    <None Include="templates\dotnet\vbnet\sorting\CompareToDouble.txt" />
+    <None Include="templates\dotnet\vbnet\sorting\CompareToSingle.txt" />
+    <None Include="templates\dotnet\vbnet\sorting\CompareToTriple.txt" />
+    <None Include="templates\dotnet\vbnet\sorting\SqlSort.txt" />
+    <None Include="templates\dotnet\vbnet\sorting\MemorySort.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\codebehind.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\aspx_basic.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\aspx_basic.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\codebehind.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\readonly\urls_path.txt" />
+    <None Include="templates\dotnet\vbnet\web\urls\readonly\xml.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\classDocument.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\classElement.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\classList.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\customClass.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\customClassList.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\exportAttribute.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\exportAttributeTags.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\exportClass.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\importAttribute.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\importAttributeTags.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\importClass.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\importList.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\initAttribute.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\initChildCollection.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\initChildObject.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\member.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\propertyAttribute.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\propertyClass.txt" />
+    <None Include="templates\dotnet\vbnet\xsd\propertyCollection.txt" />
+    <Content Include="downloads\Instructions.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="downloads\InstructionsXml.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="downloads\SchemaAudit.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="templates\dotnet\csharp\web\container\editable\aspx_headerColumn_event.txt" />
+    <Content Include="templates\dotnet\csharp\web\container\editable\associative\aspx.txt" />
+    <Content Include="templates\dotnet\csharp\web\container\editable\associative\codebehind.txt" />
+    <None Include="templates\dotnet\csharp\web\container\readonly\aspx_headerColumn_event.txt" />
+    <None Include="templates\dotnet\csharp\web\container\editable\codebehind_resortToAlpha.txt" />
+    <Content Include="templates\dotnet\csharp\web\container\editable\associative\codebehind\Cached_Lhs.txt" />
+    <Content Include="templates\dotnet\csharp\web\container\editable\associative\codebehind\Cached_Rhs.txt" />
+    <Content Include="templates\dotnet\csharp\web\container\editable\associative\codebehind\NotCached_Lhs.txt" />
+    <Content Include="templates\dotnet\csharp\web\container\editable\associative\codebehind\NotCached_Rhs.txt" />
+    <Content Include="templates\dotnet\csharp\web\details\editable\associative\codebehind.txt" />
+    <Content Include="templates\dotnet\csharp\web\details\editable\associative\data_cached.txt" />
+    <Content Include="templates\dotnet\csharp\web\details\editable\associative\data_notcached.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_key_str.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_date.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_dbl.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_file.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_image.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_key_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_key_str.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_bool.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_date.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_dbl.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_file.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_image.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_key_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\store_long.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\display_long.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\displaybulk_long.txt" />
+    <None Include="templates\dotnet\csharp\web\details\editable\storebulk_long.txt" />
+    <Content Include="templates\dotnet\csharp\web\details\editable\eventhandler_image.txt" />
+    <Content Include="templates\dotnet\csharp\web\details\editable\eventhandler_file.txt" />
+    <Content Include="templates\dotnet\csharp\web\details\editable\IsEdit_guid.txt" />
+    <Content Include="templates\dotnet\csharp\web\details\editable\IsEdit_string.txt" />
+    <Content Include="templates\dotnet\csharp\web\details\editable\IsEdit_int.txt" />
+    <None Include="templates\dotnet\csharp\web\details\readonly\display_long.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\ascx_date.txt" />
+    <Content Include="templates\dotnet\csharp\web\listitem\editable\associative\aspx.txt" />
+    <Content Include="templates\dotnet\csharp\web\listitem\editable\associative\codebehind.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_date.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\codebehind_date.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\codebehind_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\editable\codebehind_dec.txt" />
+    <None Include="templates\dotnet\csharp\web\listitem\readonly\ascx_date.txt" />
+    <Content Include="templates\dotnet\csharp\web\list\editable\associative\aspx.txt" />
+    <Content Include="templates\dotnet\csharp\web\list\editable\associative\codebehind.txt" />
+    <Content Include="templates\dotnet\csharp\web\urls\editable\associative\sitemap.txt" />
+    <Content Include="templates\dotnet\csharp\web\urls\editable\associative\sitemap_path.txt" />
+    <Content Include="templates\dotnet\csharp\web\urls\editable\associative\urls.txt" />
+    <Content Include="templates\dotnet\csharp\web\urls\editable\associative\urls_path.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\SelectQueryTransactional.txt" />
+    <None Include="templates\dotnet\vbnet\classes\auto\fragments\TablePropertySettablePk.txt" />
+    <Content Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterCustom_String.txt" />
+    <Content Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterIndexed_Bool.txt" />
+    <Content Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterIndexed_Guid.txt" />
+    <Content Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterIndexed_Int.txt" />
+    <Content Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterIndexed_String.txt" />
+    <Content Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_SqlFilterGuid.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\aspx_headerColumn_event.txt" />
+    <None Include="templates\dotnet\vbnet\relationships\AssociativeListRemaining_Cached.txt" />
+    <Content Include="templates\dotnet\vbnet\classes\auto\fragments\ViewName.txt" />
+    <Content Include="templates\dotnet\vbnet\web\container\editable\associative\aspx.txt" />
+    <Content Include="templates\dotnet\vbnet\web\container\editable\associative\codebehind\Cached_Lhs.txt" />
+    <Content Include="templates\dotnet\vbnet\web\container\editable\associative\codebehind\Cached_Rhs.txt" />
+    <Content Include="templates\dotnet\vbnet\web\container\editable\associative\codebehind.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\readonly\aspx_headerColumn_event.txt" />
+    <None Include="templates\dotnet\vbnet\web\container\editable\codebehind_resortToAlpha.txt" />
+    <Content Include="templates\dotnet\vbnet\web\container\editable\associative\codebehind\NotCached_Lhs.txt" />
+    <Content Include="templates\dotnet\vbnet\web\container\editable\associative\codebehind\NotCached_Rhs.txt" />
+    <Content Include="templates\dotnet\vbnet\web\details\editable\associative\codebehind.txt" />
+    <Content Include="templates\dotnet\vbnet\web\details\editable\associative\data_cached.txt" />
+    <Content Include="templates\dotnet\vbnet\web\details\editable\associative\data_notcached.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_key_str.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_dbl.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_file.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_image.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_key_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\store_long.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\display_long.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_long.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\displaybulk_long.txt" />
+    <Content Include="templates\dotnet\vbnet\web\details\editable\eventhandler_file.txt" />
+    <Content Include="templates\dotnet\vbnet\web\details\editable\eventhandler_image.txt" />
+    <Content Include="templates\dotnet\vbnet\web\details\editable\IsEdit_guid.txt" />
+    <Content Include="templates\dotnet\vbnet\web\details\editable\IsEdit_int.txt" />
+    <Content Include="templates\dotnet\vbnet\web\details\editable\IsEdit_string.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_key_str.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_bool.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_dbl.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_file.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_image.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\editable\storebulk_key_int.txt" />
+    <None Include="templates\dotnet\vbnet\web\details\readonly\display_long.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\ascx_date.txt" />
+    <Content Include="templates\dotnet\vbnet\web\listitem\editable\associative\aspx.txt" />
+    <Content Include="templates\dotnet\vbnet\web\listitem\editable\associative\codebehind.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\codebehind_date.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\editable\codebehind_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\codebehind_dec.txt" />
+    <None Include="templates\dotnet\vbnet\web\listitem\readonly\ascx_date.txt" />
+    <Content Include="templates\dotnet\vbnet\web\list\editable\associative\aspx.txt" />
+    <Content Include="templates\dotnet\vbnet\web\list\editable\associative\codebehind.txt" />
+    <Content Include="templates\dotnet\vbnet\web\urls\editable\associative\sitemap.txt" />
+    <Content Include="templates\dotnet\vbnet\web\urls\editable\associative\sitemap_path.txt" />
+    <Content Include="templates\dotnet\vbnet\web\urls\editable\associative\urls.txt" />
+    <Content Include="templates\dotnet\vbnet\web\urls\editable\associative\urls_path.txt" />
+    <None Include="templates\storedprocs\mysql\DeleteById.txt" />
+    <None Include="templates\storedprocs\mysql\DeleteByIdM2M.txt" />
+    <None Include="templates\storedprocs\mysql\fragments\ColumnName.txt" />
+    <None Include="templates\storedprocs\mysql\fragments\parameter.txt" />
+    <None Include="templates\storedprocs\mysql\Insert.txt" />
+    <None Include="templates\storedprocs\mysql\SelectAll.txt" />
+    <None Include="templates\storedprocs\mysql\SelectByColumnName.txt" />
+    <None Include="templates\storedprocs\mysql\SelectById.txt" />
+    <None Include="templates\storedprocs\mysql\SelectByIdM2M.txt" />
+    <None Include="templates\storedprocs\mysql\SelectStoredProc.txt" />
+    <None Include="templates\storedprocs\mysql\Update.txt" />
+    <None Include="templates\storedprocs\mysql\UpdateM2M.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="dlls\Ionic.Zip.Partial.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dlls\Ionic.Zip.Partial.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dlls\Ionic.Zip.Partial.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dlls\Ionic.Zlib.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dlls\Ionic.Zlib.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dlls\Ionic.Zlib.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="downloads\Instructions.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="downloads\InstructionsXml.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="downloads\SchemaAudit.sql">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Framework.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="SchemaAudit.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="SchemaMembership.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\Class.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\Class3Way.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\ClassM2M.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\AuditTrail.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\AuditTrail3Way.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\AuditTrailM2M.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\CacheLogic.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\CompareToDouble.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\CompareToSingle.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\CompareToTriple.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\CopyConstructor.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\CustomIndex.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\data.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\GenericSorting.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\InitValue.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\KeyProperty.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\KeyPropertySmart.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Member.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Members.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\MoveUpDown.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Persistance.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyConstants_Integer.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyConstants_String.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyInfo1.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyInfo2.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\PrimaryKeyInfo3.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\QueryCastingDynamic.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\QueryCastingProtected.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\QueryCastingStatic.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\QueryCasting_3Way.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\QueryCasting_M2M.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\ReadColumn.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\SaveAllDeleteAll.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\SchemaInfo.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\SchemaInfoSp.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_Cached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_Cached_List.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterCustom_String.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterIndexed_Bool.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterIndexed_Guid.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterIndexed_Int.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_MemoryFilterIndexed_String.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_NotCached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_Param.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_SqlFilterBool.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_SqlFilterGuid.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_SqlFilterInt.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\Searching_SqlFilterString.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\SelectQuery.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\SelectQueryCount.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\SelectQueryPaging.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\SelectQueryTransactional.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\StoredProcQuery.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\StoredProcQueryPaging.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\TableProperty.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\TablePropertySmart.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\ToXml.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\ToXml_Item.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\ViewName.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\ViewProperty.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\fragments\ViewPropertySmart.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\List.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\List3Way.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\auto\ListM2M.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\custom\caching\Class.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\custom\caching\Class3Way.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\custom\caching\ClassM2M.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\custom\caching\List.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\custom\Class.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\custom\Class3Way.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\custom\ClassM2M.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\classes\custom\List.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\2StepCached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\2StepMember.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\2StepOnDemand.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\AssociativeJoin.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\AssociativeList.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\ChildCollectionCached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\ChildCollectionMember.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\ChildCollectionMemberList.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\ChildCollectionOnDemand.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\ParentCached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\ParentMember.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\ParentMemberList.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\relationships\ParentOnDemand.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\sorting\CompareToDouble.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\sorting\CompareToSingle.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\sorting\CompareToTriple.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\sorting\MemorySort.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\sorting\SqlSort.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\container\editable\associative\aspx.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\container\editable\associative\codebehind.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\details\editable\associative\codebehind.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\details\editable\associative\data_cached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\details\editable\associative\data_notcached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\details\editable\IsEdit_guid.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\details\editable\IsEdit_int.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\details\editable\IsEdit_string.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\listitem\editable\associative\aspx.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\listitem\editable\associative\codebehind.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\list\editable\associative\aspx.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\list\editable\associative\codebehind.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\urls\editable\associative\sitemap.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\urls\editable\associative\sitemap_path.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\urls\editable\associative\urls.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\csharp\web\urls\editable\associative\urls_path.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterCustom_String.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterIndexed_Bool.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterIndexed_Guid.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterIndexed_Int.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_MemoryFilterIndexed_String.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\classes\auto\fragments\Searching_SqlFilterGuid.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\container\editable\associative\aspx.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\container\editable\associative\codebehind.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\details\editable\associative\codebehind.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\details\editable\associative\data_cached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\details\editable\associative\data_notcached.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\details\editable\IsEdit_guid.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\details\editable\IsEdit_int.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\details\editable\IsEdit_string.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\listitem\editable\associative\aspx.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\listitem\editable\associative\codebehind.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\list\editable\associative\aspx.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\list\editable\associative\codebehind.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\urls\editable\associative\sitemap.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\urls\editable\associative\sitemap_path.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\urls\editable\associative\urls.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="templates\dotnet\vbnet\web\urls\editable\associative\urls_path.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+    <Folder Include="templates\storedprocs\oracle\" />
+    <Folder Include="templates\storedprocs\sqlserver\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

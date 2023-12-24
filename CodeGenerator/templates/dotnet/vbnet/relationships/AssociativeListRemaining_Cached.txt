@@ -1,0 +1,5 @@
+﻿    Public Function Remaining[Plural](ByVal search As String) As [ClassName]List
+        Dim temp As New [ClassName]List([ClassName].Cache.Search(search))
+        temp.Remove(Me.[Plural])
+        return temp
+    End Function

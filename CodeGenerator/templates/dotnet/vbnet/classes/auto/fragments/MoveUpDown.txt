@@ -1,0 +1,41 @@
+﻿
+#Region "Move Up/Down"
+    Public Sub MoveUp(ByVal s As [ClassName])
+        Move(s, -1)
+    End Sub
+    Public Sub MoveDown(ByVal s As [ClassName])
+        Move(s, 1)
+    End Sub
+    Public Sub SortAlphabetically
+        For Each i As [ClassName] In Me
+            i.[SortingColumn] = 0
+        Next
+        Me.SaveAll()
+        [ClassName].Cache = Nothing
+    End Sub
+
+    'Private
+    Private Sub Move(ByVal s As [ClassName], ByVal change As Integer)
+        If IsNothing(s) Then Exit Sub
+        Dim index As Integer = Me.IndexOf(s) + change
+        If index < 0 Then Exit Sub
+        If index > Me.Count - 1 Then Exit Sub
+
+        'Modify a copy of the array for threadsafety
+        Dim dd As New [ClassName]List(Me.Count)
+        dd.AddRange(Me)
+        With dd
+            .Remove(s)
+            .Insert(index, s)
+            .ResetOrdinals()
+        End With
+
+        Me.SaveAll()
+        [ClassName].Cache = Nothing
+    End Sub
+    Private Sub ResetOrdinals()
+        For i As Integer = 0 To Me.Count - 1
+            Me(i).[SortingColumn] = i
+        Next
+    End Sub
+#End Region

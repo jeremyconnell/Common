@@ -1,0 +1,24 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `[SpNameSelectById]` $$
+
+CREATE PROCEDURE `[SpNameSelectById]` 
+(
+IN    _[PrimaryKeyName]    [PrimaryKeySqlDataType],
+IN    _[SecondaryKeyName]    [SecondaryKeySqlDataType]
+)
+BEGIN
+
+    SELECT
+[ColumnNames]
+
+    FROM
+        [ViewOrTableName]
+
+    WHERE
+        _[PrimaryKeyName] = [PrimaryKeyName]
+    AND _[SecondaryKeyName] = [SecondaryKeyName];
+
+END $$
+
+DELIMITER ;

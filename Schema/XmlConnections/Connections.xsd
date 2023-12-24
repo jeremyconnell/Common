@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Connections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SqlServerConnection" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="SchemaInfo" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="Server" type="xs:string" use="required" />
+            <xs:attribute name="Database" type="xs:string" use="required" />
+            <xs:attribute name="WindowsAuthentication" type="xs:boolean" use="optional" />
+            <xs:attribute name="UserName" type="xs:string" use="optional" />
+            <xs:attribute name="Password" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OleDbConnection" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="SchemaInfo" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="ConnectionString" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OdbcConnection" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="SchemaInfo" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="ConnectionString" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MySqlConnection" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="SchemaInfo" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="Server" type="xs:string" use="required" />
+            <xs:attribute name="Database" type="xs:string" use="required" />
+            <xs:attribute name="UserName" type="xs:string" use="required" />
+            <xs:attribute name="Password" type="xs:string" use="required" />
+            <xs:attribute name="Port" type="xs:int" use="required" default="3306" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OracleConnection" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="SchemaInfo" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="Server" type="xs:string" use="required"  />
+            <xs:attribute name="UserName" type="xs:string" use="required" />
+            <xs:attribute name="Password" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MSAccessConnection" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="SchemaInfo" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="Path" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MSExcelConnection" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="SchemaInfo" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="Path" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TextFileConnection" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="SchemaInfo" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="Path" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="LastConnectionIndex" type="xs:unsignedByte" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SchemaInfo">
+    <xs:complexType>
+      <xs:attribute name="LastConnectionDate" type="xs:dateTime" />
+      <xs:attribute name="OutputFolder" type="xs:string" use="required" />
+      <xs:attribute name="OutputFolderReadonly" type="xs:string" use="required" />
+      <xs:attribute name="OutputFolderEditable" type="xs:string" use="required" />
+      <xs:attribute name="CSharp" type="xs:boolean" use="required" />
+      <xs:attribute name="TablePrefix" type="xs:string" />
+      <xs:attribute name="StoredProcPrefix" type="xs:string" default="up_" />
+      <xs:attribute name="CSharpNamespace" type="xs:string" default="SchemaSample" />
+      <xs:attribute name="LastTableName" type="xs:string" use="required" />
+      <xs:attribute name="Architecture" type="xs:unsignedByte"  default="0" />
+      <xs:attribute name="SortingColumn" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

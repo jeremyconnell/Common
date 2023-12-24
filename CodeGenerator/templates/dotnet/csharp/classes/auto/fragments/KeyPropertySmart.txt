@@ -1,0 +1,5 @@
+protected override object [Level]KeyValue 
+{
+    get { return Read[DataTypeVb]("[ColumnName]"); }
+    set { Write("[ColumnName]", ([DataTypeVb])value); }
+}

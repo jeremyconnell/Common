@@ -1,0 +1,42 @@
+﻿***** Goes in region called "Properties - Relationships" (under section "Collections")
+    Public ReadOnly Property [[Plural]] As [ClassName]List
+        Get
+            Return [ClassName].Cache.GetBy[ForeignKeyShorter](Me.[PrimaryKey])
+        End Get
+    End Property
+    Protected Function [Plural]_(ByVal tx As IDbTransaction) As [ClassName]List   'Only used for cascade deletes
+        With New [ClassName](DataSrc)
+            Return .SelectBy[ForeignKeyShorter](Me.[PrimaryKey], tx)
+        End With
+    End Function
+    Public ReadOnly Property [Plural]Count As Integer
+        Get
+            Return [[Plural]].Count
+        End Get
+    End Property
+    Public ReadOnly Property [Plural]Count_ As String
+        Get
+            Return CUtilities.CountSummary([Plural], "[SingularCamelCase]", "none")
+        End Get
+    End Property
+    'Public ReadOnly Property NameAndCount As String
+    '    Get
+    '        Return CUtilities.NameAndCount([Entity]Name, [Plural])
+    '    End Get
+    'End Property
+
+
+***** Goes in region called "Save/Delete Overrides"
+    Public Overrides Sub Delete(ByVal txOrNull As IDbTransaction)
+        'Use a transaction if none supplied
+        If txOrNull Is Nothing Then
+            BulkDelete(Me)
+            Exit Sub
+        End If
+
+        'Cascade-Delete (all child collections)
+        Me.[Plural]_(txOrNull).DeleteAll(txOrNull)
+
+        'Normal Delete
+        MyBase.Delete(txOrNull)
+    End Sub

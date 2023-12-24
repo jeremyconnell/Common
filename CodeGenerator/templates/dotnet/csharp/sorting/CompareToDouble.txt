@@ -1,0 +1,3 @@
+            int i = x.[FirstColumn].CompareTo(y.[FirstColumn]) [DESC1];
+            if (0 != i) return i; 
+            return x.[SecondColumn].CompareTo(y.[SecondColumn]) [DESC2];

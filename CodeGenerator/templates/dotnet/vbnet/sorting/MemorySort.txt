@@ -1,0 +1,15 @@
+﻿#Region "Alternative Sort Order (In-Memory Sort)"
+    'Public
+    Public Function SortBy[SortName]() As [ClassName]List
+        Dim copy As New [ClassName]List(Me)
+        copy.Sort(New [ClassName]_SortBy[SortName])
+        Return copy
+    End Function
+    
+    'Private
+    Private Class [ClassName]_SortBy[SortName] : Implements IComparer(Of [ClassName])
+        Public Function Compare(ByVal x As [ClassName], ByVal y As [ClassName]) As Integer Implements System.Collections.Generic.IComparer(Of [ClassName]).Compare
+[Compare]
+        End Function
+    End Class
+#End Region

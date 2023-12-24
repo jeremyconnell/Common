@@ -1,0 +1,17 @@
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\obj\Debug\Comms.Upgrade.Interface.vbproj.AssemblyReference.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\obj\Debug\Comms.Upgrade.Interface.Resources.resources
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\obj\Debug\Comms.Upgrade.Interface.vbproj.GenerateResource.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\obj\Debug\Comms.Upgrade.Interface.vbproj.CoreCompileInputs.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\Comms.Upgrade.Interface.dll
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\Comms.Upgrade.Interface.pdb
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\Comms.Upgrade.Interface.xml
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\Framework.dll
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\Framework.pdb
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\Framework.xml
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\Framework.dll.config
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\obj\Debug\Comms.Upgrade.Interface.vbproj.CopyComplete
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\obj\Debug\Comms.Upgrade.Interface.dll
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\obj\Debug\Comms.Upgrade.Interface.xml
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\obj\Debug\Comms.Upgrade.Interface.pdb
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\protobuf-net.dll
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.Upgrade\Comms.Upgrade.Interface\bin\Debug\protobuf-net.xml

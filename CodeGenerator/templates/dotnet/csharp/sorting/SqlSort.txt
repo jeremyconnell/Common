@@ -1,0 +1,10 @@
+﻿        #region Constants 
+        private const string ORDER_BY_[SortNameUpperCase] = "[OrderBy]"; 
+        #endregion 
+
+        #region Database Queries
+        //Alternative Sort Order (Sql-based) 
+        public [ClassName]List SelectWhere_OrderBy[SortName](CCriteriaList @where)                                          {   return SelectWhere_OrderBy[SortName](@where, this.ViewName);    } 
+        public [ClassName]List SelectWhere_OrderBy[SortName](CCriteriaList @where, string tableNameOrJoin)                  {   return SelectWhere_OrderBy[SortName](@where, tableNameOrJoin, this.SelectColumns);  } 
+        public [ClassName]List SelectWhere_OrderBy[SortName](CCriteriaList @where, string tableNameOrJoin, string columns)  {   return SelectWhere(@where, tableNameOrJoin, ORDER_BY_[SortNameUpperCase], columns); } 
+        #endregion

@@ -1,0 +1,1 @@
+        public [DataType] [ColumnNameProperCase] {  get { return [DataTypeVb] Read("[ColumnName]"); } }

@@ -1,0 +1,3 @@
+﻿    <siteMapNode title="[Plural]"            url="~[Subfolder][PluralCamelCase]/default.aspx" description="List/Search [Plural]">
+        <siteMapNode title="[Singular] Details" url="~[Subfolder][PluralCamelCase]/[Singular].aspx" />
+    </siteMapNode>

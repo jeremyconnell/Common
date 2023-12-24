@@ -1,0 +1,18 @@
+﻿#Region "Members"
+    Private m_[SingularCamelCase] As [ClassName]
+#End Region
+
+#Region "Data"
+    Public ReadOnly Property [[Singular]]() As [ClassName]
+        Get
+            If IsNothing(m_[SingularCamelCase]) Then
+                Try
+                    m_[SingularCamelCase] = New [ClassName]([PrimaryKey])
+                Catch
+                    CSitemap.RecordNotFound("[Singular]", [PrimaryKey])
+                End Try                   
+            End If
+            Return m_[SingularCamelCase]
+        End Get
+    End Property
+#End Region

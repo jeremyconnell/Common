@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+public partial class pages_[Plural]_default : CPage
+{
+    #region Querystring
+    public string Search { get { return CWeb.RequestStr("search"); } }
+    //rename or delete: public int ParentId { get { return CWeb.RequestInt("parentId"); } }
+    #endregion
+    
+    #region Data
+    public [ClassName]List [Plural] { get { return [ClassName].Cache.Search(txtSearch.Text); } } 
+    #endregion 
+    
+    #region Event Handlers - Page
+    protected override void PageInit()
+    {
+        //Sidemenu
+        AddMenuSide("[Plural]");
+        AddMenuSide("New [Singular]...", CSitemap.[Singular]Add());
+
+        //Populate Dropdowns
+        
+    
+        //Search state (from querystring)
+        txtSearch.Text = this.Search;
+        
+        //Display Results
+        ctrl[Plural].Display(this.[Plural]);
+
+        //Client-side
+        this.Form.DefaultFocus  = txtSearch.ClientID;
+        this.Form.DefaultButton = btnSearch.UniqueID;   //CTextbox.OnReturnPress(txtSearch, btnSearch);
+    }
+    #endregion
+
+    #region Event Handlers - Form
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {   
+        Response.Redirect(CSitemap.[Plural](txtSearch.Text));
+    }
+    #endregion
+
+    #region Event Handlers - UserControls
+    protected void ctrl_AddClick()
+    {
+        Response.Redirect(CSitemap.[Singular]Add());
+    }
+    protected void ctrl_ResortClick(string sortBy, bool descending, int pageNumber)
+    {
+        Response.Redirect(CSitemap.[Plural](txtSearch.Text, new CPagingInfo(0, pageNumber - 1, sortBy, descending)));
+    }
+    #endregion
+}

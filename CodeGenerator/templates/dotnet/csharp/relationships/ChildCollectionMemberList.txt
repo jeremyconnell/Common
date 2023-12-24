@@ -1,0 +1,16 @@
+﻿        #region Preload Child collections
+        //Allows the option to preload all child collections across the set (using in-memory index), avoiding database chatter 
+        public void Preload[Plural]() //Loads children for page of results (this list)
+        {
+            if (0 != this.Count)
+                Preload[Plural](new [ClassName]().SelectBy[ForeignKeyShorter]s(this.Ids));
+        }
+        public void Preload[Plural]([ClassName]List all[Plural]) //Load children from a known universe (retrieved earlier)
+        { 
+            foreach ([MyClassName] i in this)
+            {
+                i.[Plural] = all[Plural].GetBy[ForeignKeyShorter](i.[PrimaryKey]);
+                i.[Plural].[MyEntity] = i;
+            }
+        }
+        #endregion

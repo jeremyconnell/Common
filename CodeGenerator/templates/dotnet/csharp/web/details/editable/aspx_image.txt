@@ -1,0 +1,1 @@
+        <uc:FileUpload ID="img[Name]" runat="server" Required="false" Label="[NameShorter]" />

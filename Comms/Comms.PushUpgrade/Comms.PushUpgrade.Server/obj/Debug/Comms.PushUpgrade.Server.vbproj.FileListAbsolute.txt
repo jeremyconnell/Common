@@ -1,0 +1,4 @@
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Server\obj\Debug\Comms.PushUpgrade.Server.vbproj.AssemblyReference.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Server\obj\Debug\Comms.PushUpgrade.Server.Resources.resources
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Server\obj\Debug\Comms.PushUpgrade.Server.vbproj.GenerateResource.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Server\obj\Debug\Comms.PushUpgrade.Server.vbproj.CoreCompileInputs.cache

@@ -1,0 +1,5 @@
+﻿    public void btnResetOrderToAlpha_Click(object sender, EventArgs e)
+    {
+        _list.SortAlphabetically(); //Non-cached classes require a custom update query (or apply to unpaged data)
+        Response.Redirect(Request.RawUrl);
+    }

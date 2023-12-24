@@ -1,0 +1,85 @@
+
+        #region Static - Cache Implementation
+        public static [ClassName]List Cache
+        {
+            get
+            {
+                [ClassName]List cache = ([ClassName]List)CCache.Get(CACHE_KEY);
+                if (cache == null)
+                {
+                    lock (typeof([ClassName]List))
+                    {
+                        cache = ([ClassName]List)CCache.Get(CACHE_KEY);
+                        if (cache == null)
+                        {
+                            cache = LoadCache();
+                            [ClassName].Cache = cache;
+                        }
+                    }
+                }
+                return cache;
+            }
+            set
+            {
+                SetCache(value);   //Not locked, because cache gets cleared at anytime anyway
+            }
+        }
+
+        //Change Management:
+        //Clone, modify, and then replace the cache (threadsafe for anything iterating the collection)
+        //Note that internal indices are dicarded each time unless handled in constructor and add/remove overrides
+        protected override void CacheDelete()
+        {
+            if (CacheIsNull)
+                return;
+
+            lock (typeof([ClassName]List))
+            {
+                [ClassName]List temp = new [ClassName]List(Cache);
+                int size = temp.Count;
+                temp.Remove(this);
+                if (size == temp.Count) //Remove might fail if cache was refreshed with new instances. Use old index
+                    temp.Remove(CacheGetById(temp));
+                Cache = temp;
+            }
+        }
+        protected override void CacheInsert()
+        {
+            if (CacheIsNull)
+                return;
+
+            lock (typeof([ClassName]List))
+            {
+                [ClassName]List temp = new [ClassName]List(Cache);
+                temp.Add(this);
+                SetCache(temp);
+            }
+        }
+        protected override void CacheUpdate()
+        {
+            if (CacheIsNull)
+                return;
+
+            lock (typeof([ClassName]List))
+            {
+                [ClassName]List temp = new [ClassName]List(Cache);
+                if (!temp.Contains(this))
+                {
+                    temp.Remove(CacheGetById(temp));
+                    temp.Add(this);
+                }
+                SetCache(temp);
+            }
+        }
+        protected override void CacheClear()
+        {
+            SetCache(null);
+        }
+        protected static bool CacheIsNull
+        {
+            get
+            {
+                return null == CCache.Get(CACHE_KEY);
+            }
+        }
+        #endregion

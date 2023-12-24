@@ -1,0 +1,39 @@
+
+        #region Many-To-Many Helper Functions
+        //Insert/Delete - NonTransactional
+        public static void InsertPair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase]) {        InsertPair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], null); }
+        public static int  DeletePair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase]) { return DeletePair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], null); }
+        public static bool ExistsPair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase]) { return ExistsPair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], null); }
+        
+        //Insert/Delete - Transactional
+        public static void InsertPair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], IDbTransaction txOrNull) {        InsertPair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], txOrNull, CDataSrc.Default); }
+        public static int  DeletePair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], IDbTransaction txOrNull) { return DeletePair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], txOrNull, CDataSrc.Default); }
+        public static bool ExistsPair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], IDbTransaction txOrNull) { return ExistsPair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], txOrNull, CDataSrc.Default); }
+
+        //Insert/Delete
+        public static void InsertPair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], IDbTransaction txOrNull, CDataSrc dataSrc)
+        {
+            [ClassName] pair = new [ClassName](dataSrc);
+            pair.[PrimaryKeyNameProperCase] = [PrimaryKeyNameCamelCase];
+            pair.[SecondaryKeyNameProperCase] = [SecondaryKeyNameCamelCase];
+            pair.Save(txOrNull);
+        }
+        public static int DeletePair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], IDbTransaction txOrNull, CDataSrc dataSrc)
+        {
+            CCriteriaList where = new CCriteriaList();
+            where.Add("[PrimaryKeyNameProperCase]", [PrimaryKeyNameCamelCase]);
+            where.Add("[SecondaryKeyNameProperCase]", [SecondaryKeyNameCamelCase]);
+
+            //Faster, but not audited
+            //return new [ClassName](dataSrc).DeleteWhere(where, txOrNull, true);
+            
+            //Slower, but audit-trail and other delete logic is preserved e.g. cascade deletes
+            [ClassName]List list = new [ClassName](dataSrc).SelectWhere(where, txOrNull);
+            list.DeleteAll(txOrNull);
+            return list.Count;
+        }
+        public static bool ExistsPair([PrimaryKeyObjectType] [PrimaryKeyNameCamelCase], [SecondaryKeyObjectType] [SecondaryKeyNameCamelCase], IDbTransaction txOrNull, CDataSrc dataSrc)
+        {
+            return new [ClassName](dataSrc).SelectById([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], txOrNull).Count > 0;
+        }
+        #endregion

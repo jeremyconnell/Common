@@ -1,0 +1,17 @@
+﻿    #region [Plural]
+    //List/Search
+    public static string [Plural](             ) {   return "~[Subfolder][PluralCamelCase]/default.aspx"; }
+    public static string [Plural](string search) {   return string.Concat(CSitemap.[Plural](), "?search=", Encode(search)); }
+    public static string [Plural](string search, CPagingInfo pi) {   return string.Concat(CSitemap.[Plural](search), "&sortBy=", pi.SortByColumn, "&desc=", pi.Descending, "&p=", pi.PageIndex + 1); }
+    
+    //Add/Edit
+    private static string [Singular]AddEdit()    {   return "~[Subfolder][PluralCamelCase]/[SingularCamelCase].aspx";   } 
+    public static string [Singular]Add()         {   return [Singular]AddEdit(); } //May need to add a parentId 
+    public static string [Singular]Edit([PrimaryKeyType] [PrimaryKeyCamelCase])                         {   return string.Concat([Singular]AddEdit(), "?[PrimaryKeyCamelCase]=", [PrimaryKeyCamelCase]);    }
+
+    //Usercontrols (Dynamic)
+    public static string UC[Singular]()     {   return "~[Subfolder]/[PluralCamelCase]/usercontrols/UC[Singular].ascx"; } 
+
+    //Folders (relative to /web project)
+    public static string [Singular]Uploads()     {   return "~/uploads/[PluralCamelCase]/"; } 
+    #endregion 

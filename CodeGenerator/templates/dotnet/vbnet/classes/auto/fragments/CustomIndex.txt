@@ -1,0 +1,34 @@
+    'Index by [ForeignKey]
+    Public Function GetBy[ForeignKeyShort](ByVal [ForeignKeyCamelCase] As [DataType]) As [ClassName]List
+        Dim temp As [ClassName]List = Nothing
+        If Not IndexBy[ForeignKeyShort].TryGetValue([ForeignKeyCamelCase], temp) Then
+            temp = New [ClassName]List()
+            IndexBy[ForeignKeyShort]([ForeignKeyCamelCase]) = temp
+        End If
+        Return temp
+    End Function
+    <NonSerialized()> _
+    Private _indexBy[ForeignKeyShort] As Dictionary(Of [DataType], [ClassName]List)
+    Private ReadOnly Property IndexBy[ForeignKeyShort]() As Dictionary(Of [DataType], [ClassName]List)
+        Get
+            If IsNothing(_indexBy[ForeignKeyShort]) Then
+                'Instantiate
+                Dim index As New Dictionary(Of [DataType], [ClassName]List)()
+
+                'Populate
+                Dim temp As [ClassName]List = Nothing
+                For Each i As [ClassName] in Me
+                    If Not index.TryGetValue(i.[ForeignKeyProperCase], temp) Then
+                        temp = New [ClassName]List()
+                        index(i.[ForeignKeyProperCase]) = temp
+                    End If
+                    temp.Add(i)
+                Next
+
+                'Store
+                _indexBy[ForeignKeyShort] = index
+            End If
+            Return _indexBy[ForeignKeyShort]
+        End Get
+    End Property
+

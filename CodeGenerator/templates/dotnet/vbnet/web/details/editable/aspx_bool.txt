@@ -1,0 +1,1 @@
+        <uc:Checkbox ID="chk[Name]" runat="server" Required="false" Label="[NameShorter]" />

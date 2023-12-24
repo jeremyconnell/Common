@@ -1,0 +1,31 @@
+﻿***** Goes in region called "Constants" (can be used for WHERE expressions involving columns from [ClassName])
+    'Change to inner join if fk NOT NULL
+    Public Shared JOIN_[UpperCase]  As String = String.Concat(TABLE_NAME, " INNER JOIN ", [ClassName].TABLE_NAME, " ON [ForeignKey]=[PrimaryKey]") 'Nullable => Use LEFT OUTER JOIN
+
+***** Goes in region called "Members" (under section "Foreign Keys")
+    <NonSerialized()> Private m_[CamelCase] As [ClassName]
+
+***** Goes in region called "Properties - Relationships" (under section "Foreign Keys")
+    Public Property [[ProperCase]]() As [ClassName]
+        Get
+            If IsNothing(m_[CamelCase]) Then
+                SyncLock(Me)
+                    If IsNothing(m_[CamelCase]) Then
+                        m_[CamelCase] = New [ClassName](Me.[ForeignKey])
+                    End If
+                End SyncLock
+            End If
+            Return m_[CamelCase]
+        End Get
+        Set(Value As [ClassName])
+            m_[CamelCase] = Value
+            If Not IsNothing(Value) Then m_[ForeignKey] = Value.[PrimaryKey] Else m_[ForeignKey] = Integer.MinValue
+        End Set
+    End Property
+
+
+
+***** Goes in region called "Custom Database Queries" 
+    Public Function SelectBy[PrimaryKey]s(ByVal [PrimaryKeyCamelCase]s As List(Of [PrimaryKeyType])) As [ThisClassName]List
+        Return SelectWhere(New CCriteriaList("[ForeignKey]", ESign.IN, [PrimaryKeyCamelCase]s))
+    End Function

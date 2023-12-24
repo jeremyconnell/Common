@@ -1,0 +1,6 @@
+'        If [Plural].HaveSameValue("[Name]") Then
+'            dd[Name].Value = [Plural](0).[Name]
+'        Else
+'            dd[Name].BlankItemText = BULKEDIT_NOCHANGE
+'            dd[Name].Required = false
+'        End If

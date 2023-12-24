@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="" url="" >
+    <siteMapNode title="Clients"            url="~/pages/clients/default.aspx" description="List/Search Clients">
+      <siteMapNode title="Details" url="~/pages/clients/Client.aspx" />
+    </siteMapNode>  
+      
+    <siteMapNode title="Self"             url="~/pages/self/deploy.aspx">
+      <siteMapNode title="Schema"             url="~/pages/self/schema.aspx" />
+      <siteMapNode title="Data"             url="~/pages/self/data.aspx" />
+      <siteMapNode title="Sql"             url="~/pages/self/sql.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Azure"             url="~/pages/azure/websites.aspx" />
+    
+    
+    <siteMapNode title="Apps"            url="~/pages/apps/default.aspx" description="List/Search Apps">
+      <siteMapNode title="Details" url="~/pages/apps/App.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Deploys"            url="~/pages/instances/default.aspx" description="List/Search Deployments">
+      <siteMapNode title="Details" url="~/pages/instances/Instance.aspx" />
+    </siteMapNode>
+    
+    <siteMapNode title="Backups"            url="~/pages/backups/default.aspx" description="List/Search Backups" />
+    <siteMapNode title="Datasets"           url="~/pages/backupItems/default.aspx" description="List/Search Backup-Items" />
+
+
+    <siteMapNode title="Versions"            url="~/pages/versions/default.aspx" description="List/Search Versions">
+      <siteMapNode title="Version Details" url="~/pages/versions/Version.aspx" />
+    </siteMapNode>
+    
+    <siteMapNode title="Files"            url="~/pages/binaryFiles/default.aspx" description="List/Search BinaryFiles">
+      <siteMapNode title="Details" url="~/pages/binaryFiles/BinaryFile.aspx" />
+    </siteMapNode>
+    
+
+    <siteMapNode title="Releases"            url="~/pages/releases/default.aspx" description="List/Search Releases">
+      <siteMapNode title="Details" url="~/pages/releases/Release.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Report"            url="~/pages/reportHistorys/default.aspx" description="List/Search ReportHistorys">
+      <siteMapNode title="Details" url="~/pages/reportHistorys/ReportHistory.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Pull"            url="~/pages/upgradeHistorys/default.aspx" description="List/Search Pulled-Upgrade History">
+      <siteMapNode title="Details" url="~/pages/upgradeHistorys/UpgradeHistory.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Push"            url="~/pages/pushedUpgrades/default.aspx" description="List/Search Pushed-Upgrade History">
+      <siteMapNode title="Details" url="~/pages/pushedUpgrades/PushedUpgrade.aspx" />
+    </siteMapNode>
+
+    
+    <siteMapNode title="Groups"            url="~/pages/groups/default.aspx" description="List/Search Groups">
+      <siteMapNode title="Group Details" url="~/pages/groups/Group.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Keys"            url="~/pages/keys/default.aspx" description="List/Search Keys">
+      <siteMapNode title="Key Details" url="~/pages/keys/Key.aspx" />
+    </siteMapNode>
+
+    <siteMapNode title="Values"            url="~/pages/values/default.aspx" description="List/Search Values">
+      <siteMapNode title="Value Details" url="~/pages/values/Value.aspx" />
+    </siteMapNode>
+    
+  </siteMapNode>
+</siteMap>

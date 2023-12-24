@@ -1,0 +1,22 @@
+﻿#Region "[Plural]"
+    'List/Search
+    Public Shared Function [[Plural]]() As String
+        Return "~[Subfolder][PluralCamelCase]/default.aspx"
+    End Function
+    Public Shared Function [[Plural]](ByVal search As String) As String
+        Return String.Concat(CSitemap.[Plural](), "?search=", Encode(search))
+    End Function
+    Public Shared Function [[Plural]](ByVal search As String, ByVal pi As CPagingInfo) As String
+        Return String.Concat(CSitemap.[Plural](search), "&sortBy=", pi.SortByColumn, "&desc=", pi.Descending, "&p=", pi.PageIndex + 1)
+    End Function
+
+    'UserControls
+    Public Shared Function UC[Singular]() As String
+        Return "~[Subfolder]/[PluralCamelCase]/usercontrols/UC[Singular].ascx"
+    End Function
+    
+    'View Details
+    Public Shared Function [[Singular]](ByVal [PrimaryKeyCamelCase] As [PrimaryKeyType]) As String
+        Return String.Concat("~[Subfolder][PluralCamelCase]/[SingularCamelCase].aspx?[PrimaryKeyCamelCase]=", [PrimaryKeyCamelCase])
+    End Function
+#End Region

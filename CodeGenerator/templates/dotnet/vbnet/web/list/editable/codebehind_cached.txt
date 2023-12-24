@@ -1,0 +1,61 @@
+﻿Partial Public Class pages_[Plural]_default : Inherits CPage
+
+#region "Querystring (Filters)"
+    Public ReadOnly Property Search As String
+        Get
+            Return CWeb.RequestStr("search")
+        End Get
+    End Property
+    
+    'Rename or Delete:
+    'Public ReadOnly Property ParentId As Integer
+    '    Get
+    '        Return CWeb.RequestStr("parentId")
+    '    End Get
+    'End Property
+#End Region
+
+#Region "Data"
+    Public ReadOnly Property [[Plural]]() As [ClassName]List
+        Get
+            Return [ClassName].Cache.Search(txtSearch.Text)
+        End Get
+    End Property
+#End Region
+
+#Region "Event Handlers - Page"
+    Protected Overrides Sub PageInit()
+		'Sidemenu
+        AddMenuSide("[Plural]")
+        AddMenuSide("New [Singular]...", CSitemap.[Singular]Add())
+        
+        'Populate Dropdowns        
+    
+        'Search state (from querystring)
+        txtSearch.Text = Me.Search
+        
+        'Display Results
+        ctrl[Plural].Display(Me.[Plural])
+
+        'Client-side
+        Me.Form.DefaultFocus  = txtSearch.ClientID  'txtCreate.ClientID
+        Me.Form.DefaultButton = btnSearch.UniqueID  'CTextbox.OnReturnPress(txtSearch, btnSearch)
+    End Sub
+#End Region
+
+#Region "Event Handlers - Form"
+    Protected Sub btnSearch_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSearch.Click
+        Response.Redirect(CSitemap.[Plural](txtSearch.Text))
+    End Sub
+#End Region
+
+#Region "Event Handlers - UserControl"
+    Private Sub ctrl_AddClick() Handles ctrl[Plural].AddClick
+        Response.Redirect(CSitemap.[Singular]Add())
+    End Sub
+    Private Sub ctrl_ResortClick(ByVal sortBy As String, ByVal descending As Boolean, ByVal pageNumber As Integer) Handles ctrl[Plural].ResortClick
+        Response.Redirect(CSitemap.[Plural](txtSearch.Text, New CPagingInfo(0, pageNumber - 1, sortBy, descending)))
+    End Sub
+#End Region
+
+End Class

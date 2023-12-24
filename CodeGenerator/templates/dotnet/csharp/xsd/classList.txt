@@ -1,0 +1,101 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml;
+
+using Framework;
+
+namespace [namespace]
+{
+    public partial class [className]List : List<[className]>
+    {
+        #region Constructors (Import)
+        public [className]List() : base() { }
+        public [className]List(IEnumerable<[className]> copyFrom) : base(copyFrom) { }
+        public [className]List([parentClassName] parent, XmlNode node)  : base(node.ChildNodes.Count) 
+        {
+            foreach (XmlNode i in CXml.ChildNodes(node, [className].TAG_NAME))
+                Add(new [className](parent, i));
+        }
+        #endregion
+
+        #region Public (Export)
+        public void Export(XmlNode node)
+        {
+            foreach ([className] i in this)
+                i.Export(node);
+        }
+        #endregion
+
+        #region Properties (Indices)
+        //Sample 1 of 2: Unique Index (Index on the PK), returns a single item (may be null)
+        /*
+        public CPage GetById(int pageId)
+        {
+            CPage c = null;
+            IndexById.TryGetValue(pageId, out c);
+            return c;
+        }
+        [NonSerialized]
+        private Dictionary<int, CPage> _indexById;
+        private Dictionary<int, CPage> IndexById
+        {
+            get
+            {
+                if (null == _indexById || _indexById.Count != this.Count)
+                {
+                    _indexById = new Dictionary<int, CPage>(this.Count);
+                    foreach (CPage i in this)
+                        _indexById[i.PageId] = i;
+                }
+                return _indexById;
+            }
+        }
+        */
+        
+        
+        //Sample 2 of 2: Index - Non-Unique (Index on a FK), returns a subset of the list (may be empty)
+        /*
+        public CStateList GetByCountryId(int countryId)
+        {
+            CStateList temp = null;
+            if (!IndexByCountryId.TryGetValue(countryId, out temp))
+            {
+                temp = new CStateList();
+                IndexByCountryId[countryId] = temp;
+            }
+            return temp;
+        }
+        [NonSerialized]
+        private Dictionary<int, CStateList> _indexByCountryId;
+        private Dictionary<int, CStateList> IndexByCountryId
+        {
+            get
+            {
+                if (null == _indexByCountryId)
+                {
+                    //Instantiate
+                    Dictionary<int, CStateList> index = new Dictionary<int, CStateList>();
+
+                    //Populate
+                    CStateList temp = null;
+                    foreach (CState i in this)
+                    {
+                        if (!index.TryGetValue(i.StateCountryId, out temp))
+                        {
+                            temp = new CStateList();
+                            index[i.StateCountryId] = temp;
+                        }
+                        temp.Add(i);
+                    }
+
+                    //Store
+                    _indexByCountryId = index;
+                }
+                return _indexByCountryId;
+            }
+        }
+        */
+        #endregion
+    }
+}

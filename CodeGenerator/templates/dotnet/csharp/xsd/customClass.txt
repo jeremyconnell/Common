@@ -1,0 +1,34 @@
+﻿using Framework;
+using System.Xml;
+
+namespace [namespace]
+{
+    public partial class [className]
+    {
+        #region Initial State
+        //protected void ApplyDefaultValues_Custom() 
+        //{    ;    }
+        #endregion
+    
+        #region Members
+        #endregion
+        
+        #region Properties
+        #endregion
+
+        #region Persistance
+        /*
+        protected XmlNode ImportSelf(XmlNode parent)
+        {
+            XmlNode node = base.ImportSelf(parent);
+            return node;
+        }
+        protected XmlNode ExportSelf(XmlNode parent)
+        {
+            XmlNode node = base.ExportSelf(parent);
+            return node;
+        }
+        */
+        #endregion
+    }
+}

@@ -1,0 +1,18 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `[SpNameDeleteById]` $$
+
+CREATE PROCEDURE `[SpNameDeleteById]` 
+(
+    IN    _[PrimaryKeyName] [PrimaryKeySqlDataType],
+    IN    _[SecondaryKeyName] [SecondarySqlDataType]
+)
+BEGIN
+
+    DELETE FROM [TableName] 
+    WHERE   _[PrimaryKeyName] = [PrimaryKeyName] 
+    AND     _[SecondaryKeyName] = [SecondaryKeyName];
+
+END $$
+
+DELIMITER ;

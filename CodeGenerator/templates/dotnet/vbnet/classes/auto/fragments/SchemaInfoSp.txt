@@ -1,0 +1,25 @@
+    Protected Overrides ReadOnly Property SpName_Insert As String 
+        Get  
+            Return "[Prefix][TableName]Insert"
+        End Get
+    End Property
+    Protected Overrides ReadOnly Property SpName_Update As String 
+        Get  
+            Return "[Prefix][TableName]Update"
+        End Get
+    End Property
+    Protected Overrides ReadOnly Property SpName_DeleteId As String 
+        Get  
+            Return "[Prefix][TableName]DeleteId"
+        End Get
+    End Property
+    Protected Overrides ReadOnly Property SpName_SelectId As String 
+        Get  
+            Return "[Prefix][TableName]SelectId"
+        End Get
+    End Property
+    Protected Overrides ReadOnly Property SpName_SelectAll As String 
+        Get  
+            Return "[Prefix][TableName]SelectAll"
+        End Get
+    End Property

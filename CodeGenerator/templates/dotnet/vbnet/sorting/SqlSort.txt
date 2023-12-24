@@ -1,0 +1,16 @@
+﻿#Region "Constants"
+    Private Const ORDER_BY_[SortNameUpperCase] As String = "[OrderBy]"
+#End Region
+
+#Region "Database Queries"
+    'Alternative Sort Order (Sql-based)
+    Public Function SelectWhere_OrderBy[SortName](ByVal where As CCriteriaList) As [ClassName]List
+        Return SelectWhere_OrderBy[SortName](where, Me.ViewName)
+    End Function
+    Public Function SelectWhere_OrderBy[SortName](ByVal where As CCriteriaList, ByVal tableNameOrJoin As String) As [ClassName]List
+        Return SelectWhere_OrderBy[SortName](where, tableNameOrJoin, Me.SelectColumns)
+    End Function
+    Public Function SelectWhere_OrderBy[SortName](ByVal where As CCriteriaList, ByVal tableNameOrJoin As String, ByVal columns As String) As [ClassName]List
+        Return SelectWhere(where, tableNameOrJoin, ORDER_BY_[SortNameUpperCase], columns)
+    End Function
+#End Region

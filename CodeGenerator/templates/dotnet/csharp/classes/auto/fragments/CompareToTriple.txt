@@ -1,0 +1,10 @@
+        public int CompareTo([ClassName] other)
+        {
+            int i = this.[FirstColumn].CompareTo(other.[FirstColumn]) [DESC1];
+            if (0 != i)
+                return i;
+            i = this.[SecondColumn].CompareTo(other.[SecondColumn]) [DESC2];
+            if (0 != i )
+                return i;
+            return this.[ThirdColumn].CompareTo(other.[ThirdColumn]) [DESC3];
+        }

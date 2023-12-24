@@ -1,0 +1,6 @@
+        public [ClassName]List SelectBy[ColumnNameShorter]([DataType] [ColumnNameCamelCase], IDbTransaction txOrNull)
+        {
+            CNameValueList data = new CNameValueList(1);
+            data.Add("ColumnName", [ColumnNameCamelCase]);
+            return (string)MakeList("[Prefix][TableName]SelectBy[ColumnNameProperCase]", data, txOrNull);
+        }

@@ -1,0 +1,1 @@
+        txt[Name].Text = this.[Plural].HaveSameValue("[Name]") ? this.[Plural][0].[Name] : BULKEDIT_NOCHANGE;

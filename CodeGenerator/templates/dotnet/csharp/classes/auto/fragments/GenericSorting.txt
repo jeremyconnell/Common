@@ -1,0 +1,19 @@
+        #region Generic Sorting (By property-name using reflection. Can improve efficiency by generating code in advance for each possible sort, and use that instead)
+        //Public Interface
+        public [ClassName]List SortBy(string key, bool descending)
+        {
+            [ClassName]List temp = new [ClassName]List(this);
+            temp.Sort(new CSortBy(key, descending));
+            return temp;
+        }
+
+        //Private Class
+        private class CSortBy : CSortByColumn, IComparer[ClassName]
+        {
+            //Constructor
+            public DummyClassWrapper(string columnName, bool descending) : base(columnName, descending) {}
+
+            //Interface
+            public new int IComparer[ClassName].Compare([ClassName] a, [ClassName] b) { return base.Compare(a, b);  }
+        }
+        #endregion

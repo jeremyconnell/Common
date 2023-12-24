@@ -1,0 +1,52 @@
+﻿        #region Searching (Optional)
+        //Represents a simple search box to search PK and any string columns (add overloads as required, based on the pattern below)
+        //e.g. public [ClassName]List Search(string nameOrId, [SearchParamsTyped]) { ...
+        public [ClassName]List Search(string nameOrId)
+        {
+            //1. Normalisation
+            nameOrId = (nameOrId??string.Empty).Trim().ToLower();
+            
+            //2. Start with a complete list
+            [ClassName]List results = this;
+            
+            //3. Use any available index, such as those generated for fk/bool columns
+            //Normal Case - non-unique index (e.g. foreign key)
+[Indexed]
+            //Special case - unique index (e.g. primary key)
+            /*
+            if (!string.IsNullOrEmpty(nameOrId)) 
+            {
+                int id;
+                if (int.TryParse(nameOrId, out id))
+                {
+                    [ClassName] obj = this.GetById(id);
+                    if (null != obj)
+                    {
+                        results = new [ClassName]List(1);
+                        results.Add(obj);
+                        return results;
+                    }
+                }
+            }
+            */
+            
+            //4. Exit early if remaining (non-index) filters are blank
+            if (string.IsNullOrEmpty(nameOrId)) return results; 
+            
+            //5. Manually search each record using custom match logic, building a shortlist
+            [ClassName]List shortList = new [ClassName]List();
+            foreach ([ClassName] i in results)
+                if (Match(nameOrId, i))
+                    shortList.Add(i); 
+            return shortList;
+        }
+        //Manual Searching e.g for string-based columns i.e. anything not indexed (add more params if required)
+        private bool Match(string name, [ClassName] obj)
+        {
+            if (!string.IsNullOrEmpty(name)) //Match any string column
+            {
+[Filters]                return false;   //If filter is active, reject any items that dont match
+            }
+            return true;    //No active filters (should catch this in step #4)
+        }
+        #endregion

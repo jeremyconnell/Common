@@ -1,0 +1,32 @@
+﻿using System.Web.HttpContext;
+using Framework;
+
+public class CSitemap
+{
+    #region Standard
+    //Defaults
+    public static string DefaultUploadsPath()   {    return "~/uploads/";    }
+
+    //Utilities
+    public static string Encode(string s)       {    return Current.Server.UrlEncode(s);    }
+
+    //Invalid ids
+    public static void RecordNotFound(string entity)
+    {
+        string s = string.Empty;        
+        if (0 == HttpContext.Current.Request.QueryString.Count)
+            s = HttpContext.Current.Request.QueryString[0];
+        RecordNotFound(entity, s);
+    }
+    public static void RecordNotFound(string entity, object pk)                 {    RecordNotFound(entity, pk.ToString()); }
+    public static void RecordNotFound(string entity, object pk1, object pk2)    {    RecordNotFound(entity, string.Concat(pk1, "/", pk2)); }
+    public static void RecordNotFound(string entity, string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            value = string.Concat("Invalid ", entity, "Id");
+        else
+            value = string.Concat("Invalid ", entity, "Id: ", value);
+        throw new Exception(value);
+    }
+    #endregion
+} 

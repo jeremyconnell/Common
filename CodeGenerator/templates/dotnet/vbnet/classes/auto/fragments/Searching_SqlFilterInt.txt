@@ -1,0 +1,1 @@
+﻿        'If [DataType].MinValue <> [ShortName] Then where.Add("[Name]", [ShortName])

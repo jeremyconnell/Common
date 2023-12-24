@@ -1,0 +1,3 @@
+    Public Function SelectCountBy[ColumnNameShorter](ByVal [ColumnNameCamelCase] As [DataType]) As Integer
+        Return SelectCount(New CCriteriaList("[ColumnNameProperCase]", [ColumnNameCamelCase]))
+    End Function

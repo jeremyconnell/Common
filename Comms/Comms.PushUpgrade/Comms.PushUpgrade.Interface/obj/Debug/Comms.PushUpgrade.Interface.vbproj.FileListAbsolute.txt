@@ -1,0 +1,15 @@
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\bin\Debug\Comms.PushUpgrade.Interface.dll
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\bin\Debug\Comms.PushUpgrade.Interface.pdb
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\bin\Debug\Comms.PushUpgrade.Interface.xml
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\bin\Debug\Framework.dll
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\bin\Debug\Framework.pdb
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\bin\Debug\Framework.xml
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\bin\Debug\Framework.dll.config
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\obj\Debug\Comms.PushUpgrade.Interface.vbproj.AssemblyReference.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\obj\Debug\Comms.PushUpgrade.Interface.Resources.resources
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\obj\Debug\Comms.PushUpgrade.Interface.vbproj.GenerateResource.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\obj\Debug\Comms.PushUpgrade.Interface.vbproj.CoreCompileInputs.cache
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\obj\Debug\Comms.PushUpgrade.Interface.vbproj.CopyComplete
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\obj\Debug\Comms.PushUpgrade.Interface.dll
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\obj\Debug\Comms.PushUpgrade.Interface.xml
+C:\sourcecode\_jeremydotnet\Common\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\obj\Debug\Comms.PushUpgrade.Interface.pdb

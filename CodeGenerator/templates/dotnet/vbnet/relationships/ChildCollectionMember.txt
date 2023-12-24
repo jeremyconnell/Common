@@ -1,0 +1,55 @@
+﻿***** Goes in region called "Default Values" (under section "Member variables")
+    m_[CamelCase] = New [ClassName]List()
+
+***** Goes in region called "Members" (under section "Collections")
+    <NonSerialized()> Private m_[CamelCase] As [ClassName]List
+
+
+***** Goes in region called "Properties - Relationships" (under section "Collections")
+    Public Property [[Plural]]() As [ClassName]List
+        Get
+            If IsNothing(m_[CamelCase]) Then
+                SyncLock(Me)
+                    If IsNothing(m_[CamelCase]) Then
+                        m_[CamelCase] = New [ClassName](DataSrc).SelectBy[ForeignKeyShorter](Me.[PrimaryKey])
+                        m_[CamelCase].[Parent] = Me
+                    End If
+                End SyncLock
+            End If
+            Return m_[CamelCase]
+        End Get
+        Set(Value As [ClassName]List)
+            m_[CamelCase] = Value
+            If Not IsNothing(Value) Then
+                m_[CamelCase].[Parent] = Me
+            End If
+        End Set
+    End Property
+    Friend Function [Plural]_(ByVal tx As IDbTransaction) As [ClassName]List
+        With New [ClassName](DataSrc)
+            Return .SelectBy[ForeignKeyShorter](Me.[PrimaryKey], tx)     'Only used for cascade deletes
+        End With
+    End Function
+    Public Function [Plural]Count As Integer
+        If Not IsNothing(m_[CamelCase]) Then Return m_[CamelCase].Count
+        With New [ClassName](DataSrc)
+            Return .SelectCountBy[ForeignKeyShorter](Me.[PrimaryKey])
+        End With
+    End Function
+
+
+***** Goes in region called "Save/Delete Overrides"
+    Public Overrides Sub Delete(ByVal txOrNull As IDbTransaction)
+        'Use a transaction if none supplied
+        If txOrNull Is Nothing Then
+            BulkDelete(Me)
+            Exit Sub
+        End If
+
+        'Cascade-Delete (all child collections)
+        Me.[Plural]_(txOrNull).DeleteAll(txOrNull)
+
+        'Normal Delete
+        MyBase.Delete(txOrNull)
+    End Sub
+

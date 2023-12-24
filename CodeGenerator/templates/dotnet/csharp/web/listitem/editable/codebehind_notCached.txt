@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+public partial class pages_[Plural]_usercontrols_UC[Singular] : UserControl 
+{     
+    #region Members
+    private [ClassName] _[SingularCamelCase]; 
+    private [ClassName]List _sortedList; 
+    private int _pageIndex;
+    #endregion 
+    
+    #region Interface
+    public void Display([ClassName] [SingularCamelCase], [ClassName]List list, CPagingInfo pi) 
+    { 
+        if (Parent.Controls.Count % 2 == 0) 
+            row.Attributes.Add("class", "alt_row"); 
+        
+        _[SingularCamelCase] = [SingularCamelCase]; 
+        _sortedList = list; 
+        _pageIndex = pi.PageIndex;
+        [HideUpDown] 
+        [ClassName] c = _[SingularCamelCase]; 
+        litNumber.Text = Convert.ToString(list.IndexOf(c) + 1 + pi.Offset);
+[Display]
+    } 
+    #endregion 
+    
+    #region Event Handlers 
+[UpDown][Checkboxes]    protected void btnDelete_Click(object sender, ImageClickEventArgs e) 
+    {
+        _[SingularCamelCase].Delete(); 
+        Refresh();
+    } 
+    #endregion 
+    
+    #region Private
+    private void Refresh() 
+    {
+        Response.Redirect(Request.RawUrl);  
+    }
+    #endregion 
+}

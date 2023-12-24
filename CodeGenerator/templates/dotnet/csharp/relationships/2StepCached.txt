@@ -1,0 +1,5 @@
+﻿
+***** Goes in region called "Properties - Relationships"
+        //Relationships - 2-Step Walk
+        public [ClassName]List [Plural]               {   get {   return [ChildCollection].[Plural];  }   }
+        public [ClassName]List Remaining[Plural](string search) { return [ChildCollection].Remaining[Plural](search); }

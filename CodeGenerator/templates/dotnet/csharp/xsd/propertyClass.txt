@@ -1,0 +1,9 @@
+        public [dataType] [nameProperCase] 
+        { 
+            get 
+            { 
+                if (null == _[nameCamelCase])
+                { _[nameCamelCase] = new [dataType](this);  }
+                return _[nameCamelCase]; 
+            }
+        }

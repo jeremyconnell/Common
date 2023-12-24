@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml;
+
+using Framework;
+
+namespace [namespace]
+{
+    public partial class [className] : CElement
+    {
+        #region Constants
+        public const string TAG_NAME = "[tagName]";
+        public override string TagName { get { return TAG_NAME; } }
+        #endregion
+
+        #region Constructors
+        public [className]([parentClassName] parent) : base(parent) { }
+        internal [className]([parentClassName] parent, XmlNode node) : base(parent, node) { }
+        #endregion
+
+        #region Initial State
+        protected override void ApplyDefaultValues_Auto()
+        {
+[initChildObjects]        }
+        #endregion
+
+        #region Members
+[members]        #endregion
+
+        #region Properties
+[properties]        #endregion
+
+        #region Public - Element Level
+        public [parentClassName] Parent { get { return ([parentClassName])base.ParentElement; } }
+        public [rootClassName] Root { get { return ([rootClassName])base.ParentDocument; } }
+        #endregion
+
+        #region Public - Node Level
+        public override void Import(XmlNode parent)
+        {
+            XmlNode node = ImportSelf(parent);
+
+[importData]        }
+        public override void Export(XmlNode parent)
+        {
+            XmlNode node = ExportSelf(parent);
+
+[exportData]        }
+        #endregion
+    }
+}

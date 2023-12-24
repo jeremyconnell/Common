@@ -1,0 +1,77 @@
+﻿******DEPLOYMENT INSTRUCTIONS FOR USERCONTROL (COPY & PASTE ONLY)
+******The code below must be manually pasted into the details pages for the 2 related entities.
+******This replaces the sitemap code, since associative entities dont have list/details pages.
+******You can still use the "Generate Code" button to write the Urls code (e.g. for rendering the usercontrol)
+
+
+*****Aspx #1 of 2: Register the usercontrol (Same control used on both pages)
+<%@ Register tagprefix="uc" tagname="UC[Plural]Pair" src="~/pages/[PluralCamelCase]/usercontrols/UC[Plural]Pair.ascx" %>
+
+
+*****Aspx #2 of 2: Note: "Title" and "AutoPostback" are optional attributes. 
+        *****Copy & Paste ONE as appropriate
+        <uc:UC[Plural]Pair ID="ctrl[PluralLhs]" runat="server" />
+        <uc:UC[Plural]Pair ID="ctrl[PluralRhs]" runat="server" />
+
+
+*****CodeFile:
+    protected overrides void PageInit()
+    {
+        *****Copy & Paste ONE as appropriate (also hide if not IsEdit)
+        ctrl[PluralLhs].Display([SingularRhs], CSitemap.[SingularRhs]Edit([PrimaryKeyRhs]))
+        ctrl[PluralRhs].Display([SingularLhs], CSitemap.[SingularLhs]Edit([PrimaryKeyLhs]))
+    }
+
+
+
+
+
+
+******ALTERNATIVE APPROACH USING CHECKBOXLISTS
+******Doesnt scale well and doesnt hyperlink to related entity
+******Copy ONE from each of the sections below (first or second from each)
+
+
+*****Aspx: Introduce the new tab to the tabstrip
+        <uc:CheckBoxList ID="cbl[PluralLhs]" runat="server" DataTextField="[SingularLhs]Name" DataValueField="[PrimaryKeyLhs]" Label="[PluralLhs]" />
+        <uc:CheckBoxList ID="cbl[PluralRhs]" runat="server" DataTextField="[SingularRhs]Name" DataValueField="[PrimaryKeyRhs]" Label="[PluralRhs]" />
+
+*****CodeBehind 1 of 3:
+        protected overrides void PageInit()
+        {
+            cbl[PluralLhs].DataSource = [ClassNameLhs].Cache;
+            cbl[PluralLhs].DataBind();
+            cbl[PluralRhs].DataSource = [ClassNameRhs].Cache;
+            cbl[PluralRhs].DataBind();
+        }
+
+*****CodeBehind 2 of 3:
+        protected overrides void PageLoad()
+        {
+            cbl[PluralLhs].SelectedInts = [SingularRhs].[Plural].[PrimaryKeyLhs]s; //See also .SelectedStrings
+            cbl[PluralRhs].SelectedInts = [SingularLhs].[Plural].[PrimaryKeyRhs]s; //See also .SelectedStrings
+        }
+
+*****CodeBehind 3 of 3: Call this method from the Save Method, after saving main entity
+    private void Save[PluralLhs]()
+    {
+        List<int> selected[PrimaryKeyLhs]s = cbl[PluralLhs].SelectedInts;    //See also .SelectedValues
+        foreach (int [PrimaryKeyCamelCaseLhs] in selected[PrimaryKeyLhs]s)
+            if (![SingularRhs].[Plural].[PrimaryKeyLhs]s.Contains([PrimaryKeyCamelCaseLhs]))
+                [ClassName].InsertPair([PrimaryKeyCamelCaseLhs], [SingularRhs].[PrimaryKeyRhs]);
+
+        foreach (int [PrimaryKeyCamelCaseLhs] in [SingularRhs].[Plural].[PrimaryKeyLhs]s)
+            if (!selected[PrimaryKeyLhs]s.Contains([PrimaryKeyCamelCaseLhs]))
+                [ClassName].DeletePair([PrimaryKeyCamelCaseLhs], [SingularRhs].[PrimaryKeyRhs]);
+    }
+    private void Save[PluralRhs]()
+    {
+        List<int> selected[PrimaryKeyRhs]s = cbl[PluralRhs].SelectedInts;    //See also .SelectedValues
+        foreach (int [PrimaryKeyCamelCaseRhs] in selected[PrimaryKeyRhs]s)
+            if (![SingularLhs].[Plural].[PrimaryKeyRhs]s.Contains([PrimaryKeyCamelCaseRhs]))
+                [ClassName].InsertPair([SingularLhs].[PrimaryKeyLhs], [PrimaryKeyCamelCaseRhs]);
+
+        foreach (int [PrimaryKeyCamelCaseRhs] in [SingularLhs].[Plural].[PrimaryKeyRhs]s)
+            if (!selected[PrimaryKeyRhs]s.Contains([PrimaryKeyCamelCaseRhs]))
+                [ClassName].DeletePair([SingularLhs].[PrimaryKeyLhs], [PrimaryKeyCamelCaseRhs]);
+    }

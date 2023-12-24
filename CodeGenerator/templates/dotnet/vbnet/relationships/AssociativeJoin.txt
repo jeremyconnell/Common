@@ -1,0 +1,73 @@
+﻿
+***** Goes in region called "Constants"
+    Public Shared [MyUpperCase]_JOIN_[OtherUpperCase]       As String = String.Concat([MyClassName].TABLE_NAME,      " INNER JOIN ", [OtherClassName].TABLE_NAME, " ON [MyPk]=[FkJoin]")
+    Public Shared [MyUpperCase]_OUTER_JOIN_[OtherUpperCase] As String = string.Concat([MyClassName].TABLE_NAME, " LEFT OUTER JOIN ", [OtherClassName].TABLE_NAME, " ON [MyPk]=[FkJoin]")
+
+***** Goes in region called "Custom Database Queries"
+    'Associative Table: 2-Step Walk
+    Public Function SelectBy[FkShorter](ByVal [FkCamelCase] As [FkDataType]) As [MyClassName]List
+        Return SelectBy[FkShorter](Nothing, [FkCamelCase], String.Empty)
+    End Function
+    Public Function SelectBy[FkShorter](ByVal [FkCamelCase] As [FkDataType], ByVal search As String) As [MyClassName]List
+        Return SelectBy[FkShorter](Nothing, [FkCamelCase], search)
+    End Function
+    Public Function SelectBy[FkShorter](ByVal pi As CPagingInfo, ByVal [FkCamelCase] As [FkDataType]) As [MyClassName]List
+        Return SelectBy[FkShorter](pi, [FkCamelCase], string.Empty)
+    End Function
+    Public Function SelectBy[FkShorter](ByVal pi As CPagingInfo, ByVal [FkCamelCase] As [FkDataType], ByVal search As String) As [MyClassName]List
+        Dim join As String = Nothing
+        Dim where As CCriteriaList = BuildWhereBy[FkShorter]([FkCamelCase], search, join) 'New CCriteriaList("[MySingular]Name", string.Concat("%", search, "%"))
+
+        If IsNothing(pi) Then
+            Return SelectWhere(where, join)
+        Else
+            pi.TableName = join
+            Return SelectWhere(pi, where)
+        End If
+    End Function
+    Public Function CountBy[FkShorter](ByVal [FkCamelCase] As [FkDataType], ByVal search As String) As Integer
+        Dim join As String = Nothing
+        Dim where As CCriteriaList = BuildWhereBy[FkShorter]([FkCamelCase], search, join) 'New CCriteriaList("[MySingular]Name", string.Concat("%", search, "%"))
+        Return SelectCount(where, join)
+    End Function
+    Public Function BuildWhereBy[FkShorter](ByVal [FkCamelCase] As [FkDataType], ByVal search As String, ByRef join As String) As CCriteriaList
+        join = [MyUpperCase]_JOIN_[OtherUpperCase]
+        Dim where As CCriteriaList = BuildWhere(search) 'New CCriteriaList("[MySingular]Name", string.Concat("%", search, "%"))
+        where.Add("[FkProperCase]", [FkCamelCase])
+        Return where
+    End Function
+    
+    
+    Public Function SelectRemaining[MyPlural](ByVal [FkCamelCase] As [FkDataType]) As [MyClassName]List
+        Return SelectRemaining[MyPlural](Nothing, [FkCamelCase], String.Empty)
+    End Function
+    Public Function SelectRemaining[MyPlural](ByVal pi As CPagingInfo, ByVal [FkCamelCase] As [FkDataType]) As [MyClassName]List
+        Return SelectRemaining[MyPlural](pi, [FkCamelCase], string.Empty)
+    End Function
+    Public Function SelectRemaining[MyPlural](ByVal [FkCamelCase] As [FkDataType], ByVal search As String) As [MyClassName]List
+        Return SelectRemaining[MyPlural](Nothing, [FkCamelCase], search)
+    End Function
+    Public Function SelectRemaining[MyPlural](ByVal pi As CPagingInfo, ByVal [FkCamelCase] As [FkDataType], ByVal search As String) As [MyClassName]List
+        Dim join As String = Nothing
+        Dim where As CCriteriaList = BuildWhereRemaining[MyPlural]([FkCamelCase], search, join) 'Must be AND logic, otherwise add to a new CCriteriaList
+        where.Add("[MySk]", Nothing) 'Filter associated with a Not-In Join
+
+        If IsNothing(pi) Then
+            Return SelectWhere(where, join)
+        Else
+            pi.TableName = join
+            Return SelectWhere(pi, where)
+        End If
+    End Function
+    Public Function CountRemaining[MyPlural](ByVal [FkCamelCase] As [FkDataType], ByVal search As String) As Integer
+        Dim join As String = Nothing
+        Dim where As CCriteriaList = BuildWhereRemaining[MyPlural]([FkCamelCase], search, join) 'Must be AND logic, otherwise add to a new CCriteriaList
+        where.Add("", Nothing) 'Filter associated with a Not-In 
+        Return SelectCount(where, join)
+    End Function    
+    Public Function BuildWhereRemaining[MyPlural](ByVal [FkCamelCase] As [FkDataType], ByVal search As String, ByRef join As String) As CCriteriaList
+        join = String.Concat([MyUpperCase]_OUTER_JOIN_[OtherUpperCase], " AND [MyPk]=@[FkProperCase]")
+        Dim where As CCriteriaList = BuildWhere(search) 'New CCriteriaList("[MySingular]Name", string.Concat("%", search, "%"))
+        where.Add("[FkProperCase]", [FkCamelCase])
+        Return where
+    End Function

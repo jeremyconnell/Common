@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Framework" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Framework" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://picassolaptop/Website/webservices/wcf/WcfDataSrc.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CCommand">
+    <xs:sequence>
+      <xs:element name="CommandType" type="tns:ECmdType" />
+      <xs:element name="ParametersNamed" nillable="true" type="tns:ArrayOfCNameValue" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="ParametersUnnamed" nillable="true" type="q1:ArrayOfanyType" />
+      <xs:element name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CCommand" nillable="true" type="tns:CCommand" />
+  <xs:simpleType name="ECmdType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sql" />
+      <xs:enumeration value="StoredProcedure" />
+      <xs:enumeration value="ParameterisedSql" />
+      <xs:enumeration value="InsertThenSelectIdentity" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ECmdType" nillable="true" type="tns:ECmdType" />
+  <xs:complexType name="ArrayOfCNameValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CNameValue" nillable="true" type="tns:CNameValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCNameValue" nillable="true" type="tns:ArrayOfCNameValue" />
+  <xs:complexType name="CNameValue">
+    <xs:sequence>
+      <xs:element name="MarkerName" nillable="true" type="xs:string" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CNameValue" nillable="true" type="tns:CNameValue" />
+  <xs:complexType name="CSelectWhere">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CWhere">
+        <xs:sequence>
+          <xs:element name="OrderBy" nillable="true" type="xs:string" />
+          <xs:element name="SelectCols" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CSelectWhere" nillable="true" type="tns:CSelectWhere" />
+  <xs:complexType name="CWhere">
+    <xs:sequence>
+      <xs:element name="Criteria" nillable="true" type="tns:CCriteria" />
+      <xs:element name="CriteriaList" nillable="true" type="tns:ArrayOfCCriteria" />
+      <xs:element name="TableName" nillable="true" type="xs:string" />
+      <xs:element name="UnsafeWhereClause" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CWhere" nillable="true" type="tns:CWhere" />
+  <xs:complexType name="CCriteria">
+    <xs:sequence>
+      <xs:element name="ColumnName" nillable="true" type="xs:string" />
+      <xs:element name="ColumnValue" nillable="true" type="xs:anyType" />
+      <xs:element name="MarkerName" nillable="true" type="xs:string" />
+      <xs:element name="Sign" type="tns:ESign" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CCriteria" nillable="true" type="tns:CCriteria" />
+  <xs:simpleType name="ESign">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EqualTo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NotEqualTo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GreaterThan">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GreaterThanOrEq">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LessThan">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LessThanOrEq">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Like">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IN">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ESign" nillable="true" type="tns:ESign" />
+  <xs:complexType name="ArrayOfCCriteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CCriteria" nillable="true" type="tns:CCriteria" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCCriteria" nillable="true" type="tns:ArrayOfCCriteria" />
+  <xs:complexType name="ArrayOfCCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CCommand" nillable="true" type="tns:CCommand" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCCommand" nillable="true" type="tns:ArrayOfCCommand" />
+</xs:schema>

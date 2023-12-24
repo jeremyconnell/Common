@@ -1,0 +1,85 @@
+﻿#Region "Searching (Optional)"
+    'Dynamic search methods: (overload as required for common search patterns, cascade the BuildWhere overloads)
+    '   Public  x5 - Simple, Paged, Transactional, Count, and Dataset
+    '   Private x1 - BuildWhere
+    'See also in-memory search options in list class, such as GetBy[FK] and Search
+
+    'Simple
+    Public Function SelectSearch(ByVal nameOrId As String) As [ClassName]List
+        Return SelectWhere(BuildWhere(nameOrId)) ', JOIN_OR_VIEW)
+    End Function
+'   Public Function SelectSearch(ByVal nameOrId As String, [SearchParamsTyped]) As [ClassName]List
+'       Return SelectWhere(BuildWhere(nameOrId[SearchParamsUntyped])) ', JOIN_OR_VIEW)
+'   End Function
+
+    'Paged
+    Public Function SelectSearch(ByVal pi As CPagingInfo, ByVal nameOrId As String) As [ClassName]List
+        'pi.TableName = JOIN_OR_VIEW
+        Return SelectWhere(pi, BuildWhere(nameOrId))
+    End Function
+'   Public Function SelectSearch(ByVal pi As CPagingInfo, ByVal nameOrId As String, [SearchParamsTyped]) As [ClassName]List
+'       'pi.TableName = JOIN_OR_VIEW
+'       Return SelectWhere(pi, BuildWhere(nameOrId[SearchParamsUntyped]))
+'   End Function
+
+    'Transactional
+    Public Function SelectSearch(ByVal nameOrId As String, ByVal tx As IDbTransaction) As [ClassName]List
+        Return SelectWhere(BuildWhere(nameOrId), tx) ', JOIN_OR_VIEW, tx)
+    End Function
+'   Public Function SelectSearch(ByVal nameOrId As String, [SearchParamsTyped], ByVal tx As IDbTransaction) As [ClassName]List
+'       Return SelectWhere(BuildWhere(nameOrId[SearchParamsUntyped]), tx) ', JOIN_OR_VIEW, tx)
+'   End Function
+
+    'Count
+    Public Overloads Function SelectCount(ByVal nameOrId As String) As Integer
+        Return SelectCount(BuildWhere(nameOrId)) ', JOIN_OR_VIEW)
+    End Function
+'   Public Overloads Function SelectCount(ByVal nameOrId As String, [SearchParamsTyped]) As Integer
+'       Return SelectCount(BuildWhere(nameOrId[SearchParamsUntyped])) ', JOIN_OR_VIEW)
+'   End Function
+
+    'Dataset (e.g. ExportToCsv)
+    Public Function SelectSearch_Dataset(ByVal nameOrId As String) As DataSet
+        Return SelectWhere_Dataset(BuildWhere(nameOrId)) ', JOIN_OR_VIEW)
+    End Function
+'   Public Function SelectSearch_Dataset(ByVal nameOrId As String, [SearchParamsTyped]) As DataSet
+'       Return SelectWhere_Dataset(BuildWhere(nameOrId[SearchParamsUntyped])) ', JOIN_OR_VIEW)
+'   End Function
+    
+
+    'Filter Logic
+    'Represents a simple search box to search PK and any string columns
+    Private Function BuildWhere(ByVal nameOrId As String) As CCriteriaList
+        Dim where As New CCriteriaList 'Defaults to AND logic
+
+        'Simple search box UI
+        If Not String.IsNullOrEmpty(nameOrId) Then
+            'Interpret search string in various ways using OR sub-expression
+            Dim orExpr As New CCriteriaGroup(EBoolOperator.Or)
+
+            'Special case - search by PK (assumes integer PK)
+            'Dim id As Integer
+            'If Integer.TryParse(nameOrId, id)
+            '    orExpr.Add("[PrimaryKeyName]", id)
+            'End If
+
+            'Search a range of string columns
+            Dim wildCards As String = String.Concat("%", nameOrId, "%")
+[FiltersString]
+            'Conclude
+            If orExpr.Group.Count > 0 Then
+                where.Add(orExpr)
+            End If
+        End If
+
+        Return where
+    End Function
+    'Represents more complex combinations of search filters (suggestion only)
+'   Private Function BuildWhere(ByVal nameOrId As String, [SearchParamsTyped]) As CCriteriaList
+'       Dim where As CCriteriaList = BuildWhere(nameOrId) 'Reuses logic above
+'
+'       'Other search Colums (customise as required)
+[FiltersOther]
+'       Return where
+'   End Function    
+#End Region

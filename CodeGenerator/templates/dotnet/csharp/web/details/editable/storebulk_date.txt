@@ -1,0 +1,1 @@
+        if (BULKEDIT_NOCHANGE != txt[Name].Text) { this.[Plural].SetSameValue("[Name]", txt[Name].ValueDate); }

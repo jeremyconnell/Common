@@ -1,0 +1,3 @@
+        public const string PRIMARY_KEY_NAME = "[PrimaryKeyName]";
+        protected override bool InsertPrimaryKey {  get { return [InsertPrimaryKey];    }   }
+        protected override string PrimaryKeyName {  get { return PRIMARY_KEY_NAME;    }    }

@@ -1,0 +1,1 @@
+﻿    <td align="center"><asp:CheckBox ID="chk[Name]" Runat="server" AutoPostBack="True" OnCheckedChanged="chk[Name]_CheckedChanged" /></td>

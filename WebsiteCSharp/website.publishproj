@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+***********************************************************************************************
+website.publishproj
+
+WARNING: DO NOT MODIFY this file, it is used for the web publish process.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+***********************************************************************************************
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{97c1eea3-1d28-409f-9bd3-51681429f529}</ProjectGuid>
+    <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
+    <SourceWebVirtualPath>/Website</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <SourceWebProject>
+    </SourceWebProject>
+    <SourceWebMetabasePath>
+    </SourceWebMetabasePath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- for VS2010 we need to use 10.5 but for VS2012+ we should use VisualStudioVersion -->
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)' =='' and '$(VisualStudioVersion)' == 10.0 ">10.5</WebPublishTargetsVersion>
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)'=='' ">$(VisualStudioVersion)</WebPublishTargetsVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(WebPublishTargetsVersion)</VSToolsPath>
+    <_WebPublishTargetsPath Condition=" '$(_WebPublishTargetsPath)'=='' ">$(VSToolsPath)</_WebPublishTargetsPath>
+    <AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">1.0.0.0</AssemblyFileVersion>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Client\Comms.PushUpgrade.Client.vbproj">
+      <Project>{26BD5623-A8CF-4A8C-ACA8-30AF9230F5D8}</Project>
+      <Name>Comms.PushUpgrade.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Interface\Comms.PushUpgrade.Interface.vbproj">
+      <Project>{AA203B26-6F6E-4ABA-8107-D237F8C1983C}</Project>
+      <Name>Comms.PushUpgrade.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Comms\Comms.PushUpgrade\Comms.PushUpgrade.Server\Comms.PushUpgrade.Server.vbproj">
+      <Project>{FC0B22FD-26B0-49B2-8AAB-B6D336ECD3FB}</Project>
+      <Name>Comms.PushUpgrade.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schema\SchemaAudit\SchemaAudit.vbproj">
+      <Project>{27E4F7F3-45F5-4FAF-BD4F-CCFAE015CC0D}</Project>
+      <Name>SchemaAudit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schema\SchemaConfig\SchemaConfig.vbproj">
+      <Project>{7C77B83A-CDCE-4A01-BD6B-9FC727471752}</Project>
+      <Name>SchemaConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schema\SchemaMembership\SchemaMembership.vbproj">
+      <Project>{5E4919EE-0701-49C9-806C-AB070095D8EF}</Project>
+      <Name>SchemaMembership</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\_Framework\Framework\Framework.vbproj">
+      <Project>{DE7FDE19-414E-4CD5-9AE3-25BC7B1A2A05}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
+</Project>

@@ -1,0 +1,36 @@
+        //Index by [ForeignKey]
+        public [ClassName]List GetBy[ForeignKeyShort]([DataType] [ForeignKeyCamelCase])
+        {
+            [ClassName]List temp = null;
+            if (! IndexBy[ForeignKeyShort].TryGetValue([ForeignKeyCamelCase], out temp))
+            {
+                temp = new [ClassName]List();
+                IndexBy[ForeignKeyShort][[ForeignKeyCamelCase]] = temp;
+            }
+            return temp;
+        }
+
+        [NonSerialized]
+        private Dictionary<[DataType], [ClassName]List> _indexBy[ForeignKeyShort];
+        private Dictionary<[DataType], [ClassName]List> IndexBy[ForeignKeyShort]
+        {
+            get
+            {
+                if (null == _indexBy[ForeignKeyShort])
+                {
+                    Dictionary<[DataType], [ClassName]List> index = new Dictionary<[DataType], [ClassName]List>();
+                    [ClassName]List temp = null;
+                    foreach ([ClassName] i in this)
+                    {
+                        if (! index.TryGetValue(i.[ForeignKeyProperCase], out temp))
+                        {
+                            temp = new [ClassName]List();
+                            index[i.[ForeignKeyProperCase]] = temp;
+                        }
+                        temp.Add(i);
+                    }
+                    _indexBy[ForeignKeyShort] = index;
+                }
+                return _indexBy[ForeignKeyShort];
+            }
+        }

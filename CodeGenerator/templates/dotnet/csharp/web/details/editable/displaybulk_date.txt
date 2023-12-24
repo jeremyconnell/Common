@@ -1,0 +1,5 @@
+        if (this.[Plural].HaveSameValue("[Name]"))
+            txt[Name].ValueDate = this.[Plural][0].[Name];
+        else
+            txt[Name].Text = BULKEDIT_NOCHANGE;
+

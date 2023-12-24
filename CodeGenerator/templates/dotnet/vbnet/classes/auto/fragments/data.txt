@@ -1,0 +1,1 @@
+        data.Add("[ColumnName]", NullVal(m_[ColumnNameCamelCase]))

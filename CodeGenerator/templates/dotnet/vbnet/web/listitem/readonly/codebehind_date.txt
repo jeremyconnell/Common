@@ -1,0 +1,2 @@
+﻿        lbl[Name].Text = CUtilities.Timespan(.[Expression])
+        lbl[Name].ToolTip = CUtilities.LongDateTime(.[Expression])

@@ -1,0 +1,64 @@
+
+#Region "Static - Cache Implementation"
+    Public Shared Property Cache() As [ClassName]List
+        Get
+            Cache = CType(CCache.Get(CACHE_KEY), [ClassName]List)
+            If IsNothing(cache) Then
+                SyncLock (CACHE_KEY)
+                    Cache = CType(CCache.Get(CACHE_KEY), [ClassName]List)
+                    If IsNothing(cache) Then
+                        Cache = LoadCache()
+                        [ClassName].Cache = Cache
+                    End If
+                End SyncLock
+            End If
+            Return cache
+        End Get
+        Set(ByVal value As [ClassName]List)
+            SetCache(value)
+        End Set
+    End Property
+
+    'Change Management:
+    'Clone, modify, and then replace the cache (threadsafe for anything iterating the collection)
+    'Note that internal indices are dicarded each time unless handled in constructor and add/remove overrides
+    Protected Overrides Sub CacheDelete()
+        If CacheIsNull Then Exit Sub
+        SyncLock (CACHE_KEY)
+            Dim temp As [ClassName]List = New [ClassName]List(Cache)
+            Dim size As Integer = temp.Count
+            temp.Remove(Me)
+            If size = temp.Count Then 'Remove might fail If cache was refreshed with New instances. Use old index                    
+                temp.Remove(CacheGetById(temp))
+            End If
+            SetCache(temp)
+        End SyncLock
+    End Sub
+    Protected Overrides Sub CacheInsert()
+        If CacheIsNull Then Exit Sub
+        SyncLock (CACHE_KEY)
+            Dim temp As [ClassName]List = New [ClassName]List(Cache)
+            temp.Add(Me)
+            SetCache(temp)
+        End SyncLock
+    End Sub
+    Protected Overrides Sub CacheUpdate()
+        If CacheIsNull Then Exit Sub
+        SyncLock (CACHE_KEY)
+            Dim temp As [ClassName]List = New [ClassName]List(Cache)
+            If Not temp.Contains(Me) Then
+                temp.Remove(CacheGetById(temp))
+                temp.Add(Me)
+            End If
+            SetCache(temp)
+        End SyncLock
+    End Sub
+    Protected Overrides Sub CacheClear()
+        Cache = Nothing
+    End Sub
+    Public Shared ReadOnly Property CacheIsNull() As Boolean
+        Get
+            Return IsNothing(CCache.Get(CACHE_KEY))
+        End Get
+    End Property
+#End Region

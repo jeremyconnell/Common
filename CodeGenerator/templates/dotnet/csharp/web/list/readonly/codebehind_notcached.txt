@@ -1,0 +1,78 @@
+﻿using System;
+using System.Data;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+public partial class pages_[Plural]_default : CPage
+{
+    #region Querystring
+    public string Search { get { return CWeb.RequestStr("search"); } }
+    //rename or delete: public int ParentId { get { return CWeb.RequestInt("parentId"); } }
+    #endregion
+
+    #region Members
+    private [ClassName]List _[PluralCamelCase]; 
+    #endregion 
+    
+    #region Data
+    public [ClassName]List [Plural]
+    {
+        get 
+        {
+            if (_[PluralCamelCase] == null)
+            {
+                _[PluralCamelCase] = new [ClassName]().SelectSearch(ctrl[Plural].Info, txtSearch.Text); //Sql-based Paging 
+                //_[PluralCamelCase].PreloadChildren(); //Loads children for page in one hit (where applicable)
+            }
+            return _[PluralCamelCase];
+        } 
+    } 
+    public DataSet [Plural]AsDataSet() { return new [ClassName]().SelectSearch_Dataset(txtSearch.Text); }
+    #endregion 
+    
+    #region Event Handlers - Page
+    protected override void PageInit()
+    {
+		//Sidemenu
+        AddMenuSide("[Plural]");
+        AddMenuSide("New [Singular]...", CSitemap.[Singular]Add());
+
+        //Populate Dropdowns
+        //Populate Dropdowns
+        
+    
+        //Search state (from querystring)
+        txtSearch.Text = this.Search;
+        
+        //Display Results
+        ctrl[Plural].Display(this.[Plural]);
+
+        //Client-side
+        this.Form.DefaultFocus  = txtSearch.ClientID;   //txtCreate.ClientID;
+        this.Form.DefaultButton = btnSearch.UniqueID;   //CTextbox.OnReturnPress(txtSearch, btnSearch);
+    }
+    #endregion 
+
+    #region Event Handlers - Form
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {   
+        Response.Redirect(CSitemap.[Plural](txtSearch.Text));
+    }
+    #endregion
+
+    #region Event Handlers - UserControls
+    protected void ctrl_ExportClick()
+    {
+        CDataSrc.ExportToCsv([Plural]AsDataSet(), Response, "[Plural].csv");
+    }
+    protected void ctrl_ResortClick(string sortBy, bool descending, int pageNumber)
+    {
+        Response.Redirect(CSitemap.[Plural](txtSearch.Text, new CPagingInfo(0, pageNumber - 1, sortBy, descending)));
+    }
+    #endregion
+}

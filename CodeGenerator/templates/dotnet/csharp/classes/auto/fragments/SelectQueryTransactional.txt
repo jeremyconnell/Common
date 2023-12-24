@@ -1,0 +1,1 @@
+        public [ClassName]List SelectBy[ColumnNameShorter]([DataType] [ColumnNameCamelCase], IDbTransaction tx)    {    return SelectWhere(new CCriteriaList("[ColumnNameProperCase]", [ColumnNameCamelCase]), tx);    }

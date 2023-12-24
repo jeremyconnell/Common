@@ -1,0 +1,14 @@
+    Public Const TABLE_NAME As String = "[TableName]"
+    Public Const VIEW_NAME As String  = "[ViewName]"          'Used to override Me.ViewName
+    Public Const ORDER_BY_COLS As String = "[OrderByColumns]" 'See the CompareTo method below (Sql-based sorting should match In-Memory sorting)
+    Public Const SORTING_COLUMN As String = "[SortingColumn]"
+    Public Overrides ReadOnly Property TableName() As String
+        Get
+            Return TABLE_NAME
+        End Get
+    End Property
+[ViewNameOverride]    Protected Overrides ReadOnly Property OrderByColumns() As String
+        Get
+            Return ORDER_BY_COLS
+        End Get
+    End Property

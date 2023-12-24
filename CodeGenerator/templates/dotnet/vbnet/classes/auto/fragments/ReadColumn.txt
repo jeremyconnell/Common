@@ -1,0 +1,1 @@
+        m_[ColumnNameCamelCase] = CAdoData.[FunctionName](dr, "[ColumnName]")

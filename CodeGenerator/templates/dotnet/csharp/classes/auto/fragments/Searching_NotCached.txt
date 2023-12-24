@@ -1,0 +1,56 @@
+﻿        #region Searching (Optional)
+        //Dynamic search methods: (overload as required for common search patterns, cascade the BuildWhere overloads)
+        //   Public  x5 - Simple, Paged, Transactional, Count, and Dataset
+        //   Private x1 - BuildWhere
+        //See also in-memory search options in list class, such as GetBy[FK] and Search
+
+        //Simple
+        public [ClassName]List SelectSearch(string nameOrId /*[SearchParamsUntyped]*/)  {   return SelectWhere(BuildWhere(nameOrId /*[SearchParamsUntyped]*/));  } //, JOIN_OR_VIEW); }
+
+        //Paged
+        public [ClassName]List SelectSearch(CPagingInfo pi, string nameOrId /*, [SearchParamsTyped] */)
+        {
+            //pi.TableName = JOIN_OR_VIEW
+            return SelectWhere(pi, BuildWhere(nameOrId /*[SearchParamsUntyped]*/));
+        }
+
+        //Transactional
+        public [ClassName]List SelectSearch(string nameOrId, /* [SearchParamsTyped], */ IDbTransaction tx)   {   return SelectWhere(BuildWhere(nameOrId /*, [SearchParamsUntyped] */), tx);   }   //, JOIN_OR_VIEW, tx); }
+
+        //Dataset (e.g. ExportToCsv)
+        public DataSet SelectSearch_Dataset(string nameOrId /*, [SearchParamsTyped]*/)   {   return SelectWhere_Dataset(BuildWhere(nameOrId /*, [SearchParamsUntyped] */));   }   //, JOIN_OR_VIEW); }
+
+        //Count
+        public int SelectCount(string nameOrId /*, [SearchParamsTyped]*/)   {   return SelectCount(BuildWhere(nameOrId /*, [SearchParamsUntyped] */));   }   //, JOIN_OR_VIEW); }
+
+        //Filter Logic
+        private CCriteriaList BuildWhere(string nameOrId /*, [SearchParamsTyped] */)
+        {
+            CCriteriaList where = new CCriteriaList();  //Defaults to AND logic
+            
+            //Simple search box UI
+            if (!string.IsNullOrEmpty(nameOrId)) 
+            {
+                //Interpret search string in various ways using OR sub-expression
+                CCriteriaGroup orExpr = new CCriteriaGroup(EBoolOperator.Or);
+                
+                //Special case - search by PK
+                /* 
+                int id = 0;
+                if (int.TryParse(nameOrId, out id))
+                    orExpr.Add("[PrimaryKeyName]", id); 
+                */
+                
+                //Search a range of string columns
+                string wildCards = string.Concat("%", nameOrId, "%");
+[FiltersString]
+                //Conclude
+                if (orExpr.Group.Count > 0)
+                    where.Add(orExpr);
+            }
+            
+			//Other search Colums (customise as required)
+[FiltersOther]
+            return where;
+        }
+        #endregion

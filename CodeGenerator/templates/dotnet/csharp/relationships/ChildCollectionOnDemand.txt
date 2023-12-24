@@ -1,0 +1,24 @@
+﻿***** Goes in region called "Properties - Relationships" (under section "Collections") 
+        public   [ClassName]List [Plural]()                 {   return new [ClassName](DataSrc).SelectBy[ForeignKeyShorter](     this.[PrimaryKey]    ); } 
+        public   [ClassName]List [Plural](CPagingInfo pi)   {   return new [ClassName](DataSrc).SelectBy[ForeignKeyShorter](pi,  this.[PrimaryKey]    ); } 
+        internal [ClassName]List [Plural](IDbTransaction tx){   return new [ClassName](DataSrc).SelectBy[ForeignKeyShorter](     this.[PrimaryKey], tx); } 
+        public   int             [Plural]Count()            {   return new [ClassName](DataSrc).SelectCountBy[ForeignKeyShorter](this.[PrimaryKey]    ); }
+
+
+***** Goes in region called "Save/Delete Overrides" 
+    public override void Delete(IDbTransaction txOrNull) 
+    { 
+        //Use a transaction if none supplied 
+        if (txOrNull == null) 
+        { 
+            BulkDelete(this); 
+            return; 
+        } 
+        
+        //Cascade-Delete (all child collections)
+        this.[Plural](txOrNull).DeleteAll(txOrNull);
+        
+        //Normal Delete 
+        base.Delete(txOrNull); 
+    }
+

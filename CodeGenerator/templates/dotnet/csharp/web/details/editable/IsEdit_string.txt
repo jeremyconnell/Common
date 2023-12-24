@@ -1,0 +1,1 @@
+﻿[PrimaryKey] != String.Empty

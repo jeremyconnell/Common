@@ -1,0 +1,11 @@
+﻿
+***** Goes in region called "Properties - Relationships"
+    'Relationships - 2-Step Walk
+    Public ReadOnly Property [[Plural]]() As [ClassName]List
+        Get
+            Return [ChildCollection].[Plural] 'There is also an id-only version of this property
+        End Get
+    End Property
+    Public Function Remaining[Plural](ByVal search As String) As [ClassName]List
+        Return [ChildCollection].Remaining[Plural](search)
+    End Function

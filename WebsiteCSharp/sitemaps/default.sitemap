@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="" url="" >
+      <siteMapNode title="Home"             url="~/default.aspx" />
+
+    <siteMapNode title="Self"             url="~/pages/self/deploy.aspx" >
+      <siteMapNode title="Sql"             url="~/pages/self/sql.aspx" />
+    </siteMapNode>
+
+      <siteMapNode title="Logs"            url="~/pages/audit_Logs/default.aspx" description="Activity Logs" roles="developers">
+        <siteMapNode title="Log Details" url="~/pages/audit_Logs/Audit_Log.aspx" />
+      </siteMapNode>
+    
+      <siteMapNode title="Users"            url="~/pages/users/default.aspx">
+        <siteMapNode title="User Details"   url="~/pages/users/user.aspx" />
+      </siteMapNode>
+      
+      <siteMapNode title="Roles"            url="~/pages/roles/default.aspx" roles="developers">
+          <siteMapNode title="Role Details" url="~/pages/roles/role.aspx" />
+      </siteMapNode>
+
+      <siteMapNode title="Audit"      url="~/pages/audit-trail/default.aspx" roles="administrators,developers" />
+
+      <siteMapNode title="Errors" url="~/pages/audit_Errors/default.aspx" roles="administrators,developers" >
+          <siteMapNode title="Error Details"  url="~/pages/audit_Errors/audit_Error.aspx"/>
+      </siteMapNode>
+
+      <siteMapNode title="SQL"      url="~/pages/sql/sql.aspx" roles="administrators,developers" />
+    
+      <siteMapNode title="CC"      url="~/clearcache.aspx" />
+
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,50 @@
+
+#Region "Many-To-Many Helper Functions"
+    'Insert/Delete - NonTransactional
+    Public Shared Function InsertPair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType]) As Integer
+        Return InsertPair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], Nothing)
+    End Function
+    Public Shared Function DeletePair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType]) As Integer
+        Return DeletePair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], Nothing)
+    End Function
+    Public Shared Function ExistsPair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType]) As Boolean
+        Return ExistsPair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], Nothing)
+    End Function
+    
+    'Insert/Delete - Default Datasrc
+    Public Shared Function InsertPair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType], ByVal txOrNull As IDbTransaction) As Integer
+        Return InsertPair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], txOrNull, CDataSrc.Default)
+    End Function
+    Public Shared Function DeletePair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType], ByVal txOrNull As IDbTransaction) As Integer
+        Return DeletePair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], txOrNull, CDataSrc.Default)
+    End Function
+    Public Shared Function ExistsPair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType], ByVal txOrNull As IDbTransaction) As Boolean
+        Return ExistsPair([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], txOrNull, CDataSrc.Default)
+    End Function
+
+    'Insert/Delete - Transactional
+    Public Shared Function InsertPair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType], ByVal txOrNull As IDbTransaction, ByVal dataSrc as CDatasrc) As Integer
+        With New [ClassName](dataSrc)
+            .[PrimaryKeyNameProperCase] = [PrimaryKeyNameCamelCase]
+            .[SecondaryKeyNameProperCase] = [SecondaryKeyNameCamelCase]
+            .Save(txOrNull)
+        End With
+    End Function
+    Public Shared Function DeletePair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType], ByVal txOrNull As IDbTransaction, ByVal dataSrc as CDatasrc) As Integer
+        Dim where As New CCriteriaList()
+        where.Add("[PrimaryKeyNameProperCase]", [PrimaryKeyNameCamelCase])
+        where.Add("[SecondaryKeyNameProperCase]", [SecondaryKeyNameCamelCase])
+
+        'Faster, but not audited
+        'Return New [ClassName](dataSrc).DeleteWhere(where, txOrNull)
+        
+        Dim list As [ClassName]List = New [ClassName](dataSrc).SelectWhere(where, txOrNull)
+        list.DeleteAll(txOrNull)
+        return list.Count
+    End Function
+    Public Shared Function ExistsPair(ByVal [PrimaryKeyNameCamelCase] As [PrimaryKeyObjectType], ByVal [SecondaryKeyNameCamelCase] As [SecondaryKeyObjectType], ByVal txOrNull As IDbTransaction, ByVal dataSrc as CDatasrc) As Boolean
+        With New [ClassName](dataSrc)
+            Return .SelectById([PrimaryKeyNameCamelCase], [SecondaryKeyNameCamelCase], txOrNull).Count > 0
+        End With
+    End Function
+#End Region

@@ -1,0 +1,10 @@
+﻿    protected void btnMoveUp_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+    { 
+        new [ClassName]List(_sortedList).MoveUp(_[SingularCamelCase]); 
+        Refresh(); 
+    } 
+    protected void btnMoveDn_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+    { 
+        new [ClassName]List(_sortedList).MoveDown(_[SingularCamelCase]); 
+        Refresh(); 
+    }

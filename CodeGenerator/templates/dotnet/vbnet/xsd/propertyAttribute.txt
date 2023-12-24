@@ -1,0 +1,8 @@
+    Public Property [nameProperCase] As [dataType]
+        Get
+            Return m_[nameCamelCase]
+        End Get
+        Set(ByVal value As [dataType])
+            m_[nameCamelCase] = value
+        End Set
+    End Property

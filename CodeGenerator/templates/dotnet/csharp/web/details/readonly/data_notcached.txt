@@ -1,0 +1,24 @@
+﻿    #region Members
+    private [ClassName] _[SingularCamelCase];
+    #endregion
+
+    #region Data
+    public [ClassName] [Singular]
+    {
+        get 
+        {
+            if (_[SingularCamelCase] == null) 
+            {
+                try 
+                {
+                    _[SingularCamelCase] = new [ClassName]([PrimaryKey]);
+                }
+                catch 
+                {
+                    CSitemap.RecordNotFound("[Singular]", [PrimaryKey]);
+                }
+            }
+            return _[SingularCamelCase];
+        }
+    }
+    #endregion

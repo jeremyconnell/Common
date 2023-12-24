@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+partial class pages_[Plural]_usercontrols_UC[Plural] : UserControl
+{
+    #region Events
+    public event ExportClickEventHandler ExportClick;
+    public event ResortClickEventHandler ResortClick;
+    
+    public delegate void ExportClickEventHandler();
+    public delegate void ResortClickEventHandler(string sortBy, bool descending, int pageNumber);
+    #endregion
+
+    #region Interface
+    public void Display([ClassName]List [PluralCamelCase])
+    {
+        //Short list due to sql-based paging (by exposing Me.Info)
+        colNumber.Visible = [PluralCamelCase].Count > 0;
+        foreach ([ClassName] i in [PluralCamelCase])
+            UC[Singular](plh).Display(i, [PluralCamelCase], this.PagingInfo);
+    }
+    public CPagingInfo PagingInfo   { get { return ctrlPaging.Info; }    }
+    #endregion
+    
+    #region Event Handlers
+    public void btnExport_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+    {
+        if (null != ExportClick) ExportClick();
+    }
+    public void btnResort_Click(object sender, EventArgs e)
+    {
+        if (null == ResortClick) 
+            return; //Check for event listeners
+
+        string sortBy = ((LinkButton)sender).CommandArgument;
+        bool descending = ctrlPaging.IsDescending;
+        string currentSort = ctrlPaging.SortColumn;
+        if (!string.IsNullOrEmpty(currentSort))
+            if (currentSort == sortBy)
+                descending = !descending;
+
+        //Bubble up as event, search page will add filter info then redirect
+        ResortClick(sortBy, descending, ctrlPaging.Info.PageIndex+1);
+    }
+    #endregion
+    
+    #region User Controls
+    private static pages_[PluralLowerCase]_usercontrols_UC[Singular] UC[Singular](Control target)
+    {
+        Control ctrl = target.Page.LoadControl(CSitemap.UC[Singular]());
+        target.Controls.Add(ctrl);
+        return (pages_[PluralLowerCase]_usercontrols_UC[Singular])ctrl;
+    }
+    #endregion
+    
+    #region Paging
+    public CPagingInfo Info 
+    { 
+        get { return ctrlPaging.Info; } 
+    }
+    public string QueryString 
+    {
+        get { return ctrlPaging.QueryString; }
+        set { ctrlPaging.QueryString = value; }
+    }
+    public int PageSize 
+    {
+        get { return ctrlPaging.PageSize; }
+        set { ctrlPaging.PageSize = value; }
+    }
+    #endregion    
+}

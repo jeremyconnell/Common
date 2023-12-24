@@ -1,0 +1,60 @@
+﻿***** Goes in region called "Default Values" (under section "Member variables")
+        _[CamelCase] = new [ClassName]List();
+
+
+***** Goes in region called "Members" (under section "Collections") 
+        [NonSerialized()] private [ClassName]List _[CamelCase]; 
+
+
+***** Goes in region called "Properties - Relationships" (under section "Collections") 
+        public [ClassName]List [Plural] 
+        { 
+            get 
+            { 
+                if (_[CamelCase] == null)
+                { 
+                    lock (this)
+                    { 
+                        if (_[CamelCase] == null)
+                        { 
+                            _[CamelCase] = new [ClassName](DataSrc).SelectBy[ForeignKeyShorter](this.[PrimaryKey]); 
+                            _[CamelCase].[Parent] = this; 
+                        }
+                    }
+                } 
+                return _[CamelCase]; 
+            }
+            set 
+            { 
+                _[CamelCase] = value;
+                if (null != value)
+                    _[CamelCase].[Parent] = this; 
+            }
+        }
+        protected [ClassName]List [Plural]_(IDbTransaction tx)   //Only used for cascade deletes
+        {  
+            return new [ClassName](DataSrc).SelectBy[ForeignKeyShorter](this.[PrimaryKey], tx); 
+        }
+        public int [Plural]Count()
+        {
+            if (null != _[CamelCase]) return _[CamelCase].Count;
+            return new [ClassName](DataSrc).SelectCountBy[ForeignKeyShorter](this.[PrimaryKey]); 
+        }
+
+
+***** Goes in region called "Save/Delete Overrides" 
+        public override void Delete(IDbTransaction txOrNull) 
+        { 
+            //Use a transaction if none supplied 
+            if (txOrNull == null) 
+            { 
+                BulkDelete(this); 
+                return; 
+            } 
+            
+            //Cascade-Delete (all child collections) 
+            this.[Plural]_(txOrNull).DeleteAll(txOrNull);
+            
+            //Normal Delete 
+            base.Delete(txOrNull); 
+        } 

@@ -1,0 +1,1 @@
+'            If BULKEDIT_NOCHANGE <> txt[Name].Text Then [Plural].SetSameValue("[Name]", txt[Name].Text)

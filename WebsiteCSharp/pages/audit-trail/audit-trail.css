@@ -1,0 +1,19 @@
+﻿
+table.filters { border:solid 1px silver; background:#eeeeee;}
+td.filterValue {  }
+
+table.diff { font-size:10px; border-collapse:collapse; }
+table.diff td { padding:2px;  }
+
+tr.added td   { background-color:#ddFFdd; }
+tr.changed td { background-color:#FFFFdd; }
+tr.removed td { background-color:#FFdddd; }
+tr.same    td { background-color:#f0f0f0; }
+
+tr.alt_row tr.added   td { background-color:#ddFFdd; }
+tr.alt_row tr.changed td { background-color:#FFFFdd; }
+tr.alt_row tr.removed td { background-color:#FFdddd; }
+tr.alt_row tr.same    td { background-color:#f0f0f0; }
+
+
+th input { height:14px; margin-left:30px; }

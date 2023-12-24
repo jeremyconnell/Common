@@ -1,0 +1,5 @@
+    Public ReadOnly Property [[ColumnNameProperCase]]() As [DataType]
+        Get
+            Return m_[ColumnNameCamelCase]
+        End Get
+    End Property

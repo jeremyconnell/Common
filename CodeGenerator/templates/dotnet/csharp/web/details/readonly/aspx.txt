@@ -1,0 +1,10 @@
+﻿<%@ Page EnableEventValidation="false" EnableViewState="false" Language="C#" AutoEventWireup="true" CodeFile="[SingularCamelCase].aspx.cs" Inherits="pages_[Plural]_[Singular]"
+  MasterPageFile="~/pages/default.master"
+  Title="[Singular]"
+%>
+
+<asp:Content ID="c" ContentPlaceHolderID="body" runat="server">
+    <uc:FormBegin ID="fb" runat="server" />
+[items]    <uc:FormEnd ID="fe" runat="server" />
+
+</asp:Content>

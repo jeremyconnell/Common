@@ -1,0 +1,5 @@
+        #region Queries - Generic (SelectAll - Cast only)
+        //Used to load the cache
+        public new [ClassName]List SelectAll()                   {   return ([ClassName]List)base.SelectAll(  );    }
+        public new [ClassName]List SelectAll(IDbTransaction tx)  {   return ([ClassName]List)base.SelectAll(tx);    }
+        #endregion

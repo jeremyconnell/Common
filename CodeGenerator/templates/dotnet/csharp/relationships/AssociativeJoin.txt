@@ -1,0 +1,69 @@
+﻿
+    ***** Goes in region called "Constants" 
+    public static string [MyUpperCase]_JOIN_[OtherUpperCase]       = string.Concat([MyClassName].TABLE_NAME, "      INNER JOIN ", [OtherClassName].TABLE_NAME, " ON [MyPk]=[FkJoin]"); 
+    public static string [MyUpperCase]_OUTER_JOIN_[OtherUpperCase] = string.Concat([MyClassName].TABLE_NAME, " LEFT OUTER JOIN ", [OtherClassName].TABLE_NAME, " ON [MyPk]=[FkJoin]"); 
+
+    ***** Goes in region called "Custom Database Queries" 
+        //Associative Table: 2-Step Walk 
+        public [MyClassName]List SelectBy[FkShorter](                [FkDataType] [FkCamelCase]               ) {  return SelectBy[FkShorter](null, [FkCamelCase], string.Empty); }
+        public [MyClassName]List SelectBy[FkShorter](                [FkDataType] [FkCamelCase], string search) {  return SelectBy[FkShorter](null, [FkCamelCase], search      ); }
+        public [MyClassName]List SelectBy[FkShorter](CPagingInfo pi, [FkDataType] [FkCamelCase]               ) {  return SelectBy[FkShorter](pi,   [FkCamelCase], string.Empty); }
+        public [MyClassName]List SelectBy[FkShorter](CPagingInfo pi, [FkDataType] [FkCamelCase], string search)
+        { 
+            string join;
+            CCriteriaList where = BuildWhereBy[FkShorter]([FkCamelCase], search, out join); 
+            if (null == pi)
+                return SelectWhere(where, join);
+            else
+            {
+                pi.TableName = join;
+                return SelectWhere(pi, where);
+            }
+        }
+        public int CountBy[FkShorter]([FkDataType] [FkCamelCase], string search)
+        {
+            string join;
+            CCriteriaList where = BuildWhereBy[FkShorter]([FkCamelCase], search, out join);
+            return SelectCount(where, join);
+        }
+        private CCriteriaList BuildWhereBy[FkShorter]([FkDataType] [FkCamelCase], string search, out string join)
+        {
+            join = [MyUpperCase]_JOIN_[OtherUpperCase];
+            CCriteriaList where = BuildWhere(search); //new CCriteriaList("[MySingular]Name", string.Concat("%", search, "%"));
+            where.Add("[FkProperCase]", [FkCamelCase]);            
+            return where;
+        }
+        
+        //Note: [MyPlural] was [FkShorter]??
+        public [MyClassName]List SelectRemaining[MyPlural](                [FkDataType] [FkCamelCase])                {  return SelectRemaining[MyPlural](null, [FkCamelCase], string.Empty); }
+        public [MyClassName]List SelectRemaining[MyPlural](                [FkDataType] [FkCamelCase], string search) {  return SelectRemaining[MyPlural](null, [FkCamelCase], search      ); }
+        public [MyClassName]List SelectRemaining[MyPlural](CPagingInfo pi, [FkDataType] [FkCamelCase]               ) {  return SelectRemaining[MyPlural](pi,   [FkCamelCase], string.Empty); }
+        public [MyClassName]List SelectRemaining[MyPlural](CPagingInfo pi, [FkDataType] [FkCamelCase], string search)
+        { 
+            string join;
+            CCriteriaList where = BuildWhereRemaining[MyPlural]([FkCamelCase], search, out join);
+
+            where.Add("[FkJoin]", null); 
+            if (null == pi)
+                return SelectWhere(where, join);
+            else
+            {
+                pi.TableName = join;
+                return SelectWhere(pi, where);
+            }
+        }
+        public int CountRemaining[MyPlural]([FkDataType] [FkCamelCase], string search)
+        {
+            string join;
+            CCriteriaList where = BuildWhereRemaining[MyPlural]([FkCamelCase], search, join);
+            where.Add("", null); //Filter associated with a Not-In 
+            return SelectCount(where, join);
+        }
+        private CCriteriaList BuildWhereRemaining[MyPlural]([FkDataType] [FkCamelCase], string search, out string join)
+        {
+            join = string.Concat([MyUpperCase]_OUTER_JOIN_[OtherUpperCase], " AND [MyPk]=@[FkProperCase]");
+            CCriteriaList where = BuildWhere(search);               //Must be AND logic, otherwise add to a new CCriteriaList
+            where.Add("[MySk]", null);                      //Filter associated with a Not-In Join
+            where.Parameters.Add("[FkProperCase]", [FkCamelCase]);   //Extra dynamic-sql parameter above (part of join, not where)
+            return where;
+        }

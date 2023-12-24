@@ -1,0 +1,24 @@
+﻿***** Goes in region called "Properties - Relationships" (under section "Collections") 
+        public    [ClassName]List [Plural]                     {  get { return [ClassName].Cache.GetBy[ForeignKeyShorter](          this.[PrimaryKey]); }  }
+        protected [ClassName]List [Plural]_(IDbTransaction tx) {        return new [ClassName](DataSrc).SelectBy[ForeignKeyShorter](this.[PrimaryKey], tx); } //Only used for cascade deletes
+        public    int           [Plural]Count               {  get { return [Plural].Count; } }
+        public    string        [Plural]Count_              {  get { return CUtilities.CountSummary([Plural], "[SingularCamelCase]", "none"); } }
+        //public    string        NameAndCount                  {  get { return CUtilities.NameAndCount([Entity]Name, [Plural]); } }
+
+
+***** Goes in region called "Save/Delete Overrides" 
+        public override void Delete(IDbTransaction txOrNull) 
+        { 
+            //Use a transaction if none supplied 
+            if (txOrNull == null)
+            { 
+                BulkDelete(this); 
+                return; 
+            } 
+            
+            //Cascade-Delete (all child collections) 
+            this.[Plural]_(txOrNull).DeleteAll(txOrNull);
+            
+            //Normal Delete 
+            base.Delete(txOrNull); 
+        }

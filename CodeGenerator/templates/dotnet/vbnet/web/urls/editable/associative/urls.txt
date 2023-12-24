@@ -1,0 +1,31 @@
+﻿#Region "[Plural]"
+    'List/Search
+    Public Shared Function [Plural]For[SingularLhs](ByVal [PrimaryKeyCamelCaseLhs] As [PrimaryKeyType]) As String
+        Return String.Concat("~[Subfolder][PluralCamelCase]/For[SingularLhs].aspx?[PrimaryKeyCamelCaseLhs]=", [PrimaryKeyCamelCaseLhs])
+    End Function
+    Public Shared Function [Plural]For[SingularRhs](ByVal [PrimaryKeyCamelCaseRhs] As [SecondaryKeyType]) As String
+        Return String.Concat("~[Subfolder][PluralCamelCase]/For[SingularRhs].aspx?[PrimaryKeyCamelCaseRhs]=", [PrimaryKeyCamelCaseRhs])
+    End Function
+    Public Shared Function [Plural]For[SingularLhs](ByVal [PrimaryKeyCamelCaseLhs] As [PrimaryKeyType], ByVal search As String) As String
+        Return string.Concat([Plural]For[SingularLhs]([PrimaryKeyCamelCaseLhs]), "&search=", Encode(search))
+    End Function
+    Public Shared Function [Plural]For[SingularRhs](ByVal [PrimaryKeyCamelCaseRhs] As [SecondaryKeyType], ByVal search As String) As String
+        Return string.Concat([Plural]For[SingularRhs]([PrimaryKeyCamelCaseRhs]), "&search=", Encode(search))
+    End Function
+    
+    'Add/Edit
+    Private Shared Function [Singular]AddEdit() As String
+        Return "~[Subfolder][PluralCamelCase]/[SingularCamelCase].aspx"
+    End Function
+    Public Shared Function [Singular]Add() As String 'May require a parentId (follow pattern below)
+        Return [Singular]AddEdit
+    End Function
+    Public Shared Function [Singular]Edit(ByVal [PrimaryKeyCamelCase] As [PrimaryKeyType], ByVal [SecondaryKeyCamelCase] As [SecondaryKeyType]) As String
+        Return String.Concat([Singular]AddEdit, "?[PrimaryKeyCamelCase]=", [PrimaryKeyCamelCase])
+    End Function
+    
+    'UserControls
+    Public Shared Function UC[Singular]() As String
+        Return "~[Subfolder][PluralCamelCase]/usercontrols/UC[Singular].ascx"
+    End Function
+#End Region

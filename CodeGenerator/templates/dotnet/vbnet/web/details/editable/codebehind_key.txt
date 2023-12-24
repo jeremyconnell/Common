@@ -1,0 +1,9 @@
+﻿        With dd[Name]
+            .DataTextField = "[Entity]Name"
+            .DataValueField = "[Entity]Id"
+            .DataSource = C[Entity].Cache
+            .DataBind()
+            .BlankItem("-- Select [Entity] --")
+        End With
+
+

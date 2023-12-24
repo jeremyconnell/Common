@@ -1,0 +1,5 @@
+        public [DataType] ColumnNameProperCase
+        {
+            get { return Read[DataTypeVb]("[ColumnName]"); }
+            set { Write("[ColumnName]", value); }
+        }

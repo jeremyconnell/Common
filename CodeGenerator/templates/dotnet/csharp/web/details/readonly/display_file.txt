@@ -1,0 +1,2 @@
+        lnk[Name].NavigateUrl = this.[Singular].[Name];
+        lnk[Name].Enabled = !string.IsNullOrEmpty(this.[Singular].[Name]);

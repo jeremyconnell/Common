@@ -1,0 +1,28 @@
+﻿    #region Interface for [PluralRhs] page
+    //Remaining [PluralLhs]
+    public void DisplayRemaining([ClassNameRhs] [SingularCamelCaseRhs], bool autoPostback, string search)
+    {
+        litSelected.Text = REMAINING;
+        litCount.Text = new [ClassNameLhs]().SelectCount().ToString();
+        colDate.Visible = false;
+
+        [ClassNameLhs]List page = [SingularCamelCaseRhs].Remaining[PluralLhs](PagingInfo, search);
+        foreach ([ClassNameLhs] i in page)
+        {
+            int index = page.IndexOf(i) + 1 + PagingInfo.Offset;
+            UC[Singular](plh).Display(i, [SingularCamelCaseRhs].[PrimaryKeyRhs], null, autoPostback, index);
+        }
+    }
+    //Selected [PluralLhs]
+    public void DisplaySelected([ClassNameRhs] [SingularCamelCaseRhs], bool autoPostback)
+    {
+        litSelected.Text = SELECTED;
+        litCount.Text = [SingularCamelCaseRhs].[Plural]Count().ToString();
+        [ClassName]List page = [SingularCamelCaseRhs].[Plural](PagingInfo);
+        foreach ([ClassName] i in page)
+        {
+            int number = page.IndexOf(i) + 1 + PagingInfo.Offset;
+            UC[Singular](plh).Display(i.[SingularLhs], i.[SecondaryKey], i, autoPostback, number);
+        }
+    }
+    #endregion

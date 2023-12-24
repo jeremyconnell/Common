@@ -1,0 +1,5 @@
+﻿    protected void file[Name]_DeleteClick()
+    {
+        this.[Singular].[Name] = string.Empty;
+        this.[Singular].Save();
+    }

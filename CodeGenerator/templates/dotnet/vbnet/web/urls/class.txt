@@ -1,0 +1,35 @@
+﻿Public Class CSitemap
+
+#Region "Standard"
+    'Defaults
+    Public Shared Function DefaultUploadsPath() As String
+        Return "~/uploads/"
+    End Function
+
+    'Utilities
+    Private Shared Function Encode(ByVal s As String) As String
+        Return Current.Server.UrlEncode(s)
+    End Function
+
+    'Invalid ids
+    Public Shared Sub RecordNotFound(ByVal entity As String)
+        With HttpContext.Current.Request.QueryString
+            If .Count > 0 Then RecordNotFound(entity, .Item(0)) Else RecordNotFound(entity, String.Empty)
+        End With
+    End Sub
+    Public Shared Sub RecordNotFound(ByVal entity As String, ByVal value As Integer)
+        RecordNotFound(entity, value.ToString)
+    End Sub
+    Public Shared Sub RecordNotFound(ByVal entity As String, ByVal pk1 As Object, ByVal pk2 As Object)
+        RecordNotFound(entity, String.Concat(pk1, "/", pk2))
+    End Sub
+    Public Shared Sub RecordNotFound(ByVal entity As String, ByVal value As String)
+        If String.IsNullOrEmpty(value) Then
+            Throw New Exception(String.Concat("Invalid ", entity, "Id"))
+        Else
+            Throw New Exception(String.Concat("Invalid ", entity, "Id: ", value))
+        End If
+    End Sub
+#End Region
+
+End Class

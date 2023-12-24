@@ -1,0 +1,2 @@
+        txt[Name].Text = CUtilities.Timespan(this.[Singular].[Name]);  //.ValueDate
+        txt[Name].Tooltip = CUtilities.LongDateTime(this.[Singular].[Name]);

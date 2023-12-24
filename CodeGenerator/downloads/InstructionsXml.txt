@@ -1,0 +1,28 @@
+PURPOSE: 
+    Generates an O/R model in C# or VB.Net, based on an Xml schema (XSD file).
+    The generated classes all inherit from abstract framework classes defined in the supporting project "Framework"
+
+PREPARATION:
+    1.  Produce an XSD file, describing the xml schema you want to work with.
+        * If you only have a sample xml file, then you can use visual studio to auto-generate an XSD schema file.
+    2.  Use visual studio to create a new project of type class-library (e.g. XmlNorthwind), and add the schema file as documentation.
+    3.  The class library should reference the project called "Framework". 
+    4.  Your Application should reference both the class library and the framework projects.
+
+USAGE:
+    1.  Launch the Code generator, and select the Xml/Xsd tab (3rd tab).
+    2.  If C# is your chosen language, then check the namespace is correct.
+    3.  Browse to your schema file, which should be located in your .Net class library project.
+    4.  Check the target location, which will already be correct if the XSD was in your target project.
+    5.  Hit the generate button
+    6.  In visual studio, toggle the switch called "show all files" (at the top of the solution explorer), which will refresh the view, revealing the new files. Include these files in your project and compile.
+
+CUSTOMISATION:
+    1.  Templates can be changed to produce classes in any desired pattern, but should be used consistantly within a schema.
+    2.  Generated classes can easily be manually modified to include reusable business logic such as a custom index or special formatting.
+    3.  Abstract classes in "Framework" can be extended or modified as required. The class called CXml defines how simple datatypes such as dates are serialized/deserialized into attributes, and this logic can be customized.
+    4.  Schema-specific abstract classes can be manually introduced as required, e.g. to factor out common data structures. Abstract data structures are not currently supported by the generator, but the generator itself can be modified to support them once a good general design is selected.
+    
+NOTES:
+    1. Shallow xml elements (inner-text only) are treated like attributes, and map across as properties of the parent class. More complex elements map across as seperate classes.
+    2. The generator only maps simple xml structures. Modify the generated classes as required e.g. to introduce enums or abstract classes. It is also possible to edit the templates and generator logic to handle complex schema definitions.

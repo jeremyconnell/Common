@@ -1,0 +1,44 @@
+﻿
+#Region "Members"
+    Private m_[PluralCamelCase] as [ClassName]List    
+    Private m_[SingularCamelCase]Ids As List(Of [DataType])
+#End Region
+
+#Region "Resolve Associative table (and sort)"
+    Public ReadOnly Property [[Plural]]() As [ClassName]List
+        Get
+            If m_[PluralCamelCase] Is Nothing Then
+                SyncLock(Me)
+                    If m_[PluralCamelCase] Is Nothing Then
+                        m_[PluralCamelCase] = New [ClassName]List(Me.Count)
+                        For Each i As [MyClassName] In Me
+                            If IsNothing(i.[Singular]) Then Continue For
+                            m_[PluralCamelCase].Add(i.[Singular])
+                        Next
+                        m_[PluralCamelCase].Sort()
+                    End If
+                End SyncLock
+            End If
+            Return m_[PluralCamelCase]
+        End Get
+    End Property
+[Cached]#End Region
+
+#Region "Resolve/Isolate PKs"
+    Public ReadOnly Property [Singular]Ids() As List(Of [DataType])
+        Get
+            If IsNothing(m_[SingularCamelCase]Ids) Then
+                SyncLock (Me)
+                    If IsNothing(m_[SingularCamelCase]Ids) Then
+                        m_[SingularCamelCase]Ids = New List(Of [DataType])(Me.Count)
+                        For Each i As [MyClassName] In Me
+                            m_[SingularCamelCase]Ids.Add(i.[PrimaryKeyName])
+                        Next
+                    End If
+                End SyncLock
+            End If
+            Return m_[SingularCamelCase]Ids
+        End Get
+    End Property
+#End Region
+

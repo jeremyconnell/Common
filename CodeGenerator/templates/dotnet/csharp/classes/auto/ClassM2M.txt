@@ -1,0 +1,62 @@
+using System;
+using System.Data;
+using System.Collections;
+using System.Collections.Generic;
+
+using Framework;
+
+namespace [NameSpace]
+{
+    [Serializable()]
+    public partial class [ClassName] : [BaseClass]M2M, IComparable<[ClassName]>
+    {
+        #region Constructors
+        //Public (Copy Constructor)
+        public [ClassName]([ClassName] original, CDataSrc target)
+        {
+            //Database Connection
+            m_dataSrc = target;
+
+            //Copy fields
+[CopyConstructor]        }
+
+        //Protected (Datareader/Dataset)
+        protected [ClassName](CDataSrc dataSrc, IDataReader dr) : base(dataSrc, dr) {}
+        protected [ClassName](CDataSrc dataSrc, DataRow     dr) : base(dataSrc, dr) {}
+        #endregion
+
+        #region Default Values
+        protected override void InitValues_Auto()
+        {
+            //Null-Equivalent values (except String.Empty, as nulls tend to be inconvenient for string types)
+[InitValues]        }
+        #endregion
+[Members]
+        #region Properties - Column Values
+        //Primary Key Columns
+[PrimaryKeyColumns]
+        //Table Columns (Read/Write)
+[TableColumnProperties]
+        //View Columns (ReadOnly)
+[ViewColumnProperties]
+        #endregion
+
+        #region MustOverride Methods
+        //Schema Information
+[SchemaInfo]
+        //CompareTo Interface (Default Sort Order)
+[CompareTo]
+        //Primary Key Information
+[PrimaryKeyInfo]
+        //Factory Methods - Object
+        protected override CBase MakeFrom(DataRow row)        {   return new [ClassName](this.DataSrc, row);     }
+        protected override CBase MakeFrom(IDataReader dr)     {   return new [ClassName](this.DataSrc, dr);      }
+
+        //Factory Methods - List
+        protected override IList MakeList()                   {   return new [ClassName]List();                  }
+        protected override IList MakeList(int capacity)       {   return new [ClassName]List(capacity);          }
+[Persistance]
+        #endregion
+[QueryCasting][Caching][ToXml][AuditTrail]
+    }
+}

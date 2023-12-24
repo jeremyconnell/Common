@@ -1,0 +1,6 @@
+﻿***** Goes in region called "Properties - Relationships" (under section "Foreign Keys")
+    Public ReadOnly Property [[ProperCase]]() As [ClassName]
+        Get
+            Return [ClassName].Cache.GetById(Me.[ForeignKey])
+        End Get
+    End Property

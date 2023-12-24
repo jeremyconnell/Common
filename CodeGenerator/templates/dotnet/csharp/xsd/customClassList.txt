@@ -1,0 +1,9 @@
+﻿using Framework;
+using System.Xml;
+
+namespace [namespace]
+{
+    public partial class [className]List
+    {
+    }
+}

@@ -1,0 +1,4 @@
+        if (this.[Plural].HaveSameValue("[Name]"))
+            txt[Name].ValueMoney = this.[Plural][0].[Name];
+        else
+            txt[Name].Text = BULKEDIT_NOCHANGE;

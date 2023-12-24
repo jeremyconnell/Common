@@ -1,0 +1,49 @@
+﻿/* Container */
+div.form
+{
+  padding:10px;
+  display: block;
+  float: none;
+  clear: left;
+}
+div.form div.buttons
+{
+  padding:10px;
+  display: block;
+  float: none;
+  clear: left;
+  background-color:#eeeeee;
+}
+div.form div.form_label	{ background-color:#eeeeee; text-align:center; }
+
+/* Custom Controls */
+div.control
+{
+  display: block;
+  float: none;
+  clear: left;
+  margin:5px;
+}
+
+/* Left label */
+div.control span.label      {  float:left;  width:120px; font-weight:bold; }
+div.control span.locked     {  font-size:smaller; }
+div.control a.locked        {  font-size:smaller;}
+
+/* Internal labels e.g. checkboxlist */
+div.control label           {   }
+div.control span.required   {  float:left;}
+
+/* Specific controls */
+div.control input.textbox       {  float:left; width:350px; }
+div.control input.checkbox      {  float:left; width:350px; }
+div.control select              {  float:left; width:350px; }
+div.control textarea            {  float:left; width:350px; height:50px; font-family:Arial; }
+div.control table               {  float:left; width:350px;  }
+div.control input.upload        {  float:left; width:350px; }
+div.control a.locked img        {  float:left; width:350px; }
+
+/* Disabled state */
+input.textbox[disabled]         {  background-color:#dddddd; }
+textarea[disabled]              {  background-color:#dddddd; }
+select[disabled]                {  background-color:#dddddd; }

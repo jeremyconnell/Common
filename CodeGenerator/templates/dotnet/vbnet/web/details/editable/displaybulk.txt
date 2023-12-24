@@ -1,0 +1,1 @@
+'        txt[Name].Text = IIF([Plural].HaveSameValue("[Name]"),  [Plural](0).[Name], BULKEDIT_NOCHANGE)

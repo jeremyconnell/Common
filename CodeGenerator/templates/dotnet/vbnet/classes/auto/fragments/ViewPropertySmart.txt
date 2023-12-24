@@ -1,0 +1,5 @@
+    Public ReadOnly Property [ColumnNameProperCase]() As [DataType]
+        Get
+            Return Read[DataTypeVb]("[ColumnName]")
+        End Get
+    End Property

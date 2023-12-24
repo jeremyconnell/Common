@@ -1,0 +1,1 @@
+﻿            chk[Name].Checked = .[Name]

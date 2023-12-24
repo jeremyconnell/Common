@@ -1,0 +1,22 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `[SpNameInsert]` $$
+
+CREATE PROCEDURE `[SpNameInsert]` 
+(
+[Parameters]
+)
+BEGIN
+
+    INSERT INTO [TableName]
+    (
+        [InsertColumnNames]
+    )
+    VALUES
+    (
+        [InsertColumnValues]
+    );
+
+END $$
+
+DELIMITER ;

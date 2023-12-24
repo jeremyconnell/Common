@@ -1,0 +1,1 @@
+﻿        colOrder.Visible = sortedList.Count > 1

@@ -1,0 +1,27 @@
+﻿Partial Class pages_[Plural]_[Singular] : Inherits CPage
+
+#Region "Querystring"
+    Public ReadOnly Property [PrimaryKey]() As [PrimaryKeyType]
+        Get
+            Dim id As [PrimaryKeyType] = CWeb.Request[PrimaryKeyTypeShort]("[PrimaryKeyCamelCase]")
+            If id = Integer.MinValue Then CSitemap.RecordNotFound("[Singular]", id)
+            Return id
+        End Get
+    End Property
+#End Region
+
+[Data]
+
+#Region "Event Handlers - Page"
+    Protected Overrides Sub PageLoad()
+        'Sidemenu
+        UnbindSideMenu()
+        AddMenuSide("[Plural]", CSitemap.[Plural]()
+        AddMenuSide("[Singular] Details")
+
+        With Me.[Singular]
+[Display]        End With
+    End Sub
+#End Region
+
+End Class

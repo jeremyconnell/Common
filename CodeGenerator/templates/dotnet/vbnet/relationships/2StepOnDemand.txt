@@ -1,0 +1,34 @@
+﻿
+***** Goes in region called "Relationships"
+    'Relationships - 2-Step Walk (On-Demand)
+    Public Function [[Plural]]() As [ClassName]List
+           Return New [ClassName](DataSrc).SelectBy[PrimaryKey](Me.[PrimaryKey])
+    End Function
+    Public Function [[Plural]](pi As CPagingInfo) As [ClassName]List
+           Return New [ClassName](DataSrc).SelectBy[PrimaryKey](pi, Me.[PrimaryKey])
+    End Function
+    Public Function [[Plural]](ByVal search As String) As [ClassName]List
+           Return New [ClassName](DataSrc).SelectBy[PrimaryKey](Me.[PrimaryKey], search)
+    End Function
+    Public Function [[Plural]](pi As CPagingInfo, ByVal search As String) As [ClassName]List
+           Return New [ClassName](DataSrc).SelectBy[PrimaryKey](pi, Me.[PrimaryKey], search)
+    End Function
+    Public Function Count[Plural]() As Integer
+           Return New [ClassName](DataSrc).CountBy[PrimaryKey](Me.[PrimaryKey])
+    End Function
+    
+    Public Function Remaining[Plural]() As [ClassName]List
+           Return New [ClassName](DataSrc).SelectRemaining[PrimaryKey](Me.[PrimaryKey])
+    End Function
+    Public Function Remaining[Plural](pi As CPagingInfo) As [ClassName]List
+           Return New [ClassName](DataSrc).SelectRemaining[PrimaryKey](pi, Me.[PrimaryKey])
+    End Function
+    Public Function Remaining[Plural](ByVal search As String) As [ClassName]List
+           Return New [ClassName](DataSrc).SelectRemaining[PrimaryKey](Me.[PrimaryKey], search)
+    End Function
+    Public Function Remaining[Plural](ByVal pi As CPagingInfo, ByVal search As String) As [ClassName]List
+           Return New [ClassName](DataSrc).SelectRemaining[PrimaryKey](pi, Me.[PrimaryKey], search)
+    End Function
+    Public Function CountRemaining[Plural](ByVal pi As CPagingInfo, ByVal search As String) As Integer
+           Return New [ClassName](DataSrc).CountRemaining[PrimaryKey](pi, Me.[PrimaryKey], search)
+    End Function

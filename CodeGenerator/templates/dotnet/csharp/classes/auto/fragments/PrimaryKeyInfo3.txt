@@ -1,0 +1,3 @@
+        protected override string PrimaryKeyName    {   get { return "[PrimaryKeyName]";    } }
+        protected override string SecondaryKeyName  {   get { return "[SecondaryKeyName]";  } }
+        protected override string TertiaryKeyName   {   get { return "[TertiaryKeyName]";   } }

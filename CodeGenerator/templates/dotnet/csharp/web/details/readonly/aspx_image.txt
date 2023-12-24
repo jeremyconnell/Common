@@ -1,0 +1,1 @@
+            <asp:Image ID="img[Name]" Runat="server" AlternateText="[NameShorter]" />

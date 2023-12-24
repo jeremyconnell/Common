@@ -1,0 +1,12 @@
+﻿        #region Data
+        public [ClassName] Singular 
+        {
+            get 
+            {
+                [ClassName] [FirstLetter] = [ClassName].Cache.GetById([PrimaryKey]);
+                if ([FirstLetter] == null)
+                    CSitemap.RecordNotFound("[Singular]", [PrimaryKey]); 
+                return [FirstLetter];
+            }
+        }
+        #endregion

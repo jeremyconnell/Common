@@ -1,0 +1,117 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\sourcecode\\_jeremydotnet\\Common\\TestWcfComms\\TestWcfComms.csproj": {}
+  },
+  "projects": {
+    "C:\\sourcecode\\_jeremydotnet\\Common\\TestWcfComms\\TestWcfComms.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\sourcecode\\_jeremydotnet\\Common\\TestWcfComms\\TestWcfComms.csproj",
+        "projectName": "TestWcfComms",
+        "projectPath": "C:\\sourcecode\\_jeremydotnet\\Common\\TestWcfComms\\TestWcfComms.csproj",
+        "packagesPath": "C:\\Users\\jerem\\.nuget\\packages\\",
+        "outputPath": "C:\\sourcecode\\_jeremydotnet\\Common\\TestWcfComms\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jerem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\sourcecode\\_jeremydotnet\\Common\\_Framework\\Framework\\Framework.vbproj": {
+                "projectPath": "C:\\sourcecode\\_jeremydotnet\\Common\\_Framework\\Framework\\Framework.vbproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "System.ServiceModel.Duplex": {
+              "target": "Package",
+              "version": "[4.10.*, )"
+            },
+            "System.ServiceModel.Federation": {
+              "target": "Package",
+              "version": "[4.10.*, )"
+            },
+            "System.ServiceModel.Http": {
+              "target": "Package",
+              "version": "[4.10.*, )"
+            },
+            "System.ServiceModel.NetTcp": {
+              "target": "Package",
+              "version": "[4.10.*, )"
+            },
+            "System.ServiceModel.Security": {
+              "target": "Package",
+              "version": "[4.10.*, )"
+            },
+            "protobuf-net": {
+              "target": "Package",
+              "version": "[2.3.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\sourcecode\\_jeremydotnet\\Common\\_Framework\\Framework\\Framework.vbproj": {
+      "restore": {
+        "projectUniqueName": "C:\\sourcecode\\_jeremydotnet\\Common\\_Framework\\Framework\\Framework.vbproj",
+        "projectName": "Framework",
+        "projectPath": "C:\\sourcecode\\_jeremydotnet\\Common\\_Framework\\Framework\\Framework.vbproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    }
+  }
+}

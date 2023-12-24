@@ -1,0 +1,1 @@
+        if (BULKEDIT_NOCHANGE != dd[Name].Text) { this.[Plural].SetSameValue("[Name]", dd[Name].SelectedValue); }

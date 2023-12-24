@@ -1,0 +1,5 @@
+            Dim i As Integer = x.[FirstColumn].CompareTo(y.[FirstColumn]) [DESC1]
+            If 0 <> i Then Return i
+            i = x.[SecondColumn].CompareTo(y.[SecondColumn]) [DESC2]
+            If 0 <> i Then Return i
+            Return x.[ThirdColumn].CompareTo(y.[ThirdColumn]) [DESC3]

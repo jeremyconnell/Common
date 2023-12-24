@@ -1,0 +1,1 @@
+            data.Add("[ColumnName]", CAdoData.NullVal(_[ColumnNameCamelCase]));

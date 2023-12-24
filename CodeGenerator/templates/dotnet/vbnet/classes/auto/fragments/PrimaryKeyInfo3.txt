@@ -1,0 +1,15 @@
+    Protected Overrides ReadOnly Property PrimaryKeyName() As String
+        Get
+            Return "[PrimaryKeyName]"
+        End Get
+    End Property
+    Protected Overrides ReadOnly Property SecondaryKeyName() As String
+        Get
+            Return "[SecondaryKeyName]"
+        End Get
+    End Property
+    Protected Overrides ReadOnly Property TertiaryKeyName() As String
+        Get
+            Return "[TertiaryKeyName]"
+        End Get
+    End Property

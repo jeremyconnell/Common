@@ -1,0 +1,8 @@
+    Public ReadOnly Property [nameProperCase] As [dataType]
+        Get
+            If IsNothing(m_[nameCamelCase]) Then
+                m_[nameCamelCase] = new [dataType]
+            End If
+            Return m_[nameCamelCase]
+        End Get
+    End Property

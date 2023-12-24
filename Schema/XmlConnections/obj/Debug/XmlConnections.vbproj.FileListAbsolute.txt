@@ -1,0 +1,17 @@
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\XmlConnections.dll
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\XmlConnections.pdb
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\XmlConnections.xml
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\Framework.dll
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\protobuf-net.dll
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\Framework.pdb
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\Framework.xml
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\Framework.dll.config
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\bin\Debug\protobuf-net.xml
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\obj\Debug\XmlConnections.vbproj.AssemblyReference.cache
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\obj\Debug\XmlConnections.Resources.resources
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\obj\Debug\XmlConnections.vbproj.GenerateResource.cache
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\obj\Debug\XmlConnections.vbproj.CoreCompileInputs.cache
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\obj\Debug\XmlConnections.vbproj.CopyComplete
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\obj\Debug\XmlConnections.dll
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\obj\Debug\XmlConnections.xml
+C:\sourcecode\_jeremydotnet\Common\Schema\XmlConnections\obj\Debug\XmlConnections.pdb

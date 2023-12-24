@@ -1,0 +1,5 @@
+        public [dataType] [nameProperCase]
+        {
+            get { return _[nameCamelCase]; }
+            set { _[nameCamelCase] = value; }
+        }

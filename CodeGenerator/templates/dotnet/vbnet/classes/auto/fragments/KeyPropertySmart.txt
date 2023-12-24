@@ -1,0 +1,8 @@
+        Protected Overrides Property [Level]KeyValue() As Object
+            Get
+                Return Read[DataTypeVb]("[ColumnName]")
+            End Get
+            Set(ByVal value As Object)
+                Write("[ColumnName]", CType(Value, [DataTypeVb]))
+            End Set
+        End Property

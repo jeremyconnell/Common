@@ -1,0 +1,9 @@
+﻿#Region "Data"
+    Public ReadOnly Property [[Singular]]() As [ClassName]
+        Get
+            Dim [FirstLetter] As [ClassName] = [ClassName].Cache.GetById([PrimaryKey])
+            If IsNothing([FirstLetter]) Then CSitemap.RecordNotFound("[Singular]", [PrimaryKey])
+            Return [FirstLetter]
+        End Get
+    End Property
+#End Region

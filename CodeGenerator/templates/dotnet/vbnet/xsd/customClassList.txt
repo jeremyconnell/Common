@@ -1,0 +1,6 @@
+﻿Imports Framework
+Imports System.Xml
+
+Partial Public Class [className]List
+
+End Class

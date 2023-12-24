@@ -1,0 +1,8 @@
+﻿
+***** Goes in region called "Relationships" 
+        //Relationships - 2-Step Walk (On-Demand) 
+        public [ClassName]List          [Plural](              ) {   return new [ClassName](DataSrc).SelectBy[PrimaryKey](    this.[PrimaryKey]);     } 
+        public [ClassName]List          [Plural](CPagingInfo pi) {   return new [ClassName](DataSrc).SelectBy[PrimaryKey](pi, this.[PrimaryKey]);     }
+        
+        public [ClassName]List Remaining[Plural](              ) {   return new [ClassName](DataSrc).SelectRemaining[Plural](    this.[PrimaryKey]);     } 
+        public [ClassName]List Remaining[Plural](CPagingInfo pi) {   return new [ClassName](DataSrc).SelectRemaining[Plural](pi, this.[PrimaryKey]);     }

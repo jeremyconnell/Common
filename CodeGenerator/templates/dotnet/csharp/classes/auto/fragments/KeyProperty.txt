@@ -1,0 +1,5 @@
+        protected override object [Level]KeyValue 
+        {
+              get { return _[ColumnNameCamelCase]; }
+              set { _[ColumnNameCamelCase] = ([DataType])value; }
+        }

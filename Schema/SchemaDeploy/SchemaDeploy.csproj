@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45CC6DB4-FEA8-4F95-BE8C-1FBE390885E9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchemaDeploy</RootNamespace>
+    <AssemblyName>SchemaDeploy</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tables\App\CApp.customisation.cs" />
+    <Compile Include="tables\App\CApp.regenerated.cs" />
+    <Compile Include="tables\App\CAppList.customisation.cs" />
+    <Compile Include="tables\App\CAppList.regenerated.cs" />
+    <Compile Include="tables\BinaryFile\CBinaryFile.customisation.cs" />
+    <Compile Include="tables\BinaryFile\CBinaryFile.regenerated.cs" />
+    <Compile Include="tables\BinaryFile\CBinaryFileList.customisation.cs" />
+    <Compile Include="tables\BinaryFile\CBinaryFileList.regenerated.cs" />
+    <Compile Include="tables\Format\CFormat.customisation.cs" />
+    <Compile Include="tables\Format\CFormat.regenerated.cs" />
+    <Compile Include="tables\Format\CFormatList.customisation.cs" />
+    <Compile Include="tables\Format\CFormatList.regenerated.cs" />
+    <Compile Include="tables\Group\CGroup.customisation.cs" />
+    <Compile Include="tables\Group\CGroup.regenerated.cs" />
+    <Compile Include="tables\Group\CGroupList.customisation.cs" />
+    <Compile Include="tables\Group\CGroupList.regenerated.cs" />
+    <Compile Include="tables\Instance\CInstance.customisation.cs" />
+    <Compile Include="tables\Instance\CInstance.regenerated.cs" />
+    <Compile Include="tables\Instance\CInstanceList.customisation.cs" />
+    <Compile Include="tables\Instance\CInstanceList.regenerated.cs" />
+    <Compile Include="tables\Key\CKey.customisation.cs" />
+    <Compile Include="tables\Key\CKey.regenerated.cs" />
+    <Compile Include="tables\Key\CKeyList.customisation.cs" />
+    <Compile Include="tables\Key\CKeyList.regenerated.cs" />
+    <Compile Include="tables\PushedUpgrade\CPushedUpgrade.customisation.cs" />
+    <Compile Include="tables\PushedUpgrade\CPushedUpgrade.regenerated.cs" />
+    <Compile Include="tables\PushedUpgrade\CPushedUpgradeList.customisation.cs" />
+    <Compile Include="tables\PushedUpgrade\CPushedUpgradeList.regenerated.cs" />
+    <Compile Include="tables\ReportHistory\CReportHistory.customisation.cs" />
+    <Compile Include="tables\ReportHistory\CReportHistory.regenerated.cs" />
+    <Compile Include="tables\ReportHistory\CReportHistoryList.customisation.cs" />
+    <Compile Include="tables\ReportHistory\CReportHistoryList.regenerated.cs" />
+    <Compile Include="tables\Release\CRelease.customisation.cs" />
+    <Compile Include="tables\Release\CRelease.regenerated.cs" />
+    <Compile Include="tables\Release\CReleaseList.customisation.cs" />
+    <Compile Include="tables\Release\CReleaseList.regenerated.cs" />
+    <Compile Include="tables\UpgradeHistory\CUpgradeHistory.customisation.cs" />
+    <Compile Include="tables\UpgradeHistory\CUpgradeHistory.regenerated.cs" />
+    <Compile Include="tables\UpgradeHistory\CUpgradeHistoryList.customisation.cs" />
+    <Compile Include="tables\UpgradeHistory\CUpgradeHistoryList.regenerated.cs" />
+    <Compile Include="tables\Value\CValue.customisation.cs" />
+    <Compile Include="tables\Value\CValue.regenerated.cs" />
+    <Compile Include="tables\Value\CValueList.customisation.cs" />
+    <Compile Include="tables\Value\CValueList.regenerated.cs" />
+    <Compile Include="tables\VersionFile\CVersionFile.customisation.cs" />
+    <Compile Include="tables\VersionFile\CVersionFile.regenerated.cs" />
+    <Compile Include="tables\VersionFile\CVersionFileList.customisation.cs" />
+    <Compile Include="tables\VersionFile\CVersionFileList.regenerated.cs" />
+    <Compile Include="tables\Version\CVersion.customisation.cs" />
+    <Compile Include="tables\Version\CVersion.regenerated.cs" />
+    <Compile Include="tables\Version\CVersionList.customisation.cs" />
+    <Compile Include="tables\Version\CVersionList.regenerated.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="schema.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\_Framework\Framework\Framework.vbproj">
+      <Project>{de7fde19-414e-4cd5-9ae3-25bc7b1a2a05}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SchemaAudit\SchemaAudit.vbproj">
+      <Project>{27e4f7f3-45f5-4faf-bd4f-ccfae015cc0d}</Project>
+      <Name>SchemaAudit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

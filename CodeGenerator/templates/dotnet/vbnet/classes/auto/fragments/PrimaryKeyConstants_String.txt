@@ -1,0 +1,4 @@
+﻿    '    Primary Key Values
+    '    Public Const HUEY As String  = "HUEY"
+    '    Public Const DUEY As String  = "DUEY"
+    '    Public Const LOUIE As String = "LOUIE"

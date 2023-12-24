@@ -1,0 +1,110 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using [Namespace];
+using Framework;
+
+partial class pages_[Plural]_[Singular] : CPage
+{
+    #region Querystring
+    public [PrimaryKeyType] [PrimaryKey] { get { return CWeb.Request[PrimaryKeyTypeShort]("[PrimaryKeyCamelCase]"); } }
+    public bool IsEdit { get { return [IsEdit]; } }
+    #endregion
+
+    #region Members
+    private [ClassName] _[SingularCamelCase];
+    #endregion
+    
+[Data]
+    
+    #region Navigation
+    private void Refresh()      { Response.Redirect(CSitemap.[Singular]Edit(this.[Singular].[PrimaryKey])); }
+    private void ReturnToList() { Response.Redirect(CSitemap.[Plural]()); }
+    #endregion
+
+    #region Event Handlers - Page
+    protected override void PageInit()
+    {
+[InitKeys]
+        //Page title
+        if (IsEdit) 
+            this.Title = "[Singular] Details";
+        else 
+            this.Title = "Create New [Singular]";
+
+        //Sidemenu
+        UnbindSideMenu();
+        AddMenuSide("[Plural]", CSitemap.[Plural]());
+        AddMenuSide("New [Singular]...", CSitemap.[Singular]Add(), !IsEdit);
+        if (IsEdit)
+            AddMenuSide("[Singular] Details");
+
+        //Textbox logic
+        //this.Form.DefaultFocus  = txt[Singular]Name.Textbox.ClientID;
+        this.Form.DefaultButton = btnSave.UniqueID;   //txt[Singular]Name.OnReturnPress(btnSave);
+
+        //Button Text
+        btnDelete.Visible = IsEdit;
+        if (IsEdit)
+        {
+            btnCancel.Text = "Back";
+            AddButton(CSitemap.[Singular]Add(), "Create a new [Singular]");
+        }
+        else 
+            btnSave.Text = "Create [Singular]";
+    }
+    protected override void PageLoad()
+    {
+        Load[Singular]();
+    }
+    #endregion
+
+    #region Event Handlers - Form
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        if (!this.IsValid)
+            return;
+
+        Save[Singular]();
+[ClearCache]        Refresh();
+    }
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        ReturnToList();
+    }
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        this.[Singular].Delete();
+[ClearCache]        ReturnToList();
+    }
+[EventHandlers]    #endregion
+    
+    #region Private - Load/Save
+    protected void Load[Singular]()
+    {
+[Display]    }
+    protected void Save[Singular]()
+    {
+[Store]
+        this.[Singular].Save();
+[ClearCache]
+    }
+    #endregion
+    
+    #region Private - Load/Save Bulk
+//(Sample Only, Collection property not implemented - use checkboxes/ajax/session etc)
+/*  protected void Load[Plural]()
+    {
+[DisplayBulk]    }
+    protected void Save[Plural]()
+    {
+[StoreBulk]
+        this.[Plural].SaveAll();
+[ClearCache]
+    } */
+    #endregion
+}

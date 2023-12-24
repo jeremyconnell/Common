@@ -1,0 +1,1 @@
+﻿            If Not IsNothing(obj.[Name]) AndAlso obj.[Name].ToLower().Contains(name) Then Return True

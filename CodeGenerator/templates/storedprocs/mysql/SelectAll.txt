@@ -1,0 +1,18 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `[SpNameSelectAll]` $$
+
+CREATE PROCEDURE `[SpNameSelectAll]` ()
+BEGIN
+
+    SELECT
+[ColumnNames]
+
+    FROM
+        [ViewOrTableName]
+
+    [OrderBy];
+
+END $$
+
+DELIMITER ;
