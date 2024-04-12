@@ -384,18 +384,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\_Framework\Framework.MySql\Framework.MySql.vbproj">
-      <Project>{752189a4-93d9-4078-bb8e-b5946c241607}</Project>
-      <Name>Framework.MySql</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\_Framework\Framework.OracleOdp\Framework.OracleOdp.vbproj">
-      <Project>{91b8701e-0e96-49df-934c-84677f7f9319}</Project>
-      <Name>Framework.OracleOdp</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\_Framework\Framework.PostGres\Framework.PostGres.vbproj">
-      <Project>{eeb058b3-9ed6-47bd-a190-c1ef757b7c9e}</Project>
-      <Name>Framework.PostGres</Name>
-    </ProjectReference>
     <ProjectReference Include="..\_Framework\Framework\Framework.vbproj">
       <Project>{DE7FDE19-414E-4CD5-9AE3-25BC7B1A2A05}</Project>
       <Name>Framework</Name>
