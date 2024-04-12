@@ -136,8 +136,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\_Framework\Framework\Framework.vbproj">
-      <Project>{DE7FDE19-414E-4CD5-9AE3-25BC7B1A2A05}</Project>
+    <ProjectReference Include="..\..\Framework\Framework.vbproj">
+      <Project>{de7fde19-414e-4cd5-9ae3-25bc7b1a2a05}</Project>
       <Name>Framework</Name>
     </ProjectReference>
   </ItemGroup>

@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\_Framework\Framework\Framework.vbproj" />
+    <ProjectReference Include="..\Framework\Framework.vbproj" />
   </ItemGroup>
 
 </Project>
